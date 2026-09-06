@@ -109,14 +109,14 @@ export default function ProductCard({ product, categorySlug }: ProductCardProps)
         />
 
         {modelName ? (
-          <span className="absolute right-3 top-3 rounded-full bg-background/95 px-3 py-1.5 text-xs font-extrabold tracking-[-0.01em] text-foreground shadow-[0_8px_18px_-10px_rgba(15,23,42,.30)] backdrop-blur-sm">
+          <span className="absolute right-3 top-3 rounded-full bg-background/95 px-3 py-1.5 text-xs font-bold tracking-[-0.01em] text-foreground shadow-[0_8px_18px_-10px_rgba(15,23,42,.30)] backdrop-blur-sm">
             {modelName}
           </span>
         ) : null}
       </div>
 
       <div className="flex flex-1 flex-col px-1 pb-1 pt-5 sm:px-1.5">
-        <h2 className="text-xl font-extrabold leading-tight tracking-[-0.035em] text-foreground sm:text-[1.4rem]">
+        <h2 className="text-xl font-bold leading-tight tracking-[-0.035em] text-foreground sm:text-[1.4rem]">
           {product.name}
         </h2>
 

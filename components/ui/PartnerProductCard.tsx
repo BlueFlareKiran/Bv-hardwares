@@ -27,13 +27,13 @@ export default function PartnerProductCard({ product }: PartnerProductCardProps)
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           className="object-contain p-5 transition-transform duration-500 ease-out group-hover:scale-[1.045] sm:p-6"
         />
-        <span className="absolute right-3 top-3 rounded-full bg-background/95 px-3 py-1.5 text-xs font-extrabold text-[#d86c0e] shadow-[0_8px_18px_-10px_rgba(15,23,42,.30)] backdrop-blur-sm dark:text-orange-300">
+        <span className="absolute right-3 top-3 rounded-full bg-background/95 px-3 py-1.5 text-xs font-bold text-[#d86c0e] shadow-[0_8px_18px_-10px_rgba(15,23,42,.30)] backdrop-blur-sm dark:text-orange-300">
           HPRT
         </span>
       </div>
 
       <div className="flex flex-1 flex-col px-1 pb-1 pt-5 sm:px-1.5">
-        <h3 className="text-xl font-extrabold leading-tight tracking-[-0.035em] text-foreground sm:text-[1.4rem]">
+        <h3 className="text-xl font-bold leading-tight tracking-[-0.035em] text-foreground sm:text-[1.4rem]">
           {product.name}
         </h3>
 

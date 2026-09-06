@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import {
   ArrowUpRight,
@@ -72,9 +73,50 @@ export default function ContactPage() {
         title="Tell us what needs to be printed, scanned, tagged or tracked."
         subtitle="Use the enquiry form to prepare a complete email to our team, or contact us directly by phone, WhatsApp or email for product requirements."
         breadcrumbs={[{ label: 'Contact' }]}
+        aside={
+          <div className="group relative isolate min-h-[320px] overflow-hidden rounded-[1.75rem] border border-brand-blue/15 bg-brand-navy shadow-[0_28px_70px_-42px_rgba(7,17,38,0.7)] sm:min-h-[360px]">
+            <Image
+              src="/images/contact-us.webp"
+              alt="Direct phone, email and mobile support options"
+              fill
+              sizes="(min-width: 1024px) 42vw, 100vw"
+              className="-z-20 object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.025]"
+            />
+            <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(7,17,38,0.05)_8%,rgba(7,17,38,0.38)_48%,rgba(7,17,38,0.94)_100%)]" />
+            <div className="flex min-h-[320px] flex-col justify-end p-5 sm:min-h-[360px] sm:p-6">
+              <div className="max-w-md rounded-[1.25rem] border border-white/15 bg-brand-navy/75 p-5 text-white shadow-xl backdrop-blur-md">
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-orange-300">
+                  Direct assistance
+                </p>
+                <h2 className="mt-2 text-2xl font-semibold tracking-[-0.03em]">
+                  Talk to the right team.
+                </h2>
+                <p className="mt-2 text-sm leading-6 text-slate-200">
+                  Share your product, volume and application details. We’ll help narrow down the right setup.
+                </p>
+                <div className="mt-4 flex flex-wrap gap-2.5">
+                  <a
+                    href={`tel:${siteConfig.phone.primaryE164}`}
+                    className="inline-flex min-h-10 items-center gap-2 rounded-xl bg-white px-4 text-sm font-semibold text-brand-navy transition hover:bg-orange-50"
+                  >
+                    <Phone size={16} aria-hidden="true" /> Call us
+                  </a>
+                  <a
+                    href={whatsappUrl('Hello Bhagyashree Ventures, I would like help with a product requirement.')}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex min-h-10 items-center gap-2 rounded-xl border border-white/20 bg-white/10 px-4 text-sm font-semibold text-white transition hover:bg-white/20"
+                  >
+                    <MessageCircle size={16} aria-hidden="true" /> WhatsApp
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        }
       />
 
-      <section className="section-space border-b border-border bg-background">
+      <section className="border-b border-border bg-background py-10 sm:py-12 lg:py-14">
         <div className="container-shell">
           <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
             {contactChannels.map((channel, index) => {
