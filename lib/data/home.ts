@@ -44,7 +44,7 @@ export const productHighlights = [
     title: 'Barcode / RFID Printers',
     description:
       'Desktop, industrial and RFID-capable printing options for barcode labels, tags and operational workflows.',
-    image: '/images/barcode-rfid-printers.jpg',
+    image: '/images/barcode-rfid-printers-v3.png',
     href: '/products/label-printer',
     category: 'Printers',
   },
@@ -52,7 +52,7 @@ export const productHighlights = [
     title: 'Barcode Scanners',
     description:
       'Wired, cordless and presentation scanners for retail counters, inventory, warehousing and general data-capture applications.',
-    image: '/images/barcode-scanner.jpg',
+    image: '/images/barcode-scanners-v3.png',
     href: '/products/wired-scanner',
     category: 'Scanners',
   },
@@ -60,7 +60,7 @@ export const productHighlights = [
     title: 'Labels & Tags',
     description:
       'Direct thermal, thermal-transfer and application-specific label materials with custom sizing options for business requirements.',
-    image: '/images/labels-and-tags.jpg',
+    image: '/images/Labels-Tags-products1.jpg',
     href: '/products/labels',
     category: 'Consumables',
   },
@@ -76,9 +76,17 @@ export const productHighlights = [
     title: 'POS Systems',
     description:
       'Receipt printers and related point-of-sale hardware for retail, hospitality and billing environments.',
-    image: '/images/pos-systems-receipt-printer-v2.webp',
+    image: '/images/pos-systems-v3.png',
     href: '/products/pos-printer',
     category: 'Point of Sale',
+  },
+  {
+    title: 'RFID Consumables',
+    description:
+      'RFID labels, inlays and tags for inventory tracking, garment identification, asset management and automated data capture.',
+    image: '/images/RFID-TAG-AND-LABELS-FOR-GARMENT.jpg',
+    href: '/products/labels/rfid-tags',
+    category: 'RFID Consumables',
   },
 ];
 
@@ -110,6 +118,13 @@ export const industries: Industry[] = [
       'Printing, scanning and identification hardware for baggage, ticketing, asset tracking and transport-related operational workflows.',
     image: '/images/industries/aviation-transport-v4.webp',
     tag: 'Transport',
+  },
+  {
+    title: 'Jewellery & Precious Items',
+    description:
+      'Barcode labeling, tag printing, inventory tracking and product identification solutions for jewellery retail, precious item management and secure stock control.',
+    image: '/images/industries/jewellery-precious-items-v1.webp',
+    tag: 'Jewellery',
   },
 ];
 

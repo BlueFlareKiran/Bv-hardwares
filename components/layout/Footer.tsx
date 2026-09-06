@@ -14,9 +14,9 @@ const productLinks = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-slate-800 bg-[#071126] text-slate-300">
+    <footer className="border-t border-white/10 bg-[#030712] text-slate-300">
       <div className="container-shell py-14 sm:py-16">
-        <div className="grid gap-10 border-b border-slate-800 pb-12 md:grid-cols-2 lg:grid-cols-12">
+        <div className="grid gap-10 border-b border-white/10 pb-12 md:grid-cols-2 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <Link href="/" aria-label={`${siteConfig.name} home`} className="inline-block rounded-xl bg-white p-2.5">
               <Image
