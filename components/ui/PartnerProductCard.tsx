@@ -33,11 +33,7 @@ export default function PartnerProductCard({ product }: PartnerProductCardProps)
       </div>
 
       <div className="flex flex-1 flex-col px-1 pb-1 pt-5 sm:px-1.5">
-        <p className="text-[11px] font-bold uppercase tracking-[0.17em] text-muted-foreground">
-          {product.category}
-        </p>
-
-        <h3 className="mt-2 text-xl font-extrabold leading-tight tracking-[-0.035em] text-foreground sm:text-[1.4rem]">
+        <h3 className="text-xl font-extrabold leading-tight tracking-[-0.035em] text-foreground sm:text-[1.4rem]">
           {product.name}
         </h3>
 

@@ -23,7 +23,7 @@ const navLinks = [
   { label: 'Products', href: '/products', mega: true },
   { label: 'Partners', href: '/partners' },
   { label: 'About', href: '/about' },
-  { label: 'Contact', href: '/contact' },
+  { label: 'Contact Us', href: '/contact' },
 ];
 
 export default function Header() {
@@ -246,7 +246,7 @@ export default function Header() {
                   </AnimatePresence>
                   <Link href="/partners" className="block rounded-xl px-3 py-3 font-semibold hover:bg-muted">Partners</Link>
                   <Link href="/about" className="block rounded-xl px-3 py-3 font-semibold hover:bg-muted">About</Link>
-                  <Link href="/contact" className="block rounded-xl px-3 py-3 font-semibold hover:bg-muted">Contact</Link>
+                  <Link href="/contact" className="block rounded-xl px-3 py-3 font-semibold hover:bg-muted">Contact Us</Link>
                 </nav>
 
                 <div className="mt-5 grid gap-3 border-t border-border pt-5 sm:grid-cols-2">

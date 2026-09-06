@@ -10,9 +10,20 @@ export const siteConfig = {
   },
   address: {
     company: 'Bhagyashree Ventures',
-    line1: 'No. 35/B, 3rd Floor, Kalpavrusha Building',
-    line2: 'No. 12 Race Course Road, Madhavnagar',
+    line1: 'No. 17, Ground Floor, 1st Cross',
+    line2: 'Anjaneya Temple Street, Sheshadripuram',
     city: 'Bengaluru',
+    district: 'Bengaluru Urban',
+    state: 'Karnataka',
+    postalCode: '560020',
+    country: 'India',
+  },
+  registeredAddress: {
+    company: 'Bhagyashree Ventures',
+    line1: 'Flat No. 35B, Street No. 12',
+    line2: 'Kalpravruksha Apartment, Race Course Road, Madhavanagar',
+    city: 'Bengaluru',
+    district: 'Bengaluru Urban',
     state: 'Karnataka',
     postalCode: '560001',
     country: 'India',
@@ -27,7 +38,11 @@ export const siteConfig = {
 } as const;
 
 export const googleMapsSearchUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-  `${siteConfig.address.company}, ${siteConfig.address.line1}, ${siteConfig.address.line2}, ${siteConfig.address.city} ${siteConfig.address.postalCode}`
+  `${siteConfig.address.company}, ${siteConfig.address.line1}, ${siteConfig.address.line2}, ${siteConfig.address.city}, ${siteConfig.address.district}, ${siteConfig.address.state} ${siteConfig.address.postalCode}`
+)}`;
+
+export const registeredOfficeMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+  `${siteConfig.registeredAddress.company}, ${siteConfig.registeredAddress.line1}, ${siteConfig.registeredAddress.line2}, ${siteConfig.registeredAddress.city}, ${siteConfig.registeredAddress.district}, ${siteConfig.registeredAddress.state} ${siteConfig.registeredAddress.postalCode}`
 )}`;
 
 export const whatsappUrl = (message?: string) =>

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowUpRight, Mail, MapPin, Phone } from 'lucide-react';
-import { googleMapsSearchUrl, siteConfig } from '@/lib/site';
+import { googleMapsSearchUrl, registeredOfficeMapsUrl, siteConfig } from '@/lib/site';
 
 const productLinks = [
   { label: 'Barcode & Label Printers', href: '/products/label-printer' },
@@ -10,6 +10,11 @@ const productLinks = [
   { label: 'Labels & Tags', href: '/products/labels' },
   { label: 'Thermal Transfer Ribbons', href: '/products/ribbon' },
   { label: 'POS Systems', href: '/products/pos-printer' },
+];
+
+const locations = [
+  { label: 'Office', address: siteConfig.address, href: googleMapsSearchUrl },
+  { label: 'Registered office', address: siteConfig.registeredAddress, href: registeredOfficeMapsUrl },
 ];
 
 export default function Footer() {
@@ -52,14 +57,17 @@ export default function Footer() {
           <div className="lg:col-span-4">
             <h2 className="text-sm font-bold text-white">Contact</h2>
             <div className="mt-4 space-y-4 text-sm text-slate-400">
-              <a href={googleMapsSearchUrl} target="_blank" rel="noreferrer" className="flex items-start gap-3 transition-colors hover:text-white">
-                <MapPin size={18} className="mt-0.5 shrink-0 text-orange-400" />
-                <span>
-                  {siteConfig.address.line1}<br />
-                  {siteConfig.address.line2}<br />
-                  {siteConfig.address.city} – {siteConfig.address.postalCode}, {siteConfig.address.state}
-                </span>
-              </a>
+              {locations.map((location) => (
+                <a key={location.label} href={location.href} target="_blank" rel="noreferrer" className="flex items-start gap-3 transition-colors hover:text-white">
+                  <MapPin size={18} className="mt-0.5 shrink-0 text-orange-400" />
+                  <span>
+                    <span className="font-semibold text-slate-200">{location.label}</span><br />
+                    {location.address.line1}<br />
+                    {location.address.line2}<br />
+                    {location.address.city}, {location.address.district} – {location.address.postalCode}
+                  </span>
+                </a>
+              ))}
               <a href={`tel:${siteConfig.phone.primaryE164}`} className="flex items-center gap-3 transition-colors hover:text-white">
                 <Phone size={18} className="shrink-0 text-orange-400" />
                 {siteConfig.phone.primaryDisplay}

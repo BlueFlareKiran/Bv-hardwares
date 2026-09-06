@@ -15,7 +15,7 @@ import ScrollReveal from '@/components/ui/ScrollReveal';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import { buttonVariants } from '@/components/ui/Button';
-import { googleMapsSearchUrl, siteConfig, whatsappUrl } from '@/lib/site';
+import { googleMapsSearchUrl, registeredOfficeMapsUrl, siteConfig, whatsappUrl } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Contact Us',
@@ -52,11 +52,16 @@ const contactChannels = [
   {
     icon: MapPin,
     title: 'Bengaluru office',
-    value: 'Race Course Road, Madhavnagar',
-    detail: 'Bengaluru – 560001, Karnataka',
+    value: 'Sheshadripuram',
+    detail: 'Bengaluru – 560020, Karnataka',
     href: googleMapsSearchUrl,
     action: 'Open in Google Maps',
   },
+];
+
+const locations = [
+  { label: 'Office address', address: siteConfig.address, href: googleMapsSearchUrl },
+  { label: 'Registered office', address: siteConfig.registeredAddress, href: registeredOfficeMapsUrl },
 ];
 
 export default function ContactPage() {
@@ -114,29 +119,38 @@ export default function ContactPage() {
             <div className="space-y-5">
               <ScrollReveal delay={0.06}>
                 <Card className="p-6 sm:p-7">
-                  <Badge>Office details</Badge>
-                  <div className="mt-5 flex gap-3">
-                    <span className="mt-0.5 grid size-10 shrink-0 place-items-center rounded-xl bg-brand-orange/10 text-brand-orange">
-                      <Building2 size={19} aria-hidden="true" />
-                    </span>
-                    <div>
-                      <h2 className="text-xl font-bold tracking-[-0.025em] text-foreground">{siteConfig.address.company}</h2>
-                      <address className="mt-3 not-italic text-sm leading-7 text-muted-foreground">
-                        {siteConfig.address.line1}<br />
-                        {siteConfig.address.line2}<br />
-                        {siteConfig.address.city} – {siteConfig.address.postalCode}, {siteConfig.address.state}<br />
-                        {siteConfig.address.country}
-                      </address>
-                    </div>
+                  <Badge>Company addresses</Badge>
+                  <div className="mt-5 space-y-6">
+                    {locations.map((location, index) => (
+                      <div key={location.label} className={index ? 'border-t border-border pt-6' : undefined}>
+                        <div className="flex gap-3">
+                          <span className="mt-0.5 grid size-10 shrink-0 place-items-center rounded-xl bg-brand-orange/10 text-brand-orange">
+                            <Building2 size={19} aria-hidden="true" />
+                          </span>
+                          <div>
+                            <p className="text-xs font-bold uppercase tracking-[0.12em] text-brand-blue dark:text-brand-blue-light">
+                              {location.label}
+                            </p>
+                            <h2 className="mt-1 text-lg font-bold tracking-[-0.025em] text-foreground">{location.address.company}</h2>
+                            <address className="mt-2 not-italic text-sm leading-7 text-muted-foreground">
+                              {location.address.line1}<br />
+                              {location.address.line2}<br />
+                              {location.address.city}, {location.address.district} – {location.address.postalCode}<br />
+                              {location.address.state}, {location.address.country}
+                            </address>
+                          </div>
+                        </div>
+                        <a
+                          href={location.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          className={buttonVariants({ variant: 'outline', className: 'mt-4 w-full' })}
+                        >
+                          <MapPin size={16} aria-hidden="true" /> Open in Google Maps
+                        </a>
+                      </div>
+                    ))}
                   </div>
-                  <a
-                    href={googleMapsSearchUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className={buttonVariants({ variant: 'outline', className: 'mt-6 w-full' })}
-                  >
-                    <MapPin size={16} aria-hidden="true" /> Open in Google Maps
-                  </a>
                 </Card>
               </ScrollReveal>
 

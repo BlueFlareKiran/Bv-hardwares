@@ -104,14 +104,14 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     logo: `${siteConfig.url}${siteConfig.logo}`,
     email: siteConfig.email,
     telephone: siteConfig.phone.primaryE164,
-    address: {
+    address: [siteConfig.address, siteConfig.registeredAddress].map((address) => ({
       '@type': 'PostalAddress',
-      streetAddress: `${siteConfig.address.line1}, ${siteConfig.address.line2}`,
-      addressLocality: siteConfig.address.city,
-      addressRegion: siteConfig.address.state,
-      postalCode: siteConfig.address.postalCode,
+      streetAddress: `${address.line1}, ${address.line2}`,
+      addressLocality: address.city,
+      addressRegion: address.state,
+      postalCode: address.postalCode,
       addressCountry: 'IN',
-    },
+    })),
     areaServed: 'India',
     description: siteConfig.description,
   };

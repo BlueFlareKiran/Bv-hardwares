@@ -30,48 +30,6 @@ const HARDWARE_CATEGORIES = new Set([
   'rfid-device',
 ]);
 
-function productTypeLabel(categorySlug: string, product: Product) {
-  switch (categorySlug) {
-    case 'label-printer':
-      if (product.group?.toLowerCase().includes('industrial') || product.group?.toLowerCase().includes('high')) {
-        return 'Industrial label printer';
-      }
-      return 'Desktop label printer';
-    case 'pos-printer':
-      return 'POS receipt printer';
-    case 'rfid-printer':
-      return 'RFID printer';
-    case 'bluetooth-printer':
-      return 'Mobile printer';
-    case 'wired-scanner':
-      return 'Wired barcode scanner';
-    case 'wireless-scanner':
-      return 'Wireless barcode scanner';
-    case 'tabletop-scanner':
-      return 'Presentation scanner';
-    case 'hht-mobile':
-      return 'Handheld mobile computer';
-    case 'rfid-device':
-      return 'RFID device';
-    case 'labels':
-      return 'Label & tag solution';
-    case 'pos-rolls':
-      return 'POS consumable';
-    case 'ribbon':
-      return 'Thermal transfer ribbon';
-    case 'packaging-material':
-      return 'Packaging material';
-    case 'accessories':
-      return 'Printer accessory';
-    case 'software':
-      return 'Software solution';
-    case 'service':
-      return 'Service & support';
-    default:
-      return 'Product solution';
-  }
-}
-
 function compactModelName(name: string) {
   const cleaned = name
     .replace(/^(TSC|ZEBRA|Zebra|Citizen|CITIZEN|ARGOX|Argox|HPRT|EPSON|Epson|Honeywell|Newland|Bluebird|Urovo)\s+/i, '')
@@ -158,11 +116,7 @@ export default function ProductCard({ product, categorySlug }: ProductCardProps)
       </div>
 
       <div className="flex flex-1 flex-col px-1 pb-1 pt-5 sm:px-1.5">
-        <p className="text-[11px] font-bold uppercase tracking-[0.17em] text-muted-foreground">
-          {productTypeLabel(categorySlug, product)}
-        </p>
-
-        <h2 className="mt-2 text-xl font-extrabold leading-tight tracking-[-0.035em] text-foreground sm:text-[1.4rem]">
+        <h2 className="text-xl font-extrabold leading-tight tracking-[-0.035em] text-foreground sm:text-[1.4rem]">
           {product.name}
         </h2>
 
