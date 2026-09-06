@@ -14,7 +14,6 @@ export const brandLogos: BrandItem[] = [
   { name: 'SMI Coated Products', image: '/images/smi-logo.png', category: 'Media brand' },
   { name: 'Zenpert', image: '/images/zenpert.png', category: 'Product brand' },
   { name: 'UPM Raflatac', image: '/images/upm.png', category: 'Media brand' },
-  { name: 'Datalogic', image: '/images/DATALOGINC.jpg', category: 'Product brand' },
   { name: 'Hansol Paper', image: '/images/client1.png', category: 'Media brand' },
   { name: 'Avery Dennison', image: '/images/client2.png', category: 'Media brand' },
   { name: 'Mitsubishi HiTec Paper', image: '/images/client3.png', category: 'Media brand' },

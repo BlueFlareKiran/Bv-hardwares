@@ -209,62 +209,109 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="section-space border-b border-border bg-muted/35">
-        <div className="container-shell">
+      <section className="relative overflow-hidden border-b border-border bg-[linear-gradient(180deg,#f6f8ff_0%,#ffffff_52%,#fff8f3_100%)] py-16 text-foreground sm:py-20 lg:py-24 dark:border-white/10 dark:bg-[linear-gradient(180deg,#071126_0%,#050b18_100%)] dark:text-white">
+        <div className="pointer-events-none absolute -left-24 top-16 size-80 rounded-full bg-brand-blue/10 blur-3xl dark:bg-brand-blue/20" />
+        <div className="pointer-events-none absolute -right-20 bottom-12 size-72 rounded-full bg-brand-orange/10 blur-3xl dark:bg-brand-orange/15" />
+
+        <div className="container-shell relative">
           <ScrollReveal>
-            <div className="max-w-3xl">
-              <Badge>Mission · Vision · Values</Badge>
-              <h2 className="mt-4 text-[clamp(2rem,4vw,3.35rem)] font-bold tracking-[-0.04em] text-foreground">
-                Built around reliability, service and long-term partnerships.
-              </h2>
+            <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-end">
+              <div className="max-w-4xl">
+                <Badge>Mission · Vision · Values</Badge>
+                <h2 className="mt-4 text-[clamp(2rem,4vw,3.55rem)] font-bold leading-[1.06] tracking-[-0.04em] text-foreground dark:text-white">
+                  Built around reliability, service and <span className="brand-gradient-text">long-term partnerships.</span>
+                </h2>
+              </div>
+              <p className="max-w-xl text-base leading-7 text-muted-foreground dark:text-slate-300">
+                Three principles guide how we select technology, support operations and build dependable customer relationships.
+              </p>
             </div>
           </ScrollReveal>
 
-          <div className="mt-9 grid gap-5 lg:grid-cols-3">
-            <ScrollReveal delay={0.02}>
-              <Card className="h-full p-6 sm:p-7">
-                <div className="inline-flex size-11 items-center justify-center rounded-xl bg-brand-orange/10 text-brand-orange">
-                  <Sparkles size={21} />
+          <div className="mt-10 grid gap-5 lg:grid-cols-12">
+            <ScrollReveal delay={0.02} className="lg:col-span-5">
+              <Card className="group relative isolate h-full min-h-[500px] overflow-hidden border-orange-200/80 bg-white p-0 text-foreground shadow-[0_28px_70px_-44px_rgba(249,115,22,.34)] dark:border-orange-300/15 dark:bg-[#071126] dark:text-white dark:shadow-[0_30px_80px_-46px_rgba(249,115,22,.42)]">
+                <Image
+                  src="/images/about-mission-v2.webp"
+                  alt="Team collaborating around operational plans"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 42vw"
+                  className="-z-20 object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.025]"
+                />
+                <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(255,255,255,.12)_0%,rgba(255,255,255,.46)_44%,rgba(255,255,255,.98)_100%)] dark:bg-[linear-gradient(180deg,rgba(5,11,24,.82)_0%,rgba(5,11,24,.52)_42%,rgba(5,11,24,.92)_100%)]" />
+                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand-orange via-orange-300 to-transparent" />
+                <div className="flex min-h-[500px] flex-col p-7 sm:p-8">
+                  <div className="inline-flex size-12 items-center justify-center rounded-2xl border border-orange-200 bg-orange-50/90 text-brand-orange shadow-sm backdrop-blur-md dark:border-orange-200/25 dark:bg-orange-400/15 dark:text-orange-200">
+                    <Sparkles size={22} />
+                  </div>
+                  <div className="mt-auto max-w-md rounded-[1.25rem] border border-white/85 bg-white/90 p-5 shadow-[0_20px_50px_-34px_rgba(15,23,42,.34)] backdrop-blur-md sm:p-6 dark:border-white/10 dark:bg-[#050b18]/70 dark:shadow-none">
+                    <p className="text-sm font-bold uppercase tracking-[0.13em] text-brand-orange dark:text-orange-300">Mission</p>
+                    <h3 className="mt-2 text-2xl font-bold tracking-[-0.025em] text-foreground sm:text-[1.7rem] dark:text-white">Improve accuracy and simplify workflows.</h3>
+                    <p className="mt-4 text-base leading-7 text-muted-foreground dark:text-slate-200">{mission}</p>
+                  </div>
                 </div>
-                <p className="mt-5 text-xs font-bold uppercase tracking-[0.14em] text-brand-orange">Mission</p>
-                <h3 className="mt-2 text-2xl font-bold tracking-[-0.025em] text-foreground">Improve accuracy and simplify workflows.</h3>
-                <p className="mt-4 text-base leading-7 text-muted-foreground">{mission}</p>
               </Card>
             </ScrollReveal>
 
-            <ScrollReveal delay={0.06}>
-              <Card className="h-full p-6 sm:p-7">
-                <div className="inline-flex size-11 items-center justify-center rounded-xl bg-brand-blue/8 text-brand-blue dark:bg-brand-blue-light/10 dark:text-brand-blue-light">
-                  <BadgeCheck size={21} />
+            <ScrollReveal delay={0.06} className="lg:col-span-7">
+              <Card className="group relative isolate h-full min-h-[500px] overflow-hidden border-blue-200/80 bg-white p-0 text-foreground shadow-[0_28px_70px_-44px_rgba(37,99,235,.32)] dark:border-blue-300/15 dark:bg-[#071126] dark:text-white dark:shadow-[0_30px_80px_-46px_rgba(59,130,246,.48)]">
+                <Image
+                  src="/images/about-vision-v2.webp"
+                  alt="Business leader looking toward future growth"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 58vw"
+                  className="-z-20 object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.025]"
+                />
+                <div className="absolute inset-0 -z-10 bg-[linear-gradient(100deg,rgba(255,255,255,.96)_0%,rgba(255,255,255,.78)_48%,rgba(239,246,255,.16)_100%)] dark:bg-[linear-gradient(100deg,rgba(5,11,24,.94)_0%,rgba(5,11,24,.76)_48%,rgba(7,35,83,.28)_100%)]" />
+                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand-blue-light via-cyan-300 to-transparent" />
+                <div className="flex min-h-[500px] flex-col p-7 sm:p-8">
+                  <div className="inline-flex size-12 items-center justify-center rounded-2xl border border-blue-200 bg-blue-50/90 text-brand-blue shadow-sm backdrop-blur-md dark:border-blue-200/25 dark:bg-blue-400/15 dark:text-blue-200">
+                    <BadgeCheck size={22} />
+                  </div>
+                  <div className="mt-auto max-w-xl rounded-[1.25rem] border border-white/85 bg-white/90 p-5 shadow-[0_20px_50px_-34px_rgba(15,23,42,.34)] backdrop-blur-md sm:p-6 dark:border-white/10 dark:bg-[#050b18]/70 dark:shadow-none">
+                    <p className="text-sm font-bold uppercase tracking-[0.13em] text-brand-blue dark:text-blue-200">Vision</p>
+                    <h3 className="mt-2 text-2xl font-bold tracking-[-0.025em] text-foreground sm:text-[1.7rem] dark:text-white">Be the trusted operating partner.</h3>
+                    <p className="mt-4 text-base leading-7 text-muted-foreground dark:text-slate-200">{vision}</p>
+                  </div>
                 </div>
-                <p className="mt-5 text-xs font-bold uppercase tracking-[0.14em] text-brand-blue dark:text-brand-blue-light">Vision</p>
-                <h3 className="mt-2 text-2xl font-bold tracking-[-0.025em] text-foreground">Be the trusted operating partner.</h3>
-                <p className="mt-4 text-base leading-7 text-muted-foreground">{vision}</p>
               </Card>
             </ScrollReveal>
 
-            <ScrollReveal delay={0.1}>
-              <Card className="h-full p-6 sm:p-7">
-                <div className="inline-flex size-11 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
-                  <Handshake size={21} />
-                </div>
-                <p className="mt-5 text-xs font-bold uppercase tracking-[0.14em] text-emerald-700 dark:text-emerald-400">Values</p>
-                <h3 className="mt-2 text-2xl font-bold tracking-[-0.025em] text-foreground">Trust that lasts beyond the sale.</h3>
-                <div className="mt-4 grid gap-3">
-                  {values.map((value) => {
-                    const Icon = valueIcons[value.iconName as keyof typeof valueIcons] ?? ShieldCheck;
-                    return (
-                      <div key={value.title} className="flex gap-3">
-                        <span className="mt-0.5 inline-flex size-7 shrink-0 items-center justify-center rounded-lg bg-muted text-brand-blue dark:text-brand-blue-light">
-                          <Icon size={15} />
-                        </span>
-                        <div>
-                          <p className="text-sm font-bold text-foreground">{value.title}</p>
-                          <p className="mt-0.5 text-xs leading-5 text-muted-foreground">{value.description}</p>
-                        </div>
-                      </div>
-                    );
-                  })}
+            <ScrollReveal delay={0.1} className="lg:col-span-12">
+              <Card className="group relative isolate min-h-[540px] overflow-hidden border-emerald-200/80 bg-white p-0 text-foreground shadow-[0_28px_70px_-44px_rgba(16,185,129,.28)] dark:border-emerald-300/15 dark:bg-[#071126] dark:text-white dark:shadow-[0_30px_80px_-46px_rgba(16,185,129,.38)]">
+                <Image
+                  src="/images/about-values-v2.webp"
+                  alt="Business partners completing a trusted agreement"
+                  fill
+                  sizes="100vw"
+                  className="-z-20 object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.025]"
+                />
+                <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(255,255,255,.99)_0%,rgba(255,255,255,.95)_52%,rgba(255,255,255,.38)_100%)] dark:bg-[linear-gradient(90deg,rgba(5,11,24,.97)_0%,rgba(5,11,24,.88)_48%,rgba(5,11,24,.44)_100%)]" />
+                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-emerald-400 via-cyan-300 to-brand-orange" />
+                <div className="p-7 sm:p-8 lg:p-10">
+                  <div className="max-w-4xl">
+                    <div className="inline-flex size-12 items-center justify-center rounded-2xl border border-emerald-200 bg-emerald-50/90 text-emerald-700 shadow-sm backdrop-blur-md dark:border-emerald-200/25 dark:bg-emerald-400/15 dark:text-emerald-200">
+                      <Handshake size={22} />
+                    </div>
+                    <p className="mt-5 text-sm font-bold uppercase tracking-[0.13em] text-emerald-700 dark:text-emerald-200">Values</p>
+                    <h3 className="mt-2 text-3xl font-bold tracking-[-0.03em] text-foreground dark:text-white">Trust that lasts beyond the sale.</h3>
+                    <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                      {values.map((value) => {
+                        const Icon = valueIcons[value.iconName as keyof typeof valueIcons] ?? ShieldCheck;
+                        return (
+                          <div key={value.title} className="flex gap-3 rounded-2xl border border-slate-200/85 bg-white/88 p-4 shadow-[0_14px_36px_-30px_rgba(15,23,42,.38)] backdrop-blur-md dark:border-white/10 dark:bg-[#050b18]/68 dark:shadow-none">
+                            <span className="mt-0.5 inline-flex size-9 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-brand-blue dark:bg-white/10 dark:text-cyan-200">
+                              <Icon size={17} />
+                            </span>
+                            <div>
+                              <p className="text-base font-bold text-foreground dark:text-white">{value.title}</p>
+                              <p className="mt-1 text-sm leading-6 text-muted-foreground dark:text-slate-300">{value.description}</p>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
                 </div>
               </Card>
             </ScrollReveal>

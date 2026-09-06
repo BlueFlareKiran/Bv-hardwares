@@ -22,13 +22,13 @@ export default function IndustriesServed() {
 
         <div className="mt-10 grid gap-5 md:grid-cols-2">
           {industries.map((industry, index) => {
-            const isLast = index === industries.length - 1;
+            const isUnpairedLast = industries.length % 2 === 1 && index === industries.length - 1;
 
             return (
             <ScrollReveal
               key={industry.title}
               delay={index * 0.05}
-              className={isLast ? 'md:col-span-2 md:w-[calc(50%_-_0.625rem)] md:justify-self-center' : undefined}
+              className={isUnpairedLast ? 'md:col-span-2 md:w-[calc(50%_-_0.625rem)] md:justify-self-center' : undefined}
             >
               <article className="group relative min-h-[340px] overflow-hidden rounded-[1.55rem] border border-border/90 bg-card shadow-card">
                 <Image

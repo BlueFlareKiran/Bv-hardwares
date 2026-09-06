@@ -113,10 +113,17 @@ export const industries: Industry[] = [
     tag: 'Pharma',
   },
   {
-    title: 'Automotive & Transport',
+    title: 'Aviation & Transport',
     description:
-      'Labeling, barcode scanning and identification solutions for automotive parts, vehicle assets, logistics and transport workflows.',
+      'Printing, scanning and identification hardware for baggage, ticketing, asset tracking and transport-related operational workflows.',
     image: '/images/industries/aviation-transport-v4.webp',
+    tag: 'Aviation',
+  },
+  {
+    title: 'Automotive',
+    description:
+      'Barcode labeling, parts identification and data-capture solutions for vehicle assembly, component tracking and automotive logistics.',
+    image: '/images/industries/automotive-v1.webp',
     tag: 'Automotive',
   },
   {
