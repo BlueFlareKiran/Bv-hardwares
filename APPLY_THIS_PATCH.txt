@@ -1,15 +1,11 @@
-BV Hardwares patch — tone down bright About page background images
-
-This patch adjusts the Mission / Vision / Values section on the About page.
-It reduces the washed-out brightness and gives the background images a more balanced, premium look.
+BV Hardwares — scrollbar below navbar patch
 
 Changes:
-- Mission background slightly toned down
-- Vision background darkened more and blue glare reduced
-- Values background darkened the most to reduce overexposure
-- Foreground content cards remain bright and readable
+- Viewport scrollbar track begins below the navbar (64px mobile/tablet, 68px desktop)
+- Replaces the bright full-height blue rail with a softer premium rail
+- Uses a slim rounded indigo/blue thumb inspired by the supplied reference
+- Adds a subtle neutral track and hover state
+- Nested scroll areas keep their own compact scrollbar and do not inherit the navbar offset
 
-How to apply:
-1. Extract this ZIP.
-2. Copy the folders into your BV Hardwares project root.
-3. Merge/replace the files when prompted.
+Apply:
+Extract this ZIP and merge/replace the folders into the project root.

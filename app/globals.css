@@ -54,30 +54,81 @@
 
 html {
   scroll-behavior: smooth;
-  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+  scrollbar-color: #4561c7 transparent;
   scrollbar-width: thin;
+  scrollbar-gutter: stable;
   -webkit-text-size-adjust: 100%;
   overflow-x: clip;
 }
 
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+/*
+ * Viewport scrollbar
+ * Keep the rail visually below the site header so it reads as part of the
+ * page content rather than cutting through the navigation.
+ */
+html::-webkit-scrollbar {
+  width: 11px;
 }
 
-::-webkit-scrollbar-track {
-  background: var(--scrollbar-track);
-}
-
-::-webkit-scrollbar-thumb {
-  min-height: 44px;
-  border: 1px solid var(--scrollbar-track);
+html::-webkit-scrollbar-track {
+  margin-top: 64px;
+  margin-bottom: 6px;
+  border-left: 1px solid #e5e9f1;
   border-radius: 999px;
-  background: var(--scrollbar-thumb);
+  background: #f3f5f8;
+  box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.025);
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: var(--scrollbar-thumb-hover);
+html::-webkit-scrollbar-thumb {
+  min-height: 52px;
+  border: 3px solid #f3f5f8;
+  border-radius: 999px;
+  background: #4561c7;
+  background-clip: padding-box;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: #1237a5;
+  background-clip: padding-box;
+}
+
+html::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+html::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+@media (min-width: 1024px) {
+  html::-webkit-scrollbar-track {
+    margin-top: 68px;
+  }
+}
+
+/* Keep nested scroll areas compact without inheriting the viewport offset. */
+*:not(html)::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+*:not(html)::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*:not(html)::-webkit-scrollbar-thumb {
+  min-height: 36px;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background: #b7c0d1;
+  background-clip: padding-box;
+}
+
+*:not(html)::-webkit-scrollbar-thumb:hover {
+  background: #8895aa;
+  background-clip: padding-box;
 }
 
 body {
