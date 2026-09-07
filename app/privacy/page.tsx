@@ -25,13 +25,13 @@ export default function PrivacyPage() {
             <section>
               <h2 className="text-xl font-bold text-foreground">Information we receive</h2>
               <p className="prose-copy mt-3">
-                When you submit an enquiry, we may receive the details you choose to provide, such as your name, company, email address, phone number, product interest, estimated volume and message.
+                When you submit an enquiry, we may receive the details you choose to provide, such as your name, company, email address, phone number, product interest, estimated volume and message. When you apply for a job, we may also receive employment-related information such as your experience, current company, profile links, cover note and resume.
               </p>
             </section>
             <section>
               <h2 className="text-xl font-bold text-foreground">How we use it</h2>
               <p className="prose-copy mt-3">
-                We use enquiry information to understand your requirement, respond to you, prepare quotations, discuss products or services and maintain normal business correspondence. We do not ask for payment-card details through the website enquiry form.
+                We use enquiry information to understand your requirement, respond to you, prepare quotations, discuss products or services and maintain normal business correspondence. Job-application information is used for recruitment and hiring communication. We do not ask for payment-card details through these forms.
               </p>
             </section>
             <section>
@@ -43,7 +43,7 @@ export default function PrivacyPage() {
             <section>
               <h2 className="text-xl font-bold text-foreground">Retention and requests</h2>
               <p className="prose-copy mt-3">
-                Business enquiries may be retained for a reasonable period for follow-up, quotations, support and record keeping. To ask about information you submitted, contact us at{' '}
+                Business enquiries and recruitment correspondence may be retained for a reasonable period for follow-up, quotations, support, hiring processes and record keeping. Candidate resumes submitted through the careers form are delivered to the configured hiring inbox rather than being published on the website. To ask about information you submitted, contact us at{' '}
                 <a className="font-semibold text-brand-blue dark:text-brand-blue-light" href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>.
               </p>
             </section>

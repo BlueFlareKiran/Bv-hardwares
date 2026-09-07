@@ -1,10 +1,9 @@
 'use client';
 
-import { FormEvent, useEffect, useState } from 'react';
+import { FormEvent, useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
-import { CheckCircle2, MailCheck, Send } from 'lucide-react';
+import { AlertCircle, CheckCircle2, LoaderCircle, MailCheck, Send } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
-import { siteConfig } from '@/lib/site';
 
 const initialForm = {
   name: '',
@@ -17,55 +16,61 @@ const initialForm = {
   website: '',
 };
 
+type SubmitState = 'idle' | 'sending' | 'success' | 'error';
+
 const fieldClass =
   'w-full rounded-xl border border-input bg-background/90 px-3.5 py-3 text-sm text-foreground outline-none transition-[border-color,box-shadow,background-color] placeholder:text-muted-foreground/65 focus:border-brand-blue focus:bg-background focus:ring-4 focus:ring-brand-blue/10 dark:focus:border-brand-blue-light';
 
-export default function ContactForm() {
+export default function ContactForm({ requestedProduct = '' }: { requestedProduct?: string }) {
   const reduceMotion = useReducedMotion();
-  const [form, setForm] = useState(initialForm);
-  const [openedMailApp, setOpenedMailApp] = useState(false);
+  const startedAt = useRef(0);
+  const [form, setForm] = useState(() => requestedProduct ? {
+    ...initialForm,
+    productInterest: 'Other',
+    message: `I would like pricing and availability for ${requestedProduct}.`,
+  } : initialForm);
+  const [submitState, setSubmitState] = useState<SubmitState>('idle');
+  const [feedback, setFeedback] = useState('');
 
   useEffect(() => {
-    const requestedProduct = new URLSearchParams(window.location.search).get('product');
-    if (!requestedProduct) return;
-    setForm((current) => ({
-      ...current,
-      productInterest: 'Other',
-      message: current.message || `I would like pricing and availability for ${requestedProduct}.`,
-    }));
+    startedAt.current = Date.now();
   }, []);
 
   const update = (name: keyof typeof form, value: string) => {
-    setOpenedMailApp(false);
+    if (submitState !== 'sending') setSubmitState('idle');
+    setFeedback('');
     setForm((current) => ({ ...current, [name]: value }));
   };
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (form.website) return;
+    if (form.website || submitState === 'sending') return;
 
-    const subject = `BV Hardwares enquiry - ${form.productInterest}`;
-    const body = [
-      'Hello Bhagyashree Ventures,',
-      '',
-      'I would like to enquire about the following requirement:',
-      '',
-      `Name: ${form.name}`,
-      `Company: ${form.company || 'Not provided'}`,
-      `Email: ${form.email}`,
-      `Phone / WhatsApp: ${form.phone}`,
-      `Product / Requirement: ${form.productInterest}`,
-      `Quantity / Timeline: ${form.volume || 'Not provided'}`,
-      '',
-      'Requirement details:',
-      form.message,
-      '',
-      'Please share suitable options, availability and pricing.',
-    ].join('\n');
+    setSubmitState('sending');
+    setFeedback('');
 
-    const mailto = `mailto:${siteConfig.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    setOpenedMailApp(true);
-    window.location.href = mailto;
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...form, startedAt: startedAt.current }),
+      });
+      const result = (await response.json().catch(() => ({}))) as { error?: string; mode?: string };
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Unable to send your enquiry.');
+      }
+
+      setSubmitState('success');
+      setFeedback(result.mode === 'mock'
+        ? 'Test enquiry accepted. No email was sent (mock mode).'
+        : 'Thank you. Your enquiry has been sent directly to our team. We will get back to you shortly.');
+      setForm(initialForm);
+      startedAt.current = Date.now();
+    } catch (error) {
+      setSubmitState('error');
+      setFeedback(error instanceof Error ? error.message : 'Unable to send your enquiry right now.');
+    }
   }
 
   return (
@@ -82,10 +87,10 @@ export default function ContactForm() {
         </div>
         <p className="mt-4 text-xs font-bold uppercase tracking-[0.14em] text-brand-orange">Product pricing</p>
         <h2 className="mt-2 text-2xl font-bold tracking-[-0.03em] text-foreground sm:text-3xl">
-          Prepare your enquiry for our team.
+          Send your requirement to our team.
         </h2>
         <p className="mt-3 text-sm leading-6 text-muted-foreground">
-          Fill in the requirement and we will open your email app with everything pre-filled to {siteConfig.email}. Review the message there and press Send. No website email credentials are required.
+          Fill in your requirement and submit it here. The enquiry is sent securely to our team; no email app or website account is required.
         </p>
       </div>
 
@@ -154,28 +159,33 @@ export default function ContactForm() {
         </label>
 
         <AnimatePresence mode="wait">
-          {openedMailApp && (
+          {feedback && (
             <motion.div
-              key="mail-opened"
+              key={submitState}
               initial={reduceMotion ? false : { opacity: 0, y: 6 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
               role="status"
               aria-live="polite"
-              className="flex items-start gap-2.5 rounded-xl border border-emerald-500/20 bg-emerald-500/8 p-4 text-sm text-emerald-700 dark:text-emerald-300"
+              className={`flex items-start gap-2.5 rounded-xl border p-4 text-sm ${
+                submitState === 'success'
+                  ? 'border-emerald-500/20 bg-emerald-500/8 text-emerald-700 dark:text-emerald-300'
+                  : 'border-red-500/20 bg-red-500/8 text-red-700 dark:text-red-300'
+              }`}
             >
-              <CheckCircle2 size={18} className="mt-0.5 shrink-0" />
-              Your email app should open with the enquiry pre-filled. Review it and press Send to deliver it to {siteConfig.email}.
+              {submitState === 'success' ? <CheckCircle2 size={18} className="mt-0.5 shrink-0" /> : <AlertCircle size={18} className="mt-0.5 shrink-0" />}
+              {feedback}
             </motion.div>
           )}
         </AnimatePresence>
 
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-          <Button type="submit" size="lg" suppressHydrationWarning className="w-full sm:w-auto">
-            <Send size={17} /> Open enquiry in email
+          <Button type="submit" size="lg" disabled={submitState === 'sending'} suppressHydrationWarning className="w-full sm:w-auto">
+            {submitState === 'sending' ? <LoaderCircle size={17} className="animate-spin" /> : <Send size={17} />}
+            {submitState === 'sending' ? 'Sending enquiry...' : 'Send Enquiry'}
           </Button>
           <p className="text-xs leading-5 text-muted-foreground">
-            The website does not send the email silently; your own email app sends it after you confirm.
+            Your details are sent to our team only for responding to this enquiry.
           </p>
         </div>
       </form>

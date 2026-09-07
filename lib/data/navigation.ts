@@ -52,6 +52,7 @@ export const navigation: NavItem[] = [
     href: '/partners',
     children: [{ label: 'HPRT', href: '/partners/hprt' }],
   },
+  { label: 'Careers', href: '/careers' },
   { label: 'Contact Us', href: '/contact' },
 ];
 

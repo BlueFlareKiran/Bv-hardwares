@@ -23,6 +23,7 @@ const navLinks = [
   { label: 'Products', href: '/products', mega: true },
   { label: 'Partners', href: '/partners' },
   { label: 'About', href: '/about' },
+  { label: 'Careers', href: '/careers' },
   { label: 'Contact Us', href: '/contact' },
 ];
 
@@ -246,6 +247,7 @@ export default function Header() {
                   </AnimatePresence>
                   <Link href="/partners" className="block rounded-xl px-3 py-3 font-semibold hover:bg-muted">Partners</Link>
                   <Link href="/about" className="block rounded-xl px-3 py-3 font-semibold hover:bg-muted">About</Link>
+                  <Link href="/careers" className="block rounded-xl px-3 py-3 font-semibold hover:bg-muted">Careers</Link>
                   <Link href="/contact" className="block rounded-xl px-3 py-3 font-semibold hover:bg-muted">Contact Us</Link>
                 </nav>
 

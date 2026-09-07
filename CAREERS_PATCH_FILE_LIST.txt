@@ -1,0 +1,48 @@
+BV Hardwares Careers + Gmail changed files
+Baseline: Bv-hardwares-main (1)(1).zip
+Copy these paths into your repository root and replace matching files.
+No deletions required for this baseline.
+
+.env.example
+.gitignore
+CAREERS_AND_EMAIL_SETUP.md
+CAREERS_PATCH_FILE_LIST.txt
+app/api/careers/admin/jobs/[id]/route.ts
+app/api/careers/admin/jobs/route.ts
+app/api/careers/admin/login/route.ts
+app/api/careers/admin/logout/route.ts
+app/api/careers/apply/route.ts
+app/api/contact/route.ts
+app/careers/[slug]/apply/page.tsx
+app/careers/[slug]/page.tsx
+app/careers/admin/dashboard/page.tsx
+app/careers/admin/page.tsx
+app/careers/page.tsx
+app/contact/page.tsx
+app/privacy/page.tsx
+app/robots.ts
+app/sitemap.ts
+components/careers/AdminJobEditor.tsx
+components/careers/AdminLoginDialog.tsx
+components/careers/AdminToolbar.tsx
+components/careers/ApplicationForm.tsx
+components/careers/CareersHero.tsx
+components/careers/CareersWorkspace.tsx
+components/careers/ConfirmDeleteDialog.tsx
+components/careers/JobCard.tsx
+components/careers/JobFilters.tsx
+components/layout/Footer.tsx
+components/layout/Header.tsx
+components/ui/ContactForm.tsx
+data/careers.json
+lib/careers/slug.ts
+lib/careers/types.ts
+lib/careers/validation.ts
+lib/data/navigation.ts
+lib/server/auth.ts
+lib/server/careers-store.ts
+lib/server/email.ts
+lib/server/rate-limit.ts
+lib/server/request-origin.ts
+package-lock.json
+package.json

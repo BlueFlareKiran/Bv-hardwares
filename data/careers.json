@@ -1,0 +1,162 @@
+[
+  {
+    "id": "bv-career-sales-executive",
+    "slug": "sales-executive",
+    "title": "Sales Executive",
+    "department": "Sales",
+    "location": "Bengaluru, Karnataka",
+    "employmentType": "Full-time",
+    "experience": "1–3 Years",
+    "summary": "Build customer relationships and help businesses choose practical barcode, labeling, RFID and POS solutions.",
+    "description": "Bhagyashree Ventures is looking for a motivated Sales Executive who can understand operational requirements and connect customers with the right hardware, consumables and support. You will work with retailers, warehouses, manufacturers and service businesses across Bengaluru, coordinating with our technical and procurement teams from enquiry through delivery.",
+    "responsibilities": [
+      "Identify and develop new business opportunities across barcode, labeling, RFID and POS product lines.",
+      "Understand customer workflows, usage volumes and budgets before recommending suitable solutions.",
+      "Prepare quotations, follow up on enquiries and maintain accurate opportunity records.",
+      "Coordinate product demonstrations, availability checks and delivery commitments with internal teams.",
+      "Build long-term customer relationships through reliable follow-up and post-sale coordination."
+    ],
+    "requirements": [
+      "1–3 years of B2B sales experience, preferably in hardware, automation, IT products or business equipment.",
+      "Clear spoken and written communication in English; Kannada or Hindi is an advantage.",
+      "Comfort with customer visits, product discussions, quotations and follow-up.",
+      "Working knowledge of email, spreadsheets and basic CRM or sales tracking tools.",
+      "Ability to travel locally within Bengaluru when required."
+    ],
+    "niceToHave": [
+      "Exposure to barcode printers, scanners, labels, POS systems or RFID products.",
+      "An existing network in retail, logistics, manufacturing or healthcare operations."
+    ],
+    "published": true,
+    "createdAt": "2026-08-28T09:30:00.000Z",
+    "updatedAt": "2026-08-28T09:30:00.000Z"
+  },
+  {
+    "id": "bv-career-service-engineer-barcode-rfid",
+    "slug": "service-engineer-barcode-rfid",
+    "title": "Service Engineer – Barcode & RFID",
+    "department": "Technical Services",
+    "location": "Bengaluru / Field",
+    "employmentType": "Full-time",
+    "experience": "2–4 Years",
+    "summary": "Install, diagnose and support barcode printers, scanners, RFID devices and connected customer workflows.",
+    "description": "Join our Technical Services team to support the hardware that keeps customer operations moving. This role combines workshop diagnosis, field visits and clear customer communication across barcode printers, RFID equipment, scanners and related peripherals. You will own issues through resolution and document work so recurring problems can be prevented.",
+    "responsibilities": [
+      "Install, configure, test and maintain barcode printers, scanners, RFID devices and POS peripherals.",
+      "Diagnose hardware, connectivity, print-quality and media-related issues at customer sites and remotely.",
+      "Perform preventive maintenance and recommend parts, consumables or configuration changes when needed.",
+      "Record service findings, actions taken and parts used for each support case.",
+      "Coordinate with vendors and internal teams on escalations, warranty cases and replacement planning."
+    ],
+    "requirements": [
+      "Diploma or degree in Electronics, Electrical Engineering, Computer Science or a related field.",
+      "2–4 years of hands-on field service or technical support experience.",
+      "Ability to troubleshoot USB, Ethernet, Wi-Fi, Bluetooth and basic Windows driver issues.",
+      "Professional customer communication and willingness to travel across Bengaluru and nearby locations.",
+      "Organised approach to service documentation and follow-up."
+    ],
+    "niceToHave": [
+      "Experience with Zebra, TSC, Honeywell, SATO, HPRT or similar AIDC equipment.",
+      "Basic knowledge of label design software, printer languages or RFID encoding."
+    ],
+    "published": true,
+    "createdAt": "2026-08-25T10:15:00.000Z",
+    "updatedAt": "2026-08-25T10:15:00.000Z"
+  },
+  {
+    "id": "bv-career-business-development-executive",
+    "slug": "business-development-executive",
+    "title": "Business Development Executive",
+    "department": "Business Development",
+    "location": "Bengaluru",
+    "employmentType": "Full-time",
+    "experience": "1–4 Years",
+    "summary": "Open new industry relationships and turn operational challenges into well-qualified solution opportunities.",
+    "description": "We are seeking a Business Development Executive to grow Bhagyashree Ventures across priority sectors including retail, logistics, manufacturing, healthcare and transport. You will research accounts, start relevant conversations and qualify where our barcode, RFID, labeling, POS and enterprise hardware capabilities can create measurable operational value.",
+    "responsibilities": [
+      "Research target industries and identify organisations with relevant automation or identification requirements.",
+      "Build prospect lists and conduct thoughtful outreach through calls, email, referrals and field networking.",
+      "Qualify business needs, stakeholders, timelines and budgets before handing opportunities into the sales process.",
+      "Support proposals, partner discussions, product demonstrations and industry events.",
+      "Maintain a clear pipeline and share market feedback with sales, product and leadership teams."
+    ],
+    "requirements": [
+      "1–4 years of business development, inside sales or B2B customer acquisition experience.",
+      "Strong research, communication and follow-up skills.",
+      "Confidence speaking with operations, IT, procurement and business leadership stakeholders.",
+      "Ability to learn technical product categories and explain business value in simple terms.",
+      "Comfort working toward monthly activity and opportunity goals."
+    ],
+    "niceToHave": [
+      "Experience selling to retail, logistics, manufacturing or healthcare organisations.",
+      "Familiarity with channel sales, solution partners or tender-based opportunities."
+    ],
+    "published": true,
+    "createdAt": "2026-08-20T08:45:00.000Z",
+    "updatedAt": "2026-08-20T08:45:00.000Z"
+  },
+  {
+    "id": "bv-career-technical-support-engineer",
+    "slug": "technical-support-engineer",
+    "title": "Technical Support Engineer",
+    "department": "Technical Support",
+    "location": "Bengaluru",
+    "employmentType": "Full-time",
+    "experience": "1–3 Years",
+    "summary": "Resolve product and integration issues with patient troubleshooting, clear documentation and dependable follow-through.",
+    "description": "The Technical Support Engineer will be the dependable first point of technical contact for customers using barcode, labeling, RFID and POS solutions supplied by Bhagyashree Ventures. You will diagnose problems remotely, reproduce issues where possible and coordinate field or vendor assistance when a case needs deeper intervention.",
+    "responsibilities": [
+      "Respond to customer support requests through phone, email and remote assistance channels.",
+      "Troubleshoot printer drivers, connectivity, label calibration, scanner configuration and common application issues.",
+      "Create clear case notes, troubleshooting steps and reusable support documentation.",
+      "Escalate hardware failures or complex integration issues with complete diagnostic information.",
+      "Follow through with customers until service is restored and the resolution is confirmed."
+    ],
+    "requirements": [
+      "1–3 years of technical support, desktop support or product support experience.",
+      "Good understanding of Windows, device drivers, networking basics and common peripheral interfaces.",
+      "Patient, structured troubleshooting and clear customer communication.",
+      "Ability to prioritise multiple cases and maintain accurate records.",
+      "Diploma or degree in a technical discipline."
+    ],
+    "niceToHave": [
+      "Experience with remote-support tools and ticketing systems.",
+      "Knowledge of barcode symbologies, label formats or basic SQL and APIs."
+    ],
+    "published": true,
+    "createdAt": "2026-08-16T11:00:00.000Z",
+    "updatedAt": "2026-08-16T11:00:00.000Z"
+  },
+  {
+    "id": "bv-career-operations-procurement-executive",
+    "slug": "operations-procurement-executive",
+    "title": "Operations & Procurement Executive",
+    "department": "Operations",
+    "location": "Bengaluru",
+    "employmentType": "Full-time",
+    "experience": "2–5 Years",
+    "summary": "Coordinate sourcing, stock, vendors and fulfilment so customer commitments are delivered accurately and on time.",
+    "description": "Bhagyashree Ventures is hiring an Operations & Procurement Executive to connect customer orders with reliable sourcing and fulfilment. You will manage vendor communication, pricing checks, purchase coordination and stock visibility across hardware and consumable product lines while keeping sales and customers informed of realistic timelines.",
+    "responsibilities": [
+      "Request and compare vendor quotations, availability, lead times and commercial terms.",
+      "Create and track purchase orders, inward records and order fulfilment milestones.",
+      "Maintain accurate visibility of hardware, labels, ribbons, accessories and service parts.",
+      "Coordinate with sales, accounts, logistics and vendors to resolve order exceptions quickly.",
+      "Monitor supplier performance and identify opportunities to improve cost, lead time and reliability."
+    ],
+    "requirements": [
+      "2–5 years of procurement, operations, supply coordination or inventory experience.",
+      "Strong spreadsheet skills and attention to quantities, specifications, pricing and timelines.",
+      "Professional vendor communication and disciplined follow-up.",
+      "Ability to manage several active orders without losing detail.",
+      "Understanding of GST invoices, purchase documentation and basic commercial terms."
+    ],
+    "niceToHave": [
+      "Experience procuring IT hardware, electronics, industrial equipment or consumables.",
+      "Familiarity with inventory or accounting software used by small and mid-sized businesses."
+    ],
+    "published": true,
+    "createdAt": "2026-08-12T07:30:00.000Z",
+    "updatedAt": "2026-08-12T07:30:00.000Z"
+  }
+]

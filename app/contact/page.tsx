@@ -65,7 +65,9 @@ const locations = [
   { label: 'Registered office', address: siteConfig.registeredAddress, href: registeredOfficeMapsUrl },
 ];
 
-export default function ContactPage() {
+export default async function ContactPage({ searchParams }: { searchParams: Promise<{ product?: string | string[] }> }) {
+  const query = await searchParams;
+  const requestedProduct = Array.isArray(query.product) ? query.product[0] : query.product;
   return (
     <>
       <PageHero
@@ -155,7 +157,7 @@ export default function ContactPage() {
 
           <div className="mt-10 grid items-start gap-8 lg:grid-cols-[minmax(0,1.35fr)_minmax(320px,.65fr)] lg:gap-10">
             <ScrollReveal>
-              <ContactForm />
+              <ContactForm requestedProduct={requestedProduct?.slice(0, 180)} />
             </ScrollReveal>
 
             <div className="space-y-5">
