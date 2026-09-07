@@ -6,7 +6,7 @@ export default function NotFound() {
   return (
     <section className="grid min-h-[70vh] place-items-center bg-background px-4 py-24">
       <div className="mx-auto max-w-xl text-center">
-        <span className="mx-auto grid size-14 place-items-center rounded-2xl bg-brand-blue/10 text-brand-blue dark:bg-brand-blue-light/10 dark:text-brand-blue-light">
+        <span className="mx-auto grid size-14 place-items-center rounded-[10px] bg-brand-blue/10 text-brand-blue dark:bg-brand-blue-light/10 dark:text-brand-blue-light">
           <Search size={24} aria-hidden="true" />
         </span>
         <p className="mt-6 text-sm font-bold uppercase tracking-[0.16em] text-brand-orange">404</p>

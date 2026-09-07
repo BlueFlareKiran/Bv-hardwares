@@ -10,16 +10,17 @@ interface PageHeroProps {
   eyebrow?: string;
   breadcrumbs?: { label: string; href?: string }[];
   aside?: ReactNode;
+  blendWithParent?: boolean;
 }
 
-export default function PageHero({ title, subtitle, eyebrow, breadcrumbs, aside }: PageHeroProps) {
+export default function PageHero({ title, subtitle, eyebrow, breadcrumbs, aside, blendWithParent = false }: PageHeroProps) {
   const crumbs = [
     { label: 'Home', href: '/' },
     ...(breadcrumbs ?? [{ label: title }]),
   ];
 
   return (
-    <section className="brand-surface relative overflow-hidden border-b border-border">
+    <section className={`${blendWithParent ? 'bg-transparent' : 'brand-surface'} relative overflow-hidden border-b border-border/80`}>
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-brand-blue/35 via-transparent to-brand-orange/45" />
       <div className={`container-shell relative ${aside ? 'py-10 sm:py-12 lg:py-14' : 'py-12 sm:py-14 lg:py-16'}`}>
         <nav aria-label="Breadcrumb" className="mb-5 flex flex-wrap items-center gap-1.5 text-xs text-muted-foreground">

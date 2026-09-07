@@ -22,15 +22,15 @@ const postedFormatter = new Intl.DateTimeFormat('en-IN', {
 
 export default function JobCard({ job, admin, busy, onEdit, onTogglePublished, onDelete }: Props) {
   return (
-    <article className="group relative flex h-full flex-col overflow-hidden rounded-[1.4rem] border border-border/90 bg-card p-5 shadow-card transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1 hover:border-brand-blue/20 hover:shadow-[0_26px_60px_-38px_rgba(7,17,38,.5)] sm:p-6">
+    <article className="group relative flex h-full flex-col overflow-hidden rounded-[10px] border border-border/90 bg-card p-5 shadow-card transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1 hover:border-brand-blue/20 hover:shadow-[0_26px_60px_-38px_rgba(7,17,38,.5)] sm:p-6">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-brand-blue/55 via-brand-blue/15 to-brand-orange/55" />
       <div className="flex items-start justify-between gap-4">
-        <span className="grid size-11 place-items-center rounded-xl bg-brand-blue/[0.08] text-brand-blue dark:bg-brand-blue-light/[0.1] dark:text-brand-blue-light">
+        <span className="grid size-11 place-items-center rounded-[8px] bg-brand-blue/[0.08] text-brand-blue dark:bg-brand-blue-light/[0.1] dark:text-brand-blue-light">
           <BriefcaseBusiness size={20} aria-hidden="true" />
         </span>
         <div className="flex items-center gap-2">
           {admin && (
-            <span className={`rounded-full px-2.5 py-1 text-xs font-semibold ${job.published ? 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-300' : 'bg-muted text-muted-foreground'}`}>
+            <span className={`rounded-[7px] px-2.5 py-1 text-xs font-semibold ${job.published ? 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-300' : 'bg-muted text-muted-foreground'}`}>
               {job.published ? 'Published' : 'Draft'}
             </span>
           )}
@@ -62,14 +62,14 @@ export default function JobCard({ job, admin, busy, onEdit, onTogglePublished, o
         )}
         {admin && (
           <div className="flex flex-wrap gap-1.5">
-            <button type="button" disabled={busy} onClick={onEdit} className="inline-flex h-9 items-center gap-1.5 rounded-lg border border-border px-3 text-sm font-semibold text-foreground transition hover:bg-muted disabled:opacity-50">
+            <button type="button" disabled={busy} onClick={onEdit} className="inline-flex h-9 items-center gap-1.5 rounded-[7px] border border-border px-3 text-sm font-semibold text-foreground transition hover:bg-muted disabled:opacity-50">
               <Pencil size={14} aria-hidden="true" /> Edit
             </button>
-            <button type="button" disabled={busy} onClick={onTogglePublished} className="inline-flex h-9 items-center gap-1.5 rounded-lg border border-border px-3 text-sm font-semibold text-foreground transition hover:bg-muted disabled:opacity-50">
+            <button type="button" disabled={busy} onClick={onTogglePublished} className="inline-flex h-9 items-center gap-1.5 rounded-[7px] border border-border px-3 text-sm font-semibold text-foreground transition hover:bg-muted disabled:opacity-50">
               {job.published ? <EyeOff size={14} aria-hidden="true" /> : <Eye size={14} aria-hidden="true" />}
               {job.published ? 'Unpublish' : 'Publish'}
             </button>
-            <button type="button" disabled={busy} onClick={onDelete} className="inline-flex size-9 items-center justify-center rounded-lg border border-red-500/20 text-red-600 transition hover:bg-red-500/5 disabled:opacity-50 dark:text-red-300" aria-label={`Delete ${job.title}`}>
+            <button type="button" disabled={busy} onClick={onDelete} className="inline-flex size-9 items-center justify-center rounded-[7px] border border-red-500/20 text-red-600 transition hover:bg-red-500/5 disabled:opacity-50 dark:text-red-300" aria-label={`Delete ${job.title}`}>
               <Trash2 size={14} aria-hidden="true" />
             </button>
           </div>

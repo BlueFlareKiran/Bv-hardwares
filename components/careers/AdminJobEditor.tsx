@@ -12,7 +12,7 @@ interface Props {
   onSaved: (job: CareerJob, created: boolean) => void;
 }
 
-const fieldClass = 'mt-2 w-full rounded-xl border border-input bg-background px-3.5 py-3 text-sm text-foreground outline-none transition focus:border-brand-blue focus:ring-4 focus:ring-brand-blue/10 dark:focus:border-brand-blue-light';
+const fieldClass = 'mt-2 w-full rounded-[8px] border border-input bg-background px-3.5 py-3 text-sm text-foreground outline-none transition focus:border-brand-blue focus:ring-4 focus:ring-brand-blue/10 dark:focus:border-brand-blue-light';
 
 function blankJob(): CareerJobInput {
   return {
@@ -113,13 +113,13 @@ export default function AdminJobEditor({ job, onClose, onSaved }: Props) {
 
   return (
     <div className="fixed inset-0 z-[92] overflow-y-auto bg-brand-navy/55 p-3 backdrop-blur-sm sm:p-6">
-      <div role="dialog" aria-modal="true" aria-labelledby="job-editor-title" className="mx-auto my-2 w-full max-w-5xl overflow-hidden rounded-[1.6rem] border border-border bg-card shadow-2xl sm:my-4">
+      <div role="dialog" aria-modal="true" aria-labelledby="job-editor-title" className="mx-auto my-2 w-full max-w-5xl overflow-hidden rounded-[10px] border border-border bg-card shadow-2xl sm:my-4">
         <div className="sticky top-0 z-10 flex items-center justify-between border-b border-border bg-card/95 px-5 py-4 backdrop-blur sm:px-7">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-orange">Careers Admin</p>
             <h2 id="job-editor-title" className="mt-1 text-xl font-semibold text-foreground">{job ? 'Edit job opening' : 'Add job opening'}</h2>
           </div>
-          <button type="button" onClick={onClose} className="grid size-10 place-items-center rounded-xl border border-border text-muted-foreground hover:bg-muted hover:text-foreground" aria-label="Close editor"><X size={18} /></button>
+          <button type="button" onClick={onClose} className="grid size-10 place-items-center rounded-[8px] border border-border text-muted-foreground hover:bg-muted hover:text-foreground" aria-label="Close editor"><X size={18} /></button>
         </div>
 
         <form onSubmit={submit} className="space-y-6 p-5 sm:p-7">
@@ -144,7 +144,7 @@ export default function AdminJobEditor({ job, onClose, onSaved }: Props) {
             <label className="text-sm font-semibold text-foreground">Visibility<select value={form.published ? 'published' : 'draft'} onChange={(event) => update('published', event.target.value === 'published')} className={fieldClass}><option value="draft">Draft — admin only</option><option value="published">Published — visible to candidates</option></select></label>
             <div className="flex flex-wrap justify-end gap-2.5"><Button type="button" variant="outline" onClick={onClose}>Cancel</Button><Button type="submit" disabled={saving}>{saving ? <LoaderCircle size={16} className="animate-spin" /> : <Save size={16} />}{saving ? 'Saving…' : job ? 'Save Changes' : 'Save Job'}</Button></div>
           </div>
-          {error && <div role="alert" className="flex gap-2.5 rounded-xl border border-red-500/20 bg-red-500/8 p-4 text-sm text-red-700 dark:text-red-300"><AlertCircle size={18} className="mt-0.5 shrink-0" />{error}</div>}
+          {error && <div role="alert" className="flex gap-2.5 rounded-[8px] border border-red-500/20 bg-red-500/8 p-4 text-sm text-red-700 dark:text-red-300"><AlertCircle size={18} className="mt-0.5 shrink-0" />{error}</div>}
         </form>
       </div>
     </div>

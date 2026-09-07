@@ -28,8 +28,8 @@ export default function WhyChooseUs() {
               const Icon = icons[item.iconName as keyof typeof icons] ?? Waypoints;
               return (
                 <ScrollReveal key={item.title} delay={index * 0.05}>
-                  <article className="h-full rounded-[1.35rem] border border-white/10 bg-white/[0.05] p-5 shadow-[0_24px_60px_-46px_rgba(0,0,0,0.8)] backdrop-blur-sm transition-[transform,border-color,background-color] duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.075] sm:p-6">
-                    <div className="inline-flex size-10 items-center justify-center rounded-xl bg-orange-500/12 text-orange-300">
+                  <article className="h-full rounded-[10px] border border-white/10 bg-white/[0.05] p-5 shadow-[0_24px_60px_-46px_rgba(0,0,0,0.8)] backdrop-blur-sm transition-[transform,border-color,background-color] duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.075] sm:p-6">
+                    <div className="inline-flex size-10 items-center justify-center rounded-[8px] bg-orange-500/12 text-orange-300">
                       <Icon size={20} />
                     </div>
                     <h3 className="mt-4 text-lg font-bold">{item.title}</h3>

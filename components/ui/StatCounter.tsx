@@ -35,7 +35,7 @@ export default function StatCounter({ value, suffix = '', label, description }: 
   return (
     <div
       ref={ref}
-      className="group bg-white border border-slate-200 rounded-2xl p-4 sm:p-6 text-center hover:border-amber-300 hover:shadow-lg transition-all duration-300 card-elevated"
+      className="group bg-white border border-slate-200 rounded-[10px] p-4 sm:p-6 text-center hover:border-amber-300 hover:shadow-lg transition-all duration-300 card-elevated"
     >
       <p className="text-2xl sm:text-3xl lg:text-4xl font-bold font-display text-amber-500 tracking-tight leading-none mb-1">
         {count.toLocaleString()}

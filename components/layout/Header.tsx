@@ -12,7 +12,6 @@ import {
   Phone,
   X,
 } from 'lucide-react';
-import ThemeToggle from '@/components/theme/ThemeToggle';
 import { buttonVariants } from '@/components/ui/Button';
 import { megaMenuColumns } from '@/lib/data/navigation';
 import { cn } from '@/lib/utils';
@@ -68,9 +67,9 @@ export default function Header() {
           <Link
             href="/"
             aria-label={`${siteConfig.name} home`}
-            className="group relative inline-flex shrink-0 items-center rounded-xl p-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/70"
+            className="group relative inline-flex shrink-0 items-center rounded-[8px] p-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/70"
           >
-            <span className="pointer-events-none absolute inset-0 rounded-xl bg-brand-blue/0 blur-xl transition-colors duration-300 group-hover:bg-brand-blue/6 dark:group-hover:bg-brand-blue-light/8" />
+            <span className="pointer-events-none absolute inset-0 rounded-[8px] bg-brand-blue/0 blur-xl transition-colors duration-300 group-hover:bg-brand-blue/6 dark:group-hover:bg-brand-blue-light/8" />
             <Image
               src={siteConfig.mark}
               alt="BV"
@@ -103,7 +102,7 @@ export default function Header() {
                       onClick={() => setProductsOpen((value) => !value)}
                       onFocus={openProducts}
                       className={cn(
-                        'inline-flex h-10 items-center gap-1 rounded-xl px-3.5 text-sm font-semibold transition-[background-color,color,transform] duration-200',
+                        'inline-flex h-10 items-center gap-1 rounded-[8px] px-3.5 text-sm font-semibold transition-[background-color,color,transform] duration-200',
                         active
                           ? 'bg-brand-blue/7 text-brand-blue dark:bg-brand-blue-light/10 dark:text-brand-blue-light'
                           : 'text-muted-foreground hover:bg-muted hover:text-foreground'
@@ -124,7 +123,7 @@ export default function Header() {
                             animate={{ opacity: 1, y: 0, scale: 1 }}
                             exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 6, scale: 0.992 }}
                             transition={{ duration: reduceMotion ? 0.01 : 0.18, ease: [0.22, 1, 0.36, 1] }}
-                            className="relative overflow-hidden rounded-[1.35rem] border border-border/90 bg-card/98 p-5 text-card-foreground shadow-[0_28px_80px_-36px_rgba(7,17,38,0.48)] backdrop-blur-xl"
+                            className="relative overflow-hidden rounded-[10px] border border-border/90 bg-card/98 p-5 text-card-foreground shadow-[0_28px_80px_-36px_rgba(7,17,38,0.48)] backdrop-blur-xl"
                             onMouseEnter={openProducts}
                             onMouseLeave={closeProductsSoon}
                           >
@@ -140,7 +139,7 @@ export default function Header() {
                                       <li key={menuItem.href}>
                                         <Link
                                           href={menuItem.href}
-                                          className="block rounded-lg px-2.5 py-2 text-sm text-muted-foreground transition-colors hover:bg-brand-blue/[0.055] hover:text-foreground dark:hover:bg-brand-blue-light/[0.07]"
+                                          className="block rounded-[7px] px-2.5 py-2 text-sm text-muted-foreground transition-colors hover:bg-brand-blue/[0.055] hover:text-foreground dark:hover:bg-brand-blue-light/[0.07]"
                                         >
                                           {menuItem.label}
                                         </Link>
@@ -171,7 +170,7 @@ export default function Header() {
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    'inline-flex h-10 items-center rounded-xl px-3.5 text-sm font-semibold transition-colors',
+                    'inline-flex h-10 items-center rounded-[8px] px-3.5 text-sm font-semibold transition-colors',
                     active
                       ? 'bg-brand-blue/7 text-brand-blue dark:bg-brand-blue-light/10 dark:text-brand-blue-light'
                       : 'text-muted-foreground hover:bg-muted hover:text-foreground'
@@ -184,7 +183,6 @@ export default function Header() {
           </nav>
 
           <div className="flex items-center gap-2">
-            <ThemeToggle />
             <Link
               href={pricingRequestHref}
               className={buttonVariants({ className: 'hidden lg:inline-flex' })}
@@ -198,7 +196,7 @@ export default function Header() {
               aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
               aria-expanded={mobileOpen}
               onClick={() => setMobileOpen((value) => !value)}
-              className="inline-flex size-10 items-center justify-center rounded-xl border border-border bg-background text-foreground transition-colors hover:bg-muted lg:hidden"
+              className="inline-flex size-10 items-center justify-center rounded-[8px] border border-border bg-background text-foreground transition-colors hover:bg-muted lg:hidden"
             >
               {mobileOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
@@ -216,12 +214,12 @@ export default function Header() {
             >
               <div className="container-shell py-5">
                 <nav className="space-y-1" aria-label="Mobile navigation">
-                  <Link href="/" className="block rounded-xl px-3 py-3 font-semibold hover:bg-muted">Home</Link>
+                  <Link href="/" className="block rounded-[8px] px-3 py-3 font-semibold hover:bg-muted">Home</Link>
                   <button
                     type="button"
                     suppressHydrationWarning
                     onClick={() => setMobileProductsOpen((value) => !value)}
-                    className="flex w-full items-center justify-between rounded-xl px-3 py-3 font-semibold hover:bg-muted"
+                    className="flex w-full items-center justify-between rounded-[8px] px-3 py-3 font-semibold hover:bg-muted"
                     aria-expanded={mobileProductsOpen}
                   >
                     Products
@@ -236,25 +234,25 @@ export default function Header() {
                         transition={{ duration: reduceMotion ? 0.01 : 0.18 }}
                         className="ml-3 overflow-hidden border-l border-border pl-3"
                       >
-                        <Link href="/products" className="block rounded-lg px-3 py-2 text-sm font-bold text-brand-orange">All product categories</Link>
+                        <Link href="/products" className="block rounded-[7px] px-3 py-2 text-sm font-bold text-brand-orange">All product categories</Link>
                         {megaMenuColumns.flatMap((column) => column.items).map((item) => (
-                          <Link key={item.href} href={item.href} className="block rounded-lg px-3 py-2 text-sm text-muted-foreground hover:bg-muted hover:text-foreground">
+                          <Link key={item.href} href={item.href} className="block rounded-[7px] px-3 py-2 text-sm text-muted-foreground hover:bg-muted hover:text-foreground">
                             {item.label}
                           </Link>
                         ))}
                       </motion.div>
                     )}
                   </AnimatePresence>
-                  <Link href="/partners" className="block rounded-xl px-3 py-3 font-semibold hover:bg-muted">Partners</Link>
-                  <Link href="/about" className="block rounded-xl px-3 py-3 font-semibold hover:bg-muted">About</Link>
-                  <Link href="/careers" className="block rounded-xl px-3 py-3 font-semibold hover:bg-muted">Careers</Link>
-                  <Link href="/contact" className="block rounded-xl px-3 py-3 font-semibold hover:bg-muted">Contact Us</Link>
+                  <Link href="/partners" className="block rounded-[8px] px-3 py-3 font-semibold hover:bg-muted">Partners</Link>
+                  <Link href="/about" className="block rounded-[8px] px-3 py-3 font-semibold hover:bg-muted">About</Link>
+                  <Link href="/careers" className="block rounded-[8px] px-3 py-3 font-semibold hover:bg-muted">Careers</Link>
+                  <Link href="/contact" className="block rounded-[8px] px-3 py-3 font-semibold hover:bg-muted">Contact Us</Link>
                 </nav>
 
                 <div className="mt-5 grid gap-3 border-t border-border pt-5 sm:grid-cols-2">
                   <a
                     href={`tel:${siteConfig.phone.primaryE164}`}
-                    className="flex items-center gap-3 rounded-xl bg-muted px-4 py-3 text-sm font-semibold"
+                    className="flex items-center gap-3 rounded-[8px] bg-muted px-4 py-3 text-sm font-semibold"
                   >
                     <Phone size={18} className="text-brand-orange" />
                     {siteConfig.phone.primaryDisplay}

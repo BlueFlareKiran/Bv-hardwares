@@ -47,21 +47,6 @@
   --scrollbar-thumb-hover: #f35b0a;
 }
 
-.dark {
-  --background: #080e1b;
-  --foreground: #f6f8fc;
-  --card: #0f1828;
-  --card-foreground: #f6f8fc;
-  --muted: #151f31;
-  --muted-foreground: #a7b1c2;
-  --border: #253149;
-  --input: #33415a;
-  --ring: #7897ff;
-  --scrollbar-track: #080e1b;
-  --scrollbar-thumb: #7897ff;
-  --scrollbar-thumb-hover: #f35b0a;
-}
-
 * {
   box-sizing: border-box;
   border-color: var(--border);
@@ -120,13 +105,6 @@ b {
   font-weight: 600;
 }
 
-.dark body {
-  background:
-    radial-gradient(circle at 12% -8%, rgba(120, 151, 255, 0.065), transparent 28rem),
-    radial-gradient(circle at 92% 6%, rgba(243, 91, 10, 0.045), transparent 24rem),
-    var(--background);
-}
-
 ::selection {
   background: rgba(243, 91, 10, 0.22);
 }
@@ -155,7 +133,7 @@ b {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  border-radius: 999px;
+  border-radius: 7px;
   border: 1px solid color-mix(in srgb, #1237a5 18%, transparent);
   background: color-mix(in srgb, #1237a5 6%, transparent);
   padding: 0.4rem 0.75rem;
@@ -165,18 +143,12 @@ b {
   letter-spacing: 0.04em;
 }
 
-.dark .eyebrow {
-  color: #9db2ff;
-  border-color: rgba(120, 151, 255, 0.22);
-  background: rgba(120, 151, 255, 0.09);
-}
-
 .premium-card {
   position: relative;
   overflow: hidden;
   border: 1px solid var(--border);
   background: var(--card);
-  border-radius: 1.35rem;
+  border-radius: 10px;
   box-shadow: var(--shadow-card);
 }
 
@@ -196,11 +168,11 @@ b {
     var(--background);
 }
 
-.dark .brand-surface {
+.product-catalog-surface {
   background:
-    radial-gradient(circle at 15% 10%, rgba(120, 151, 255, 0.10), transparent 22rem),
-    radial-gradient(circle at 90% 14%, rgba(243, 91, 10, 0.07), transparent 20rem),
-    var(--background);
+    radial-gradient(circle at 14% 0%, rgba(18, 55, 165, 0.085), transparent 34rem),
+    radial-gradient(circle at 88% 2%, rgba(243, 91, 10, 0.06), transparent 30rem),
+    linear-gradient(180deg, #f8faff 0%, #fbfcff 34%, #ffffff 100%);
 }
 
 .soft-grid {
@@ -212,13 +184,6 @@ b {
 
 .brand-gradient-text {
   background: linear-gradient(100deg, #1237a5 0%, #1237a5 52%, #f35b0a 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.dark .brand-gradient-text {
-  background: linear-gradient(100deg, #9db2ff 0%, #f6f8fc 54%, #ff8b4d 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

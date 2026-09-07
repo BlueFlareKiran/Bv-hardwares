@@ -25,7 +25,7 @@ export default function Testimonials() {
           viewport={{ once: true }}
           className="text-center mb-10 sm:mb-14"
         >
-          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/25 text-[11px] sm:text-xs font-mono text-amber-700 font-bold mb-3 sm:mb-4">
+          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-[7px] bg-amber-500/10 border border-amber-500/25 text-[11px] sm:text-xs font-mono text-amber-700 font-bold mb-3 sm:mb-4">
             <span className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0" />
             CLIENT TESTIMONIALS
           </span>
@@ -42,7 +42,7 @@ export default function Testimonials() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -16 }}
             transition={{ duration: 0.45 }}
-            className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 border border-slate-200 shadow-lg relative overflow-hidden"
+            className="bg-white rounded-[10px] sm:rounded-[10px] p-6 sm:p-8 lg:p-10 border border-slate-200 shadow-lg relative overflow-hidden"
           >
             {/* Quote Icon */}
             <Quote className="absolute top-4 right-4 sm:top-6 sm:right-6 text-slate-100" size={60} strokeWidth={1} />
@@ -81,7 +81,7 @@ export default function Testimonials() {
                 key={idx}
                 onClick={() => setActive(idx)}
                 aria-label={`Testimonial ${idx + 1}`}
-                className={`rounded-full transition-all cursor-pointer ${
+                className={`rounded-[7px] transition-all cursor-pointer ${
                   idx === active
                     ? 'w-6 h-2 bg-amber-500'
                     : 'w-2 h-2 bg-slate-300 hover:bg-slate-400'
@@ -93,11 +93,11 @@ export default function Testimonials() {
           {/* Arrows */}
           <div className="flex gap-2">
             <button onClick={prev} aria-label="Previous"
-              className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 flex items-center justify-center shadow-sm cursor-pointer transition-all">
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-[8px] border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 flex items-center justify-center shadow-sm cursor-pointer transition-all">
               <ChevronLeft size={16} />
             </button>
             <button onClick={next} aria-label="Next"
-              className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 flex items-center justify-center shadow-sm cursor-pointer transition-all">
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-[8px] border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 flex items-center justify-center shadow-sm cursor-pointer transition-all">
               <ChevronRight size={16} />
             </button>
           </div>

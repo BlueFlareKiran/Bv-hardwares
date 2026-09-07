@@ -23,7 +23,7 @@ export default function Footer() {
       <div className="container-shell py-14 sm:py-16">
         <div className="grid gap-10 border-b border-white/10 pb-12 md:grid-cols-2 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <Link href="/" aria-label={`${siteConfig.name} home`} className="inline-block rounded-xl bg-white p-2.5">
+            <Link href="/" aria-label={`${siteConfig.name} home`} className="inline-block rounded-[8px] bg-white p-2.5">
               <Image
                 src={siteConfig.logo}
                 alt={siteConfig.name}

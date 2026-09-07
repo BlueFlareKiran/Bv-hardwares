@@ -40,8 +40,8 @@ export default async function CareerApplicationPage({ params }: PageProps) {
               <p className="mt-3 max-w-2xl text-base leading-7 text-muted-foreground">The selected role is already attached to this form. Complete your details and upload your resume.</p>
             </div>
             <div className="flex flex-wrap gap-2 text-sm text-muted-foreground">
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-2"><MapPin size={14} /> {job.location}</span>
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-2"><Clock3 size={14} /> {job.employmentType}</span>
+              <span className="inline-flex items-center gap-1.5 rounded-[7px] border border-border bg-card px-3 py-2"><MapPin size={14} /> {job.location}</span>
+              <span className="inline-flex items-center gap-1.5 rounded-[7px] border border-border bg-card px-3 py-2"><Clock3 size={14} /> {job.employmentType}</span>
             </div>
           </div>
         </div>
@@ -49,17 +49,17 @@ export default async function CareerApplicationPage({ params }: PageProps) {
 
       <section className="bg-muted/25 py-10 sm:py-12 lg:py-14">
         <div className="container-shell grid gap-7 lg:grid-cols-[minmax(0,1fr)_300px] lg:items-start">
-          <div className="rounded-[1.5rem] border border-border bg-card p-5 shadow-card sm:p-8">
+          <div className="rounded-[10px] border border-border bg-card p-5 shadow-card sm:p-8">
             <ApplicationForm jobId={job.id} jobTitle={job.title} />
           </div>
           <aside className="space-y-4 lg:sticky lg:top-24">
-            <div className="rounded-[1.4rem] border border-border bg-card p-5 shadow-card">
-              <span className="grid size-10 place-items-center rounded-xl bg-brand-blue/[0.08] text-brand-blue dark:text-brand-blue-light"><BriefcaseBusiness size={18} /></span>
+            <div className="rounded-[10px] border border-border bg-card p-5 shadow-card">
+              <span className="grid size-10 place-items-center rounded-[8px] bg-brand-blue/[0.08] text-brand-blue dark:text-brand-blue-light"><BriefcaseBusiness size={18} /></span>
               <h2 className="mt-4 text-lg font-semibold text-foreground">{job.title}</h2>
               <p className="mt-1 text-sm font-medium text-brand-orange">{job.department}</p>
               <dl className="mt-4 space-y-3 text-sm"><div><dt className="text-muted-foreground">Experience</dt><dd className="mt-0.5 font-semibold text-foreground">{job.experience}</dd></div><div><dt className="text-muted-foreground">Employment</dt><dd className="mt-0.5 font-semibold text-foreground">{job.employmentType}</dd></div></dl>
             </div>
-            <div className="rounded-[1.4rem] border border-brand-blue/15 bg-brand-blue/[0.045] p-5 dark:border-brand-blue-light/15 dark:bg-brand-blue-light/[0.06]">
+            <div className="rounded-[10px] border border-brand-blue/15 bg-brand-blue/[0.045] p-5 dark:border-brand-blue-light/15 dark:bg-brand-blue-light/[0.06]">
               <div className="flex gap-3"><ShieldCheck size={20} className="mt-0.5 shrink-0 text-brand-blue dark:text-brand-blue-light" /><p className="text-sm leading-6 text-muted-foreground">Your information is used only to review your application and contact you about this role.</p></div>
             </div>
             <Link href={`/careers/${job.slug}`} className="inline-flex items-center gap-2 px-1 text-sm font-semibold text-muted-foreground hover:text-foreground"><ArrowLeft size={15} /> Back to role details</Link>

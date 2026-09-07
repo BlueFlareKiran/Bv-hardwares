@@ -12,7 +12,7 @@ interface Props {
 type SubmitState = 'idle' | 'sending' | 'success' | 'error';
 const MAX_RESUME_BYTES = 3 * 1024 * 1024;
 const allowedExtensions = new Set(['pdf', 'doc', 'docx']);
-const fieldClass = 'mt-2 w-full rounded-xl border border-input bg-background px-3.5 py-3 text-sm text-foreground outline-none transition focus:border-brand-blue focus:ring-4 focus:ring-brand-blue/10 dark:focus:border-brand-blue-light';
+const fieldClass = 'mt-2 w-full rounded-[8px] border border-input bg-background px-3.5 py-3 text-sm text-foreground outline-none transition focus:border-brand-blue focus:ring-4 focus:ring-brand-blue/10 dark:focus:border-brand-blue-light';
 
 export default function ApplicationForm({ jobId, jobTitle }: Props) {
   const formRef = useRef<HTMLFormElement>(null);
@@ -73,8 +73,8 @@ export default function ApplicationForm({ jobId, jobTitle }: Props) {
 
   if (state === 'success') {
     return (
-      <div className="rounded-[1.4rem] border border-emerald-500/20 bg-emerald-500/[0.06] p-6 sm:p-8" role="status">
-        <span className="grid size-12 place-items-center rounded-2xl bg-emerald-500/12 text-emerald-700 dark:text-emerald-300"><CheckCircle2 size={23} /></span>
+      <div className="rounded-[10px] border border-emerald-500/20 bg-emerald-500/[0.06] p-6 sm:p-8" role="status">
+        <span className="grid size-12 place-items-center rounded-[10px] bg-emerald-500/12 text-emerald-700 dark:text-emerald-300"><CheckCircle2 size={23} /></span>
         <h2 className="mt-5 text-2xl font-semibold text-foreground">{mockDelivery ? 'Test application accepted.' : 'Application received.'}</h2>
         <p className="mt-3 max-w-2xl text-base leading-7 text-muted-foreground">{mockDelivery ? 'No email was sent (mock mode). Your form passed validation.' : `Thank you for your interest in Bhagyashree Ventures. Our team will review your application for ${jobTitle} and contact you if your profile matches the role.`}</p>
       </div>
@@ -106,11 +106,11 @@ export default function ApplicationForm({ jobId, jobTitle }: Props) {
 
       <label className="block text-sm font-semibold text-foreground">
         Resume *
-        <div className="mt-2 rounded-xl border border-dashed border-brand-blue/25 bg-brand-blue/[0.035] p-4 dark:border-brand-blue-light/25 dark:bg-brand-blue-light/[0.05]">
+        <div className="mt-2 rounded-[8px] border border-dashed border-brand-blue/25 bg-brand-blue/[0.035] p-4 dark:border-brand-blue-light/25 dark:bg-brand-blue-light/[0.05]">
           <div className="flex items-start gap-3">
-            <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-brand-blue/[0.08] text-brand-blue dark:text-brand-blue-light"><UploadCloud size={19} /></span>
+            <span className="grid size-10 shrink-0 place-items-center rounded-[8px] bg-brand-blue/[0.08] text-brand-blue dark:text-brand-blue-light"><UploadCloud size={19} /></span>
             <div className="min-w-0 flex-1">
-              <input name="resume" type="file" required onChange={selectResume} accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" className="block w-full text-sm text-muted-foreground file:mr-3 file:rounded-lg file:border-0 file:bg-brand-blue/10 file:px-3 file:py-2 file:text-sm file:font-semibold file:text-brand-blue hover:file:bg-brand-blue/15 dark:file:text-brand-blue-light" />
+              <input name="resume" type="file" required onChange={selectResume} accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" className="block w-full text-sm text-muted-foreground file:mr-3 file:rounded-[7px] file:border-0 file:bg-brand-blue/10 file:px-3 file:py-2 file:text-sm file:font-semibold file:text-brand-blue hover:file:bg-brand-blue/15 dark:file:text-brand-blue-light" />
               <p className="mt-2 text-xs text-muted-foreground">PDF, DOC or DOCX. Maximum size: 3 MB.</p>
               {filename && <p className="mt-2 flex min-w-0 items-center gap-1.5 text-sm font-medium text-foreground"><FileText size={15} className="shrink-0" /><span className="truncate">{filename}</span></p>}
             </div>
@@ -118,7 +118,7 @@ export default function ApplicationForm({ jobId, jobTitle }: Props) {
         </div>
       </label>
 
-      {feedback && <div role="alert" className="flex items-start gap-2.5 rounded-xl border border-red-500/20 bg-red-500/8 p-4 text-sm text-red-700 dark:text-red-300"><AlertCircle size={18} className="mt-0.5 shrink-0" />{feedback}</div>}
+      {feedback && <div role="alert" className="flex items-start gap-2.5 rounded-[8px] border border-red-500/20 bg-red-500/8 p-4 text-sm text-red-700 dark:text-red-300"><AlertCircle size={18} className="mt-0.5 shrink-0" />{feedback}</div>}
 
       <Button type="submit" size="lg" disabled={state === 'sending'} className="w-full sm:w-auto">{state === 'sending' ? <LoaderCircle size={17} className="animate-spin" /> : <Send size={17} />}{state === 'sending' ? 'Submitting…' : 'Submit Application'}</Button>
       <p className="text-xs leading-5 text-muted-foreground">Your details and resume are sent only to the Bhagyashree Ventures hiring team for recruitment review.</p>

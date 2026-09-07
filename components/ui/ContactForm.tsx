@@ -19,7 +19,7 @@ const initialForm = {
 type SubmitState = 'idle' | 'sending' | 'success' | 'error';
 
 const fieldClass =
-  'w-full rounded-xl border border-input bg-background/90 px-3.5 py-3 text-sm text-foreground outline-none transition-[border-color,box-shadow,background-color] placeholder:text-muted-foreground/65 focus:border-brand-blue focus:bg-background focus:ring-4 focus:ring-brand-blue/10 dark:focus:border-brand-blue-light';
+  'w-full rounded-[8px] border border-input bg-background/90 px-3.5 py-3 text-sm text-foreground outline-none transition-[border-color,box-shadow,background-color] placeholder:text-muted-foreground/65 focus:border-brand-blue focus:bg-background focus:ring-4 focus:ring-brand-blue/10 dark:focus:border-brand-blue-light';
 
 export default function ContactForm({ requestedProduct = '' }: { requestedProduct?: string }) {
   const reduceMotion = useReducedMotion();
@@ -76,13 +76,13 @@ export default function ContactForm({ requestedProduct = '' }: { requestedProduc
   return (
     <div
       id="pricing-request"
-      className="relative scroll-mt-28 overflow-hidden rounded-[1.6rem] border border-border/90 bg-card p-5 shadow-[0_26px_70px_-44px_rgba(7,17,38,0.35)] sm:p-7 lg:p-8"
+      className="relative scroll-mt-28 overflow-hidden rounded-[10px] border border-border/90 bg-card p-5 shadow-[0_26px_70px_-44px_rgba(7,17,38,0.35)] sm:p-7 lg:p-8"
     >
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-brand-blue/60 via-brand-blue/20 to-brand-orange/65" />
       <div className="pointer-events-none absolute -right-24 -top-24 size-56 rounded-full bg-brand-blue/[0.06] blur-3xl dark:bg-brand-blue-light/[0.07]" />
 
       <div className="relative max-w-2xl">
-        <div className="inline-flex size-11 items-center justify-center rounded-xl bg-brand-orange/10 text-brand-orange">
+        <div className="inline-flex size-11 items-center justify-center rounded-[8px] bg-brand-orange/10 text-brand-orange">
           <MailCheck size={21} aria-hidden="true" />
         </div>
         <p className="mt-4 text-xs font-bold uppercase tracking-[0.14em] text-brand-orange">Product pricing</p>
@@ -167,7 +167,7 @@ export default function ContactForm({ requestedProduct = '' }: { requestedProduc
               exit={{ opacity: 0 }}
               role="status"
               aria-live="polite"
-              className={`flex items-start gap-2.5 rounded-xl border p-4 text-sm ${
+              className={`flex items-start gap-2.5 rounded-[8px] border p-4 text-sm ${
                 submitState === 'success'
                   ? 'border-emerald-500/20 bg-emerald-500/8 text-emerald-700 dark:text-emerald-300'
                   : 'border-red-500/20 bg-red-500/8 text-red-700 dark:text-red-300'

@@ -29,7 +29,7 @@ export default function WhoWeAre() {
       <div className="container-shell grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <ScrollReveal direction="right">
           <div className="relative">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[1.75rem] border border-border/90 bg-muted shadow-[0_30px_80px_-50px_rgba(7,17,38,0.42)]">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-[10px] border border-border/90 bg-muted shadow-[0_30px_80px_-50px_rgba(7,17,38,0.42)]">
               <Image
                 src="/images/home/about-business-solutions.webp"
                 alt="Industrial printer, barcode scanner, POS and RFID solutions"
@@ -38,7 +38,7 @@ export default function WhoWeAre() {
                 className="object-cover transition-transform duration-700 hover:scale-[1.025]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#071126]/68 via-[#071126]/10 to-transparent" />
-              <div className="absolute bottom-5 left-5 right-5 rounded-2xl border border-white/15 bg-[#071126]/82 p-4 text-white shadow-xl backdrop-blur-md sm:p-5">
+              <div className="absolute bottom-5 left-5 right-5 rounded-[10px] border border-white/15 bg-[#071126]/82 p-4 text-white shadow-xl backdrop-blur-md sm:p-5">
                 <p className="text-sm font-bold">Bhagyashree Ventures</p>
                 <p className="mt-1 text-xs leading-5 text-slate-300">
                   Barcode, labeling, POS, RFID, software and support solutions from Bengaluru.
@@ -63,7 +63,7 @@ export default function WhoWeAre() {
 
             <div className="mt-7 grid gap-3 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
               {strengths.map(({ icon: Icon, title, copy }) => (
-                <div key={title} className="rounded-2xl border border-border/90 bg-muted/45 p-4 transition-[transform,border-color,background-color] duration-300 hover:-translate-y-1 hover:border-brand-blue/20 hover:bg-brand-blue/[0.035] dark:hover:border-brand-blue-light/20 dark:hover:bg-brand-blue-light/[0.04]">
+                <div key={title} className="rounded-[10px] border border-border/90 bg-muted/45 p-4 transition-[transform,border-color,background-color] duration-300 hover:-translate-y-1 hover:border-brand-blue/20 hover:bg-brand-blue/[0.035] dark:hover:border-brand-blue-light/20 dark:hover:bg-brand-blue-light/[0.04]">
                   <Icon size={19} className="text-brand-orange" />
                   <h3 className="mt-3 text-sm font-bold text-foreground">{title}</h3>
                   <p className="mt-1 text-xs leading-5 text-muted-foreground">{copy}</p>

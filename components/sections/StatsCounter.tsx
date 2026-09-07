@@ -19,7 +19,7 @@ export default function StatsCounter() {
           viewport={{ once: true }}
           className="text-center mb-8 sm:mb-12"
         >
-          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-[11px] sm:text-xs font-mono text-cyan-700 font-bold">
+          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-[7px] bg-cyan-500/10 border border-cyan-500/20 text-[11px] sm:text-xs font-mono text-cyan-700 font-bold">
             <span className="w-1.5 h-1.5 rounded-full bg-cyan-500 animate-pulse flex-shrink-0" />
             PERFORMANCE METRICS
           </span>

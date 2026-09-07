@@ -43,7 +43,7 @@ export default function ProductsGrid() {
               <ScrollReveal key={product.title} delay={index * 0.045}>
                 <Link
                   href={product.href}
-                  className="group relative block h-full overflow-hidden rounded-[1.45rem] border border-border/90 bg-card shadow-card transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1.5 hover:border-brand-blue/20 hover:shadow-[0_28px_70px_-38px_rgba(18,55,165,0.38)] dark:hover:border-brand-blue-light/25"
+                  className="group relative block h-full overflow-hidden rounded-[10px] border border-border/90 bg-card shadow-card transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1.5 hover:border-brand-blue/20 hover:shadow-[0_28px_70px_-38px_rgba(18,55,165,0.38)] dark:hover:border-brand-blue-light/25"
                 >
                   <div className="pointer-events-none absolute inset-x-0 top-0 z-20 h-px bg-gradient-to-r from-transparent via-brand-blue/35 to-brand-orange/45 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                   <div className="relative aspect-[16/10] overflow-hidden border-b border-border/80 bg-[linear-gradient(145deg,#fff_0%,#f7f9fd_100%)] dark:bg-slate-50">

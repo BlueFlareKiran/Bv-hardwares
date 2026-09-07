@@ -1,0 +1,15 @@
+BV Hardwares patch — tone down bright About page background images
+
+This patch adjusts the Mission / Vision / Values section on the About page.
+It reduces the washed-out brightness and gives the background images a more balanced, premium look.
+
+Changes:
+- Mission background slightly toned down
+- Vision background darkened more and blue glare reduced
+- Values background darkened the most to reduce overexposure
+- Foreground content cards remain bright and readable
+
+How to apply:
+1. Extract this ZIP.
+2. Copy the folders into your BV Hardwares project root.
+3. Merge/replace the files when prompted.

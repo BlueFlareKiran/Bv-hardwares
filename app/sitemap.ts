@@ -8,15 +8,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
   const staticRoutes = ['', '/about', '/products', '/partners', '/partners/hprt', '/careers', '/contact', '/privacy', '/terms'];
   const categoryRoutes = Object.keys(productCategories).map((slug) => `/products/${slug}`);
-  const productRoutes = Object.values(productCategories).flatMap((category) =>
-    category.products.map((product) => `/products/${category.slug}/${product.id}`)
-  );
   const hprtRoutes = hprtProductSlugs.map((slug) => `/partners/hprt/products/${slug}`);
   const careerRoutes = (await getCareerJobs())
     .filter((job) => job.published)
     .map((job) => `/careers/${job.slug}`);
 
-  return [...staticRoutes, ...categoryRoutes, ...productRoutes, ...hprtRoutes, ...careerRoutes].map((route) => ({
+  return [...staticRoutes, ...categoryRoutes, ...hprtRoutes, ...careerRoutes].map((route) => ({
     url: `${siteConfig.url}${route}`,
     lastModified: now,
     changeFrequency:

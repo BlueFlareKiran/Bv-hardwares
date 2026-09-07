@@ -30,7 +30,7 @@ export default function IndustriesServed() {
               delay={index * 0.05}
               className={isUnpairedLast ? 'md:col-span-2 md:w-[calc(50%_-_0.625rem)] md:justify-self-center' : undefined}
             >
-              <article className="group relative min-h-[340px] overflow-hidden rounded-[1.55rem] border border-border/90 bg-card shadow-card">
+              <article className="group relative min-h-[340px] overflow-hidden rounded-[10px] border border-border/90 bg-card shadow-card">
                 <Image
                   src={industry.image}
                   alt={industry.title}
@@ -40,7 +40,7 @@ export default function IndustriesServed() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#071126] via-[#071126]/58 to-[#071126]/3" />
                 <div className="absolute inset-x-0 bottom-0 p-6 text-white sm:p-7">
-                  <div className="mb-3 inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/10 px-2.5 py-1 text-xs font-semibold backdrop-blur">
+                  <div className="mb-3 inline-flex items-center gap-1.5 rounded-[7px] border border-white/15 bg-white/10 px-2.5 py-1 text-xs font-semibold backdrop-blur">
                     {industry.tag}
                     <ArrowUpRight size={13} />
                   </div>

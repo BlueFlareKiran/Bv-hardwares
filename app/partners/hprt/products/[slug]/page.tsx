@@ -70,7 +70,7 @@ export default async function HprtProductPage({ params }: PageProps) {
 
           <div className="mt-7 grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-12">
             <ScrollReveal>
-              <div className="relative aspect-[4/3] overflow-hidden rounded-[1.65rem] border border-border bg-slate-50 shadow-card">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-[10px] border border-border bg-slate-50 shadow-card">
                 <div className="absolute inset-x-0 top-0 z-10 h-1 bg-[#f58220]" />
                 <Image src={product.image} alt={`HPRT ${product.name}`} fill priority sizes="(max-width: 1024px) 100vw, 45vw" className="object-contain p-8 sm:p-10" />
               </div>
@@ -84,7 +84,7 @@ export default async function HprtProductPage({ params }: PageProps) {
 
                 <div className="mt-7 grid gap-3 sm:grid-cols-2">
                   {product.specs.slice(0, 4).map((spec) => (
-                    <div key={spec.label} className="rounded-xl border border-border bg-card p-4">
+                    <div key={spec.label} className="rounded-[8px] border border-border bg-card p-4">
                       <p className="text-xs font-semibold uppercase tracking-[0.08em] text-muted-foreground">{spec.label}</p>
                       <p className="mt-1 text-sm font-bold leading-6 text-foreground">{spec.value}</p>
                     </div>
@@ -104,7 +104,7 @@ export default async function HprtProductPage({ params }: PageProps) {
       <section className="section-space border-b border-border bg-background">
         <div className="container-shell grid gap-7 lg:grid-cols-[1fr_0.8fr]">
           <ScrollReveal>
-            <div className="rounded-[1.5rem] border border-border bg-card p-6 shadow-card sm:p-8">
+            <div className="rounded-[10px] border border-border bg-card p-6 shadow-card sm:p-8">
               <div className="flex items-center gap-2.5">
                 <FileText size={20} className="text-brand-blue dark:text-brand-blue-light" />
                 <h2 className="text-2xl font-bold tracking-[-0.03em] text-foreground">Catalogue specifications</h2>
@@ -118,7 +118,7 @@ export default async function HprtProductPage({ params }: PageProps) {
                 ))}
               </dl>
               {product.catalogNote && (
-                <div className="mt-5 rounded-xl border border-[#f58220]/20 bg-[#f58220]/[0.07] p-4 text-sm leading-6 text-muted-foreground">
+                <div className="mt-5 rounded-[8px] border border-[#f58220]/20 bg-[#f58220]/[0.07] p-4 text-sm leading-6 text-muted-foreground">
                   <strong className="text-foreground">Catalogue note:</strong> {product.catalogNote}
                 </div>
               )}
@@ -126,7 +126,7 @@ export default async function HprtProductPage({ params }: PageProps) {
           </ScrollReveal>
 
           <ScrollReveal delay={0.05}>
-            <div className="rounded-[1.5rem] border border-border bg-muted/35 p-6 sm:p-8">
+            <div className="rounded-[10px] border border-border bg-muted/35 p-6 sm:p-8">
               <h2 className="text-2xl font-bold tracking-[-0.03em] text-foreground">Product highlights</h2>
               {product.highlights?.length ? (
                 <ul className="mt-5 space-y-3">

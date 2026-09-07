@@ -79,9 +79,9 @@ export default async function CareerJobPage({ params }: PageProps) {
             <h1 className="mt-3 text-[clamp(2.35rem,4.5vw,4.5rem)] font-semibold leading-[1.03] tracking-[-0.05em] text-foreground">{job.title}</h1>
             <p className="mt-4 max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">{job.summary}</p>
             <div className="mt-6 flex flex-wrap gap-2 text-sm font-medium text-muted-foreground">
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3.5 py-2"><MapPin size={15} /> {job.location}</span>
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3.5 py-2"><Clock3 size={15} /> {job.employmentType}</span>
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3.5 py-2"><BriefcaseBusiness size={15} /> {job.experience}</span>
+              <span className="inline-flex items-center gap-1.5 rounded-[7px] border border-border bg-card px-3.5 py-2"><MapPin size={15} /> {job.location}</span>
+              <span className="inline-flex items-center gap-1.5 rounded-[7px] border border-border bg-card px-3.5 py-2"><Clock3 size={15} /> {job.employmentType}</span>
+              <span className="inline-flex items-center gap-1.5 rounded-[7px] border border-border bg-card px-3.5 py-2"><BriefcaseBusiness size={15} /> {job.experience}</span>
             </div>
             <Link href={`/careers/${job.slug}/apply`} className={buttonVariants({ className: 'mt-6 w-full sm:w-auto lg:hidden' })}>Apply Now <ArrowRight size={16} /></Link>
           </div>
@@ -90,7 +90,7 @@ export default async function CareerJobPage({ params }: PageProps) {
 
       <section className="bg-muted/25 py-10 sm:py-12 lg:py-14">
         <div className="container-shell grid gap-7 lg:grid-cols-[minmax(0,1fr)_340px] lg:items-start">
-          <article className="space-y-7 rounded-[1.5rem] border border-border bg-card p-6 shadow-card sm:p-8">
+          <article className="space-y-7 rounded-[10px] border border-border bg-card p-6 shadow-card sm:p-8">
             <section>
               <h2 className="text-xl font-semibold tracking-[-0.02em] text-foreground sm:text-2xl">About the role</h2>
               <p className="mt-4 whitespace-pre-line text-base leading-8 text-muted-foreground">{job.description}</p>
@@ -100,12 +100,12 @@ export default async function CareerJobPage({ params }: PageProps) {
             <ListSection title="Nice to have" items={job.niceToHave} />
           </article>
 
-          <aside className="rounded-[1.5rem] border border-brand-blue/15 bg-card p-6 shadow-card lg:sticky lg:top-24">
+          <aside className="rounded-[10px] border border-brand-blue/15 bg-card p-6 shadow-card lg:sticky lg:top-24">
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-orange">Interested in this role?</p>
             <h2 className="mt-2 text-2xl font-semibold tracking-[-0.03em] text-foreground">Apply to join our team.</h2>
             <p className="mt-3 text-sm leading-6 text-muted-foreground">Your application is tied to this role automatically. Have your resume ready in PDF, DOC or DOCX format.</p>
             <Link href={`/careers/${job.slug}/apply`} className={buttonVariants({ className: 'mt-6 w-full' })}>Apply Now <ArrowRight size={16} /></Link>
-            <Link href="/careers" className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-semibold text-muted-foreground transition hover:bg-muted hover:text-foreground"><ArrowLeft size={15} /> Back to all jobs</Link>
+            <Link href="/careers" className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-[8px] px-4 py-3 text-sm font-semibold text-muted-foreground transition hover:bg-muted hover:text-foreground"><ArrowLeft size={15} /> Back to all jobs</Link>
           </aside>
         </div>
       </section>

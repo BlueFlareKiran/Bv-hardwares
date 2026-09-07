@@ -36,9 +36,9 @@ export const partners: PartnerBrand[] = [
     slug: 'hprt',
     name: 'HPRT',
     logo: '/images/partners/hprt/hprt-logo.png',
-    tagline: 'Printing and AIDC solutions for business operations.',
+    tagline: 'Premium exclusive printing and AIDC partner portfolio.',
     description:
-      'HPRT supplies barcode printing and scanning solutions for retail, hospitality, healthcare, logistics, warehousing and manufacturing applications.',
+      'HPRT is Bhagyashree Ventures’ premium exclusive technology partner portfolio for barcode printing, RFID printing and scanning solutions across retail, hospitality, healthcare, logistics, warehousing and manufacturing applications.',
     sectors: ['Retail', 'Hospitality', 'Healthcare', 'Logistics', 'Warehousing', 'Manufacturing'],
     accent: '#f58220',
   },

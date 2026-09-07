@@ -76,7 +76,7 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
         subtitle="Use the enquiry form to prepare a complete email to our team, or contact us directly by phone, WhatsApp or email for product requirements."
         breadcrumbs={[{ label: 'Contact' }]}
         aside={
-          <div className="group relative isolate min-h-[320px] overflow-hidden rounded-[1.75rem] border border-brand-blue/15 bg-brand-navy shadow-[0_28px_70px_-42px_rgba(7,17,38,0.7)] sm:min-h-[360px]">
+          <div className="group relative isolate min-h-[320px] overflow-hidden rounded-[10px] border border-brand-blue/15 bg-brand-navy shadow-[0_28px_70px_-42px_rgba(7,17,38,0.7)] sm:min-h-[360px]">
             <Image
               src="/images/contact-us.webp"
               alt="Direct phone, email and mobile support options"
@@ -86,7 +86,7 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
             />
             <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(7,17,38,0.05)_8%,rgba(7,17,38,0.38)_48%,rgba(7,17,38,0.94)_100%)]" />
             <div className="flex min-h-[320px] flex-col justify-end p-5 sm:min-h-[360px] sm:p-6">
-              <div className="max-w-md rounded-[1.25rem] border border-white/15 bg-brand-navy/75 p-5 text-white shadow-xl backdrop-blur-md">
+              <div className="max-w-md rounded-[10px] border border-white/15 bg-brand-navy/75 p-5 text-white shadow-xl backdrop-blur-md">
                 <p className="text-xs font-semibold uppercase tracking-[0.14em] text-orange-300">
                   Direct assistance
                 </p>
@@ -99,7 +99,7 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
                 <div className="mt-4 flex flex-wrap gap-2.5">
                   <a
                     href={`tel:${siteConfig.phone.primaryE164}`}
-                    className="inline-flex min-h-10 items-center gap-2 rounded-xl bg-white px-4 text-sm font-semibold text-brand-navy transition hover:bg-orange-50"
+                    className="inline-flex min-h-10 items-center gap-2 rounded-[8px] bg-white px-4 text-sm font-semibold text-brand-navy transition hover:bg-orange-50"
                   >
                     <Phone size={16} aria-hidden="true" /> Call us
                   </a>
@@ -107,7 +107,7 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
                     href={whatsappUrl('Hello Bhagyashree Ventures, I would like help with a product requirement.')}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex min-h-10 items-center gap-2 rounded-xl border border-white/20 bg-white/10 px-4 text-sm font-semibold text-white transition hover:bg-white/20"
+                    className="inline-flex min-h-10 items-center gap-2 rounded-[8px] border border-white/20 bg-white/10 px-4 text-sm font-semibold text-white transition hover:bg-white/20"
                   >
                     <MessageCircle size={16} aria-hidden="true" /> WhatsApp
                   </a>
@@ -128,7 +128,7 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
                 <ScrollReveal key={channel.title} delay={index * 0.045}>
                   <Card className="group relative flex h-full flex-col overflow-hidden p-5 transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1 hover:border-brand-blue/20 hover:shadow-[0_24px_56px_-38px_rgba(18,55,165,0.34)] sm:p-6 dark:hover:border-brand-blue-light/20">
                     <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-brand-blue/45 to-brand-orange/45 opacity-0 transition-opacity group-hover:opacity-100" />
-                    <span className="grid size-11 place-items-center rounded-xl bg-brand-blue/10 text-brand-blue dark:bg-brand-blue-light/10 dark:text-brand-blue-light">
+                    <span className="grid size-11 place-items-center rounded-[8px] bg-brand-blue/10 text-brand-blue dark:bg-brand-blue-light/10 dark:text-brand-blue-light">
                       <Icon size={20} aria-hidden="true" />
                     </span>
                     <p className="mt-5 text-sm font-semibold text-muted-foreground">{channel.title}</p>
@@ -168,7 +168,7 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
                     {locations.map((location, index) => (
                       <div key={location.label} className={index ? 'border-t border-border pt-6' : undefined}>
                         <div className="flex gap-3">
-                          <span className="mt-0.5 grid size-10 shrink-0 place-items-center rounded-xl bg-brand-orange/10 text-brand-orange">
+                          <span className="mt-0.5 grid size-10 shrink-0 place-items-center rounded-[8px] bg-brand-orange/10 text-brand-orange">
                             <Building2 size={19} aria-hidden="true" />
                           </span>
                           <div>

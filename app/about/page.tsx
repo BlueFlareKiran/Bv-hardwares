@@ -115,7 +115,7 @@ export default function AboutPage() {
             </ScrollReveal>
 
             <ScrollReveal direction="left" delay={0.06}>
-              <div className="relative overflow-hidden rounded-[1.8rem] border border-border/90 bg-card p-6 shadow-[0_35px_90px_-54px_rgba(7,17,38,.46)] sm:p-7 lg:p-8">
+              <div className="relative overflow-hidden rounded-[10px] border border-border/90 bg-card p-6 shadow-[0_35px_90px_-54px_rgba(7,17,38,.46)] sm:p-7 lg:p-8">
                 <div className="pointer-events-none absolute -right-16 -top-20 size-64 rounded-full bg-brand-orange/8 blur-3xl" />
                 <div className="pointer-events-none absolute -bottom-20 -left-16 size-72 rounded-full bg-brand-blue/8 blur-3xl dark:bg-brand-blue-light/7" />
                 <div className="relative">
@@ -125,22 +125,22 @@ export default function AboutPage() {
                   </h2>
 
                   <div className="mt-7 grid gap-3 sm:grid-cols-2">
-                    <div className="rounded-2xl border border-border bg-background/75 p-4">
+                    <div className="rounded-[10px] border border-border bg-background/75 p-4">
                       <Boxes size={20} className="text-brand-blue dark:text-brand-blue-light" />
                       <p className="mt-3 text-sm font-bold text-foreground">Complete portfolio</p>
                       <p className="mt-1 text-xs leading-5 text-muted-foreground">Hardware, consumables and software planned together.</p>
                     </div>
-                    <div className="rounded-2xl border border-border bg-background/75 p-4">
+                    <div className="rounded-[10px] border border-border bg-background/75 p-4">
                       <Sparkles size={20} className="text-brand-orange" />
                       <p className="mt-3 text-sm font-bold text-foreground">Practical integration</p>
                       <p className="mt-1 text-xs leading-5 text-muted-foreground">Solutions matched to real operating workflows.</p>
                     </div>
-                    <div className="rounded-2xl border border-border bg-background/75 p-4">
+                    <div className="rounded-[10px] border border-border bg-background/75 p-4">
                       <LifeBuoy size={20} className="text-brand-blue dark:text-brand-blue-light" />
                       <p className="mt-3 text-sm font-bold text-foreground">Ongoing support</p>
                       <p className="mt-1 text-xs leading-5 text-muted-foreground">Selection, setup, consumables and service assistance.</p>
                     </div>
-                    <div className="rounded-2xl border border-border bg-background/75 p-4">
+                    <div className="rounded-[10px] border border-border bg-background/75 p-4">
                       <ShieldCheck size={20} className="text-emerald-600 dark:text-emerald-400" />
                       <p className="mt-3 text-sm font-bold text-foreground">Certified quality</p>
                       <p className="mt-1 text-xs leading-5 text-muted-foreground">Quality Management System certified to {certification.standard}.</p>
@@ -148,14 +148,14 @@ export default function AboutPage() {
                   </div>
 
                   <div className="mt-5 grid gap-3 border-t border-border pt-5 sm:grid-cols-2">
-                    <div className="flex items-center gap-3 rounded-xl bg-muted/45 px-4 py-3">
+                    <div className="flex items-center gap-3 rounded-[8px] bg-muted/45 px-4 py-3">
                       <MapPin size={18} className="shrink-0 text-brand-blue dark:text-brand-blue-light" />
                       <div>
                         <p className="text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">Location</p>
                         <p className="mt-0.5 text-sm font-bold text-foreground">Bengaluru, India</p>
                       </div>
                     </div>
-                    <div className="flex items-center gap-3 rounded-xl bg-muted/45 px-4 py-3">
+                    <div className="flex items-center gap-3 rounded-[8px] bg-muted/45 px-4 py-3">
                       <BadgeCheck size={18} className="shrink-0 text-brand-orange" />
                       <div>
                         <p className="text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">Quality standard</p>
@@ -196,7 +196,7 @@ export default function AboutPage() {
           </ScrollReveal>
 
           <ScrollReveal direction="left" delay={0.05}>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[1.75rem] border border-border bg-muted shadow-soft">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-[10px] border border-border bg-muted shadow-soft">
               <Image
                 src="/images/about-workflow-solutions.webp"
                 alt="Industrial barcode printer, scanner, POS terminal and RFID solutions"
@@ -236,15 +236,15 @@ export default function AboutPage() {
                   alt="Team collaborating around operational plans"
                   fill
                   sizes="(max-width: 1024px) 100vw, 42vw"
-                  className="-z-20 object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.025]"
+                  className="-z-20 object-cover object-center brightness-[0.9] saturate-[0.96] contrast-[1.02] transition-transform duration-700 ease-out group-hover:scale-[1.025]"
                 />
-                <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(255,255,255,.12)_0%,rgba(255,255,255,.46)_44%,rgba(255,255,255,.98)_100%)] dark:bg-[linear-gradient(180deg,rgba(5,11,24,.82)_0%,rgba(5,11,24,.52)_42%,rgba(5,11,24,.92)_100%)]" />
+                <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(255,255,255,.2)_0%,rgba(255,255,255,.58)_44%,rgba(255,255,255,.985)_100%)] dark:bg-[linear-gradient(180deg,rgba(5,11,24,.82)_0%,rgba(5,11,24,.52)_42%,rgba(5,11,24,.92)_100%)]" />
                 <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand-orange via-orange-300 to-transparent" />
                 <div className="flex min-h-[500px] flex-col p-7 sm:p-8">
-                  <div className="inline-flex size-12 items-center justify-center rounded-2xl border border-orange-200 bg-orange-50/90 text-brand-orange shadow-sm backdrop-blur-md dark:border-orange-200/25 dark:bg-orange-400/15 dark:text-orange-200">
+                  <div className="inline-flex size-12 items-center justify-center rounded-[10px] border border-orange-200 bg-orange-50/90 text-brand-orange shadow-sm backdrop-blur-md dark:border-orange-200/25 dark:bg-orange-400/15 dark:text-orange-200">
                     <Sparkles size={22} />
                   </div>
-                  <div className="mt-auto max-w-md rounded-[1.25rem] border border-white/85 bg-white/90 p-5 shadow-[0_20px_50px_-34px_rgba(15,23,42,.34)] backdrop-blur-md sm:p-6 dark:border-white/10 dark:bg-[#050b18]/70 dark:shadow-none">
+                  <div className="mt-auto max-w-md rounded-[10px] border border-white/85 bg-white/90 p-5 shadow-[0_20px_50px_-34px_rgba(15,23,42,.34)] backdrop-blur-md sm:p-6 dark:border-white/10 dark:bg-[#050b18]/70 dark:shadow-none">
                     <p className="text-sm font-bold uppercase tracking-[0.13em] text-brand-orange dark:text-orange-300">Mission</p>
                     <h3 className="mt-2 text-2xl font-bold tracking-[-0.025em] text-foreground sm:text-[1.7rem] dark:text-white">Improve accuracy and simplify workflows.</h3>
                     <p className="mt-4 text-base leading-7 text-muted-foreground dark:text-slate-200">{mission}</p>
@@ -260,15 +260,15 @@ export default function AboutPage() {
                   alt="Business leader looking toward future growth"
                   fill
                   sizes="(max-width: 1024px) 100vw, 58vw"
-                  className="-z-20 object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.025]"
+                  className="-z-20 object-cover object-center brightness-[0.8] saturate-[0.94] contrast-[1.05] transition-transform duration-700 ease-out group-hover:scale-[1.025]"
                 />
-                <div className="absolute inset-0 -z-10 bg-[linear-gradient(100deg,rgba(255,255,255,.96)_0%,rgba(255,255,255,.78)_48%,rgba(239,246,255,.16)_100%)] dark:bg-[linear-gradient(100deg,rgba(5,11,24,.94)_0%,rgba(5,11,24,.76)_48%,rgba(7,35,83,.28)_100%)]" />
+                <div className="absolute inset-0 -z-10 bg-[linear-gradient(100deg,rgba(255,255,255,.95)_0%,rgba(255,255,255,.84)_44%,rgba(226,232,240,.34)_100%)] dark:bg-[linear-gradient(100deg,rgba(5,11,24,.94)_0%,rgba(5,11,24,.76)_48%,rgba(7,35,83,.28)_100%)]" />
                 <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand-blue-light via-cyan-300 to-transparent" />
                 <div className="flex min-h-[500px] flex-col p-7 sm:p-8">
-                  <div className="inline-flex size-12 items-center justify-center rounded-2xl border border-blue-200 bg-blue-50/90 text-brand-blue shadow-sm backdrop-blur-md dark:border-blue-200/25 dark:bg-blue-400/15 dark:text-blue-200">
+                  <div className="inline-flex size-12 items-center justify-center rounded-[10px] border border-blue-200 bg-blue-50/90 text-brand-blue shadow-sm backdrop-blur-md dark:border-blue-200/25 dark:bg-blue-400/15 dark:text-blue-200">
                     <BadgeCheck size={22} />
                   </div>
-                  <div className="mt-auto max-w-xl rounded-[1.25rem] border border-white/85 bg-white/90 p-5 shadow-[0_20px_50px_-34px_rgba(15,23,42,.34)] backdrop-blur-md sm:p-6 dark:border-white/10 dark:bg-[#050b18]/70 dark:shadow-none">
+                  <div className="mt-auto max-w-xl rounded-[10px] border border-white/85 bg-white/90 p-5 shadow-[0_20px_50px_-34px_rgba(15,23,42,.34)] backdrop-blur-md sm:p-6 dark:border-white/10 dark:bg-[#050b18]/70 dark:shadow-none">
                     <p className="text-sm font-bold uppercase tracking-[0.13em] text-brand-blue dark:text-blue-200">Vision</p>
                     <h3 className="mt-2 text-2xl font-bold tracking-[-0.025em] text-foreground sm:text-[1.7rem] dark:text-white">Be the trusted operating partner.</h3>
                     <p className="mt-4 text-base leading-7 text-muted-foreground dark:text-slate-200">{vision}</p>
@@ -284,13 +284,13 @@ export default function AboutPage() {
                   alt="Business partners completing a trusted agreement"
                   fill
                   sizes="100vw"
-                  className="-z-20 object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.025]"
+                  className="-z-20 object-cover object-center brightness-[0.74] saturate-[0.9] contrast-[1.04] transition-transform duration-700 ease-out group-hover:scale-[1.025]"
                 />
-                <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(255,255,255,.99)_0%,rgba(255,255,255,.95)_52%,rgba(255,255,255,.38)_100%)] dark:bg-[linear-gradient(90deg,rgba(5,11,24,.97)_0%,rgba(5,11,24,.88)_48%,rgba(5,11,24,.44)_100%)]" />
+                <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(255,255,255,.975)_0%,rgba(255,255,255,.92)_50%,rgba(226,232,240,.26)_100%)] dark:bg-[linear-gradient(90deg,rgba(5,11,24,.97)_0%,rgba(5,11,24,.88)_48%,rgba(5,11,24,.44)_100%)]" />
                 <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-emerald-400 via-cyan-300 to-brand-orange" />
                 <div className="p-7 sm:p-8 lg:p-10">
                   <div className="max-w-4xl">
-                    <div className="inline-flex size-12 items-center justify-center rounded-2xl border border-emerald-200 bg-emerald-50/90 text-emerald-700 shadow-sm backdrop-blur-md dark:border-emerald-200/25 dark:bg-emerald-400/15 dark:text-emerald-200">
+                    <div className="inline-flex size-12 items-center justify-center rounded-[10px] border border-emerald-200 bg-emerald-50/90 text-emerald-700 shadow-sm backdrop-blur-md dark:border-emerald-200/25 dark:bg-emerald-400/15 dark:text-emerald-200">
                       <Handshake size={22} />
                     </div>
                     <p className="mt-5 text-sm font-bold uppercase tracking-[0.13em] text-emerald-700 dark:text-emerald-200">Values</p>
@@ -299,8 +299,8 @@ export default function AboutPage() {
                       {values.map((value) => {
                         const Icon = valueIcons[value.iconName as keyof typeof valueIcons] ?? ShieldCheck;
                         return (
-                          <div key={value.title} className="flex gap-3 rounded-2xl border border-slate-200/85 bg-white/88 p-4 shadow-[0_14px_36px_-30px_rgba(15,23,42,.38)] backdrop-blur-md dark:border-white/10 dark:bg-[#050b18]/68 dark:shadow-none">
-                            <span className="mt-0.5 inline-flex size-9 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-brand-blue dark:bg-white/10 dark:text-cyan-200">
+                          <div key={value.title} className="flex gap-3 rounded-[10px] border border-slate-200/85 bg-white/88 p-4 shadow-[0_14px_36px_-30px_rgba(15,23,42,.38)] backdrop-blur-md dark:border-white/10 dark:bg-[#050b18]/68 dark:shadow-none">
+                            <span className="mt-0.5 inline-flex size-9 shrink-0 items-center justify-center rounded-[8px] bg-blue-50 text-brand-blue dark:bg-white/10 dark:text-cyan-200">
                               <Icon size={17} />
                             </span>
                             <div>
@@ -326,10 +326,10 @@ export default function AboutPage() {
               href={certification.pdf}
               target="_blank"
               rel="noreferrer"
-              className="group relative mx-auto block w-full max-w-[520px] overflow-hidden rounded-[1.5rem] border border-border bg-white p-3 shadow-[0_28px_80px_-45px_rgba(7,17,38,.45)]"
+              className="group relative mx-auto block w-full max-w-[520px] overflow-hidden rounded-[10px] border border-border bg-white p-3 shadow-[0_28px_80px_-45px_rgba(7,17,38,.45)]"
               aria-label="Open Bhagyashree Ventures ISO 9001:2015 certificate"
             >
-              <div className="relative aspect-[17/22] overflow-hidden rounded-[1.1rem] bg-slate-50">
+              <div className="relative aspect-[17/22] overflow-hidden rounded-[10px] bg-slate-50">
                 <Image
                   src={certification.preview}
                   alt="Bhagyashree Ventures ISO 9001:2015 certificate preview"
@@ -352,19 +352,19 @@ export default function AboutPage() {
               </p>
 
               <div className="mt-7 grid gap-3 sm:grid-cols-2">
-                <div className="rounded-2xl border border-border bg-muted/40 p-4">
+                <div className="rounded-[10px] border border-border bg-muted/40 p-4">
                   <p className="text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">Certificate No.</p>
                   <p className="mt-1 font-bold text-foreground">{certification.number}</p>
                 </div>
-                <div className="rounded-2xl border border-border bg-muted/40 p-4">
+                <div className="rounded-[10px] border border-border bg-muted/40 p-4">
                   <p className="text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">Initial registration</p>
                   <p className="mt-1 font-bold text-foreground">{certification.initialRegistration}</p>
                 </div>
-                <div className="rounded-2xl border border-border bg-muted/40 p-4 sm:col-span-2">
+                <div className="rounded-[10px] border border-border bg-muted/40 p-4 sm:col-span-2">
                   <p className="text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">Certified scope</p>
                   <p className="mt-1 text-sm font-semibold leading-6 text-foreground">{certification.scope}</p>
                 </div>
-                <div className="rounded-2xl border border-border bg-muted/40 p-4 sm:col-span-2">
+                <div className="rounded-[10px] border border-border bg-muted/40 p-4 sm:col-span-2">
                   <p className="text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">Recertification due</p>
                   <p className="mt-1 font-bold text-foreground">{certification.recertificationDue}</p>
                 </div>
@@ -395,7 +395,7 @@ export default function AboutPage() {
               <ScrollReveal key={title} delay={index * 0.04}>
                 <Card className="h-full p-6">
                   <div className="flex items-center justify-between">
-                    <div className="inline-flex size-11 items-center justify-center rounded-xl bg-brand-blue/8 text-brand-blue dark:bg-brand-blue-light/10 dark:text-brand-blue-light">
+                    <div className="inline-flex size-11 items-center justify-center rounded-[8px] bg-brand-blue/8 text-brand-blue dark:bg-brand-blue-light/10 dark:text-brand-blue-light">
                       <Icon size={21} />
                     </div>
                     <span className="text-3xl font-bold text-muted-foreground/20">0{index + 1}</span>

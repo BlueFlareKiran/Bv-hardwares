@@ -13,11 +13,11 @@ interface Props {
   onLocation: (value: string) => void;
 }
 
-const controlClass = 'h-11 w-full rounded-xl border border-input bg-background px-3.5 text-sm text-foreground outline-none transition focus:border-brand-blue focus:ring-4 focus:ring-brand-blue/10 dark:focus:border-brand-blue-light';
+const controlClass = 'h-11 w-full rounded-[8px] border border-input bg-background px-3.5 text-sm text-foreground outline-none transition focus:border-brand-blue focus:ring-4 focus:ring-brand-blue/10 dark:focus:border-brand-blue-light';
 
 export default function JobFilters(props: Props) {
   return (
-    <div className="grid gap-3 rounded-2xl border border-border bg-card p-3 shadow-card md:grid-cols-[minmax(240px,1fr)_220px_220px]">
+    <div className="grid gap-3 rounded-[10px] border border-border bg-card p-3 shadow-card md:grid-cols-[minmax(240px,1fr)_220px_220px]">
       <label className="relative block">
         <span className="sr-only">Search jobs</span>
         <Search size={17} className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-muted-foreground" />

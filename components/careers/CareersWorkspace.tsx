@@ -120,7 +120,7 @@ export default function CareersWorkspace({ initialJobs, isAdmin, adminUsername =
           {isAdmin && <AdminToolbar username={adminUsername} onAdd={openNewJob} onLogout={logout} loggingOut={loggingOut} />}
 
           {feedback && (
-            <div role="status" className="mb-5 rounded-xl border border-brand-blue/15 bg-brand-blue/[0.05] px-4 py-3 text-sm text-foreground dark:border-brand-blue-light/20 dark:bg-brand-blue-light/[0.06]">{feedback}</div>
+            <div role="status" className="mb-5 rounded-[8px] border border-brand-blue/15 bg-brand-blue/[0.05] px-4 py-3 text-sm text-foreground dark:border-brand-blue-light/20 dark:bg-brand-blue-light/[0.06]">{feedback}</div>
           )}
 
           <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
@@ -143,7 +143,7 @@ export default function CareersWorkspace({ initialJobs, isAdmin, adminUsername =
               ))}
             </div>
           ) : (
-            <div className="mt-6 rounded-[1.4rem] border border-dashed border-border bg-muted/25 px-6 py-12 text-center">
+            <div className="mt-6 rounded-[10px] border border-dashed border-border bg-muted/25 px-6 py-12 text-center">
               {jobs.length ? <SearchX size={30} className="mx-auto text-muted-foreground" /> : <BriefcaseBusiness size={30} className="mx-auto text-muted-foreground" />}
               <h3 className="mt-3 text-lg font-semibold text-foreground">{jobs.length ? 'No matching roles' : 'No roles are open right now'}</h3>
               <p className="mx-auto mt-2 max-w-lg text-sm leading-6 text-muted-foreground">{jobs.length ? 'Try a different search or clear one of the filters.' : 'Check back soon or send your profile to our team for future opportunities.'}</p>
@@ -155,9 +155,9 @@ export default function CareersWorkspace({ initialJobs, isAdmin, adminUsername =
 
       <section className="bg-muted/25 py-10 sm:py-12">
         <div className="container-shell">
-          <div className="flex flex-col gap-6 rounded-[1.5rem] border border-border bg-card p-6 shadow-card sm:p-8 lg:flex-row lg:items-center lg:justify-between">
+          <div className="flex flex-col gap-6 rounded-[10px] border border-border bg-card p-6 shadow-card sm:p-8 lg:flex-row lg:items-center lg:justify-between">
             <div className="flex max-w-2xl items-start gap-4">
-              <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-brand-orange/10 text-brand-orange"><Mail size={20} /></span>
+              <span className="grid size-11 shrink-0 place-items-center rounded-[8px] bg-brand-orange/10 text-brand-orange"><Mail size={20} /></span>
               <div><h2 className="text-xl font-semibold text-foreground sm:text-2xl">Don’t see the right role?</h2><p className="mt-2 text-sm leading-6 text-muted-foreground sm:text-base">Send your profile and a short note about the work you are looking for. We’ll keep it in mind for relevant opportunities.</p></div>
             </div>
             <a href={`mailto:${siteConfig.email}?subject=${encodeURIComponent('Career enquiry — Bhagyashree Ventures')}`} className={buttonVariants({ variant: 'outline', className: 'shrink-0' })}>Email your profile <ArrowRight size={16} /></a>

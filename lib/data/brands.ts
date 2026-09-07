@@ -5,6 +5,9 @@ export interface BrandItem {
 }
 
 export const brandLogos: BrandItem[] = [
+  { name: 'HPRT', image: '/images/partners/hprt/hprt-logo.png', category: 'Premium exclusive partner' },
+  { name: 'TSC Auto ID', image: '/images/tsc-logo.svg', category: 'Product brand' },
+  { name: 'Bluebird', image: '/images/bluebird-logo.svg', category: 'Product brand' },
   { name: 'Zebra Technologies', image: '/images/zebra.png', category: 'Product brand' },
   { name: 'Honeywell', image: '/images/honeywell.png', category: 'Product brand' },
   { name: 'SATO', image: '/images/sato-logo.png', category: 'Product brand' },

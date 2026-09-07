@@ -145,9 +145,9 @@ export default function Hero() {
                     className={`hero-solution-node absolute z-20 ${node.position}`}
                     style={{ animationDelay: node.delay }}
                   >
-                    <div className="hero-solution-node-card flex min-w-[150px] items-center gap-2.5 rounded-2xl border border-white/75 bg-white/90 px-3 py-2.5 shadow-[0_10px_30px_rgba(15,23,42,0.10)] backdrop-blur-md sm:min-w-[178px] sm:px-3.5 sm:py-3">
+                    <div className="hero-solution-node-card flex min-w-[150px] items-center gap-2.5 rounded-[10px] border border-white/75 bg-white/90 px-3 py-2.5 shadow-[0_10px_30px_rgba(15,23,42,0.10)] backdrop-blur-md sm:min-w-[178px] sm:px-3.5 sm:py-3">
                       <span
-                        className={`grid h-10 w-10 shrink-0 place-items-center rounded-xl sm:h-11 sm:w-11 ${
+                        className={`grid h-10 w-10 shrink-0 place-items-center rounded-[8px] sm:h-11 sm:w-11 ${
                           isOrange
                             ? 'bg-brand-orange/10 text-brand-orange'
                             : 'bg-brand-blue/10 text-brand-blue dark:text-brand-blue-light'

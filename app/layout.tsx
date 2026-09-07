@@ -4,7 +4,6 @@ import './globals.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import FloatingWhatsApp from '@/components/ui/FloatingWhatsApp';
-import ThemeProvider from '@/components/theme/ThemeProvider';
 import { siteConfig } from '@/lib/site';
 
 const outfit = Outfit({
@@ -17,10 +16,7 @@ const outfit = Outfit({
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
-    { media: '(prefers-color-scheme: dark)', color: '#090f1d' },
-  ],
+  themeColor: '#ffffff',
 };
 
 export const metadata: Metadata = {
@@ -84,16 +80,6 @@ export const metadata: Metadata = {
   manifest: '/manifest.webmanifest',
 };
 
-const themeBootstrapScript = `
-(() => {
-  try {
-    const saved = localStorage.getItem('bv-theme');
-    const useDark = saved === 'dark' || (saved !== 'light' && matchMedia('(prefers-color-scheme: dark)').matches);
-    document.documentElement.classList.toggle('dark', useDark);
-    document.documentElement.style.colorScheme = useDark ? 'dark' : 'light';
-  } catch (_) {}
-})();`;
-
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const organizationSchema = {
     '@context': 'https://schema.org',
@@ -117,17 +103,12 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   };
 
   return (
-    <html lang="en-IN" className={outfit.variable} suppressHydrationWarning data-scroll-behavior="smooth">
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: themeBootstrapScript }} />
-      </head>
+    <html lang="en-IN" className={outfit.variable} data-scroll-behavior="smooth" style={{ colorScheme: 'light' }}>
       <body className="min-h-screen bg-background text-foreground antialiased">
-        <ThemeProvider>
-          <Header />
-          <main>{children}</main>
-          <Footer />
-          <FloatingWhatsApp />
-        </ThemeProvider>
+        <Header />
+        <main>{children}</main>
+        <Footer />
+        <FloatingWhatsApp />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}

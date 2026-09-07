@@ -24,13 +24,13 @@ export function buttonVariants({
   };
   const sizes: Record<ButtonSize, string> = {
     default: 'h-11 px-5 py-2.5',
-    sm: 'h-9 rounded-lg px-3.5 text-sm',
-    lg: 'h-12 rounded-xl px-6 text-base',
-    icon: 'size-10 rounded-xl',
+    sm: 'h-9 rounded-[7px] px-3.5 text-sm',
+    lg: 'h-12 rounded-[8px] px-6 text-base',
+    icon: 'size-10 rounded-[8px]',
   };
 
   return cn(
-    'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl text-sm font-semibold transition-[transform,box-shadow,background-color,border-color,color] duration-200 outline-none hover:-translate-y-0.5 focus-visible:ring-4 disabled:pointer-events-none disabled:opacity-50 disabled:hover:translate-y-0',
+    'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-[8px] text-sm font-semibold transition-[transform,box-shadow,background-color,border-color,color] duration-200 outline-none hover:-translate-y-0.5 focus-visible:ring-4 disabled:pointer-events-none disabled:opacity-50 disabled:hover:translate-y-0',
     variants[variant],
     sizes[size],
     className

@@ -21,7 +21,7 @@ export default function CareersHero({ onManage }: { onManage: () => void }) {
             <ChevronRight size={14} className="text-muted-foreground/60" />
             <span className="font-semibold text-foreground">Careers</span>
           </nav>
-          <button type="button" onClick={onManage} className="inline-flex items-center gap-1.5 rounded-lg px-2 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">
+          <button type="button" onClick={onManage} className="inline-flex items-center gap-1.5 rounded-[7px] px-2 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">
             <LockKeyhole size={13} aria-hidden="true" /> Manage Careers
           </button>
         </div>
@@ -42,8 +42,8 @@ export default function CareersHero({ onManage }: { onManage: () => void }) {
 
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-1">
             {highlights.map(({ icon: Icon, label, value }) => (
-              <div key={label} className={`${label === 'Work' ? 'col-span-2 sm:col-span-1' : ''} flex items-center gap-3 rounded-2xl border border-border/90 bg-card/80 p-4 shadow-[0_18px_45px_-38px_rgba(7,17,38,.55)] backdrop-blur`}>
-                <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-brand-blue/[0.08] text-brand-blue dark:bg-brand-blue-light/[0.1] dark:text-brand-blue-light">
+              <div key={label} className={`${label === 'Work' ? 'col-span-2 sm:col-span-1' : ''} flex items-center gap-3 rounded-[10px] border border-border/90 bg-card/80 p-4 shadow-[0_18px_45px_-38px_rgba(7,17,38,.55)] backdrop-blur`}>
+                <span className="grid size-10 shrink-0 place-items-center rounded-[8px] bg-brand-blue/[0.08] text-brand-blue dark:bg-brand-blue-light/[0.1] dark:text-brand-blue-light">
                   <Icon size={18} aria-hidden="true" />
                 </span>
                 <div className="min-w-0">
