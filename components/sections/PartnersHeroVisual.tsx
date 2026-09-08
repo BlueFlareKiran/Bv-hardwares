@@ -7,25 +7,25 @@ const nodes = [
   {
     label: 'Printing',
     icon: Printer,
-    position: 'left-[17%] top-[6%] sm:left-[19%] sm:top-[5%]',
+    position: 'left-[4%] top-[5%] sm:left-[19%] sm:top-[5%]',
     delay: '-0.7s',
   },
   {
     label: 'RFID',
     icon: Radio,
-    position: 'right-[15%] top-[7%] sm:right-[17%] sm:top-[6%]',
+    position: 'right-[4%] top-[6%] sm:right-[17%] sm:top-[6%]',
     delay: '-2.1s',
   },
   {
     label: 'Barcode',
     icon: Barcode,
-    position: 'left-[9%] bottom-[16%] sm:left-[12%] sm:bottom-[14%]',
+    position: 'left-[2%] bottom-[9%] sm:left-[12%] sm:bottom-[14%]',
     delay: '-3.1s',
   },
   {
     label: 'POS',
     icon: Monitor,
-    position: 'right-[8%] bottom-[15%] sm:right-[11%] sm:bottom-[14%]',
+    position: 'right-[2%] bottom-[9%] sm:right-[11%] sm:bottom-[14%]',
     delay: '-1.4s',
   },
 ] as const;
@@ -41,8 +41,8 @@ export default function PartnersHeroVisual() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <div className="relative mx-auto w-full max-w-[690px] overflow-visible py-2 sm:py-5 lg:py-0">
-      <div className="relative aspect-[1.16/1] min-h-[350px] sm:min-h-[430px]">
+    <div className="relative mx-auto w-full max-w-[690px] overflow-hidden py-2 sm:overflow-visible sm:py-5 lg:py-0">
+      <div className="relative aspect-square min-h-[300px] sm:aspect-[1.16/1] sm:min-h-[430px]">
         {/* Soft sweeping background, intentionally close to reference direction #5. */}
         <div className="pointer-events-none absolute -bottom-[10%] -left-[7%] h-[58%] w-[93%] rotate-[-12deg] rounded-[50%] bg-[linear-gradient(135deg,rgba(37,99,235,.10),rgba(96,165,250,.045)_50%,transparent_72%)] blur-[1px]" />
         <div className="pointer-events-none absolute -bottom-[17%] left-[6%] h-[44%] w-[82%] rotate-[-11deg] rounded-[50%] border-[26px] border-blue-100/45 dark:border-blue-900/10" />
@@ -97,11 +97,11 @@ export default function PartnersHeroVisual() {
           transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
         >
           <motion.div
-            className="grid h-[132px] w-[132px] place-items-center rounded-full bg-[radial-gradient(circle_at_30%_25%,#4f8dfd,#2563eb_58%,#1d4ed8_100%)] shadow-[0_24px_52px_rgba(37,99,235,.22)] sm:h-[150px] sm:w-[150px]"
+            className="grid h-[108px] w-[108px] place-items-center rounded-full bg-[radial-gradient(circle_at_30%_25%,#4f8dfd,#2563eb_58%,#1d4ed8_100%)] shadow-[0_24px_52px_rgba(37,99,235,.22)] sm:h-[150px] sm:w-[150px]"
             whileHover={reduceMotion ? undefined : { scale: 1.035 }}
             transition={{ type: 'spring', stiffness: 260, damping: 18 }}
           >
-            <Handshake size={48} strokeWidth={1.85} className="text-white sm:size-[56px]" />
+            <Handshake size={40} strokeWidth={1.85} className="text-white sm:size-[56px]" />
           </motion.div>
           <div className="mt-3 text-center">
             <p className="text-base font-bold leading-tight text-foreground sm:text-lg">Stronger</p>
@@ -120,9 +120,9 @@ export default function PartnersHeroVisual() {
               whileHover={reduceMotion ? undefined : { y: -4, scale: 1.035 }}
               transition={{ type: 'spring', stiffness: 280, damping: 18 }}
             >
-              <div className="flex h-[88px] w-[88px] flex-col items-center justify-center rounded-full border border-blue-100/80 bg-white/94 text-center shadow-[0_14px_34px_rgba(15,23,42,.09)] backdrop-blur-sm sm:h-[100px] sm:w-[100px]">
-                <Icon size={29} strokeWidth={2.1} className="text-brand-blue sm:size-[32px]" />
-                <span className="mt-1.5 text-[11px] font-bold leading-none text-foreground sm:text-xs">{node.label}</span>
+              <div className="flex h-[72px] w-[72px] flex-col items-center justify-center rounded-full border border-blue-100/80 bg-white/94 text-center shadow-[0_14px_34px_rgba(15,23,42,.09)] backdrop-blur-sm sm:h-[100px] sm:w-[100px]">
+                <Icon size={24} strokeWidth={2.1} className="text-brand-blue sm:size-[32px]" />
+                <span className="mt-1.5 text-[10px] font-bold leading-none text-foreground sm:text-xs">{node.label}</span>
               </div>
             </motion.div>
           );

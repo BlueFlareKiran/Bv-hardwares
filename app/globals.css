@@ -662,3 +662,49 @@ b {
     height: 78px;
   }
 }
+
+
+/* Mobile-only layout hardening: prevent decorative/absolute UI from clipping narrow viewports. */
+@media (max-width: 639px) {
+  .container-shell {
+    width: min(100% - 1.25rem, 80rem);
+  }
+
+  .section-space {
+    padding-block: 3.25rem;
+  }
+
+  .container-shell > *,
+  main > *,
+  section > * {
+    min-width: 0;
+  }
+
+  .hero-visual-float {
+    animation-duration: 8.5s;
+    transform-origin: 50% 58%;
+  }
+
+  .hero-glow-blue,
+  .hero-glow-orange {
+    opacity: 0.55;
+    filter: blur(56px);
+  }
+
+  .partners-reference-hub p {
+    font-size: 0.82rem;
+  }
+
+  img,
+  svg {
+    max-width: 100%;
+  }
+
+  a,
+  button,
+  input,
+  select,
+  textarea {
+    min-width: 0;
+  }
+}

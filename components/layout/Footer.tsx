@@ -37,6 +37,7 @@ export default function Footer() {
                 className="h-auto w-[220px] object-contain sm:w-[240px]"
               />
             </Link>
+            <p className="mt-3 text-[10px] font-semibold uppercase tracking-[0.16em] text-brand-orange">{siteConfig.tagline}</p>
             <p className="mt-5 max-w-xl text-sm leading-7 text-slate-400">
               {siteConfig.shortDescription} We help businesses choose suitable hardware, consumables and software for practical day-to-day workflows.
             </p>

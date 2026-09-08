@@ -1,16 +1,11 @@
-BV Hardwares UI patch
+Bhagyashree Ventures tagline placement update
 
 Changes:
-- Refined all main BV product cards via components/ui/ProductCard.tsx
-- Refined HPRT partner product cards via components/ui/PartnerProductCard.tsx
-- Removed visible outer card borders and modernized shadows/spacing
-- Rounded product image stages more strongly
-- Preserved verified spec chips, Get Pricing and View Details actions
-- Replaced all four homepage industry images with the latest supplied assets
-- Uses v4 asset filenames to avoid stale Next/Vercel image cache
+- Removed "Identity | Automate | Grow Together" from the desktop navbar.
+- Removed the tagline block from the mobile navigation menu.
+- Restored the navbar to a more compact height.
+- Added the tagline to the homepage hero as a restrained brand statement below the product-category badge and above the main headline.
+- Tagline wraps safely on small screens and keeps gold separators to match the navy/gold brand system.
 
-After copying into the project root:
-  npm run build
-  git add .
-  git commit -m "Refine product cards and industry images"
-  git push upstream main
+Apply:
+Extract this ZIP directly into the Bv-hardwares project root and choose Replace All.

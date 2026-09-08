@@ -4,7 +4,7 @@ import { ArrowRight, Barcode, CheckCircle2, Monitor, Radio, Tags } from 'lucide-
 import { Badge } from '@/components/ui/Badge';
 import { buttonVariants } from '@/components/ui/Button';
 import ScrollReveal from '@/components/ui/ScrollReveal';
-import { pricingRequestHref } from '@/lib/site';
+import { pricingRequestHref, siteConfig } from '@/lib/site';
 
 const capabilityItems = [
   'Barcode printers & scanners',
@@ -56,7 +56,18 @@ export default function Hero() {
       <div className="container-shell relative grid items-center gap-8 py-10 sm:py-14 lg:grid-cols-[1.02fr_.98fr] lg:gap-8 lg:py-16 xl:gap-10 xl:py-20">
         <div className="max-w-3xl">
           <ScrollReveal delay={0.02}>
-            <Badge className="mb-4">Barcode · Labeling · RFID · POS</Badge>
+            <Badge>Barcode · Labeling · RFID · POS</Badge>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.055}>
+            <div className="mt-4 flex flex-wrap items-center gap-x-2 gap-y-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-brand-blue/75 sm:text-[11px]">
+              {siteConfig.tagline.split(' | ').map((part, index) => (
+                <span key={part} className="inline-flex items-center gap-2">
+                  {index > 0 && <span className="text-brand-orange" aria-hidden="true">|</span>}
+                  <span>{part}</span>
+                </span>
+              ))}
+            </div>
           </ScrollReveal>
 
           <ScrollReveal delay={0.09}>
@@ -89,11 +100,11 @@ export default function Hero() {
 
           <ScrollReveal delay={0.34}>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link href="/products" className={buttonVariants({ size: 'lg', className: 'group hero-cta' })}>
+              <Link href="/products" className={buttonVariants({ size: 'lg', className: 'group hero-cta w-full sm:w-auto' })}>
                 Explore Products
                 <ArrowRight size={17} className="transition-transform group-hover:translate-x-0.5" />
               </Link>
-              <Link href={pricingRequestHref} className={buttonVariants({ variant: 'outline', size: 'lg', className: 'hero-cta' })}>
+              <Link href={pricingRequestHref} className={buttonVariants({ variant: 'outline', size: 'lg', className: 'hero-cta w-full sm:w-auto' })}>
                 Get Pricing
               </Link>
             </div>
@@ -101,12 +112,12 @@ export default function Hero() {
         </div>
 
         <ScrollReveal direction="left" delay={0.12}>
-          <div className="relative mx-auto w-full max-w-[720px] lg:mx-0 lg:ml-auto lg:-mr-4 xl:-mr-8">
+          <div className="relative mx-auto w-full max-w-[720px] overflow-hidden px-1 sm:overflow-visible sm:px-0 lg:mx-0 lg:ml-auto lg:-mr-4 xl:-mr-8">
             <div className="hero-glow-blue pointer-events-none absolute left-[9%] top-[8%] h-[72%] w-[78%] rounded-full bg-brand-blue/10 blur-[82px] dark:bg-brand-blue-light/8" />
             <div className="hero-glow-orange pointer-events-none absolute bottom-[8%] right-[3%] h-[38%] w-[40%] rounded-full bg-brand-orange/10 blur-[72px]" />
 
-            <div className="relative aspect-[4/3] min-h-[360px] sm:min-h-[430px]">
-              <div aria-hidden="true" className="hero-orbit hero-orbit-one">
+            <div className="relative aspect-[1.08/1] min-h-[290px] sm:aspect-[4/3] sm:min-h-[430px]">
+              <div aria-hidden="true" className="hero-orbit hero-orbit-one hidden sm:block">
                 <span className="hero-orbit-runner hero-orbit-runner-blue">
                   <span className="hero-orbit-dot hero-orbit-dot-blue" />
                 </span>
@@ -115,7 +126,7 @@ export default function Hero() {
                 </span>
               </div>
 
-              <div aria-hidden="true" className="hero-orbit hero-orbit-two">
+              <div aria-hidden="true" className="hero-orbit hero-orbit-two hidden sm:block">
                 <span className="hero-orbit-runner hero-orbit-runner-orange">
                   <span className="hero-orbit-dot hero-orbit-dot-orange" />
                 </span>
@@ -124,7 +135,7 @@ export default function Hero() {
                 </span>
               </div>
 
-              <div className="hero-visual-float absolute inset-[16%_3%_0_7%] z-10">
+              <div className="hero-visual-float absolute inset-[4%_0_2%_0] z-10 sm:inset-[16%_3%_0_7%]">
                 <Image
                   src="/images/home/hero-hardware-stack-v8.webp"
                   alt="Barcode printer, scanner, labels, POS terminal and RFID hardware"
@@ -142,7 +153,7 @@ export default function Hero() {
                 return (
                   <div
                     key={node.label}
-                    className={`hero-solution-node absolute z-20 ${node.position}`}
+                    className={`hero-solution-node absolute z-20 hidden sm:block ${node.position}`}
                     style={{ animationDelay: node.delay }}
                   >
                     <div className="hero-solution-node-card flex min-w-[150px] items-center gap-2.5 rounded-[10px] border border-white/75 bg-white/90 px-3 py-2.5 shadow-[0_10px_30px_rgba(15,23,42,0.10)] backdrop-blur-md sm:min-w-[178px] sm:px-3.5 sm:py-3">
@@ -160,6 +171,24 @@ export default function Hero() {
                         <span className="mt-0.5 hidden text-[10px] font-medium text-muted-foreground sm:block sm:text-[11px]">{node.detail}</span>
                       </span>
                     </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            <div className="mt-2 grid grid-cols-2 gap-2 px-1 sm:hidden">
+              {solutionNodes.map((node) => {
+                const Icon = node.icon;
+                const isOrange = node.tone === 'orange';
+                return (
+                  <div key={`mobile-${node.label}`} className="flex min-w-0 items-center gap-2 rounded-[8px] border border-border/90 bg-white/92 px-2.5 py-2 shadow-sm">
+                    <span className={`grid size-8 shrink-0 place-items-center rounded-[7px] ${isOrange ? 'bg-brand-orange/10 text-brand-orange-strong' : 'bg-brand-blue/8 text-brand-blue'}`}>
+                      <Icon size={17} strokeWidth={2.2} />
+                    </span>
+                    <span className="min-w-0">
+                      <span className="block truncate text-xs font-bold text-foreground">{node.label}</span>
+                      <span className="block truncate text-[9px] text-muted-foreground">{node.detail}</span>
+                    </span>
                   </div>
                 );
               })}

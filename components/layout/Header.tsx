@@ -70,7 +70,7 @@ export default function Header() {
           <Link
             href="/"
             aria-label={`${siteConfig.name} home`}
-            className="group relative inline-flex shrink-0 items-center rounded-[8px] p-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/70"
+            className="group relative inline-flex min-w-0 shrink-0 items-center rounded-[8px] p-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/70"
           >
             <span className="pointer-events-none absolute inset-0 rounded-[8px] bg-brand-blue/0 blur-xl transition-colors duration-300 group-hover:bg-brand-blue/6 dark:group-hover:bg-brand-blue-light/8" />
             <Image
@@ -81,8 +81,8 @@ export default function Header() {
               priority
               loading="eager"
               unoptimized
-              sizes="(max-width: 639px) 142px, (max-width: 1023px) 165px, 190px"
-              className="relative h-auto w-[142px] object-contain object-left transition-transform duration-300 group-hover:scale-[1.02] sm:w-[165px] lg:w-[190px]"
+              sizes="(max-width: 639px) 138px, (max-width: 1023px) 160px, 176px"
+              className="relative h-auto w-[138px] object-contain object-left transition-transform duration-300 group-hover:scale-[1.02] sm:w-[160px] lg:w-[176px]"
             />
           </Link>
 

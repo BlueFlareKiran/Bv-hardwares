@@ -5,8 +5,8 @@ export const siteConfig = {
   url: 'https://bvhardwares.in',
   email: 'info@bvhardwares.in',
   phone: {
-    primaryDisplay: '+91 99643 43445',
-    primaryE164: '+919964343445',
+    primaryDisplay: '+91 99233 11090',
+    primaryE164: '+919923311090',
   },
   address: {
     company: 'Bhagyashree Ventures',
@@ -32,6 +32,7 @@ export const siteConfig = {
     'Barcode, labeling, POS, RFID and automatic identification solutions for retail, logistics, healthcare, manufacturing and other business operations.',
   shortDescription:
     'Reliable barcode, labeling, POS, RFID, software and support solutions for business operations.',
+  tagline: 'Identity | Automate | Grow Together',
   logo: '/images/bhagyashree-ventures-navbar.png',
   mark: '/images/bhagyashree-ventures-mark.png',
   icon: '/images/bhagyashree-ventures-icon.png',

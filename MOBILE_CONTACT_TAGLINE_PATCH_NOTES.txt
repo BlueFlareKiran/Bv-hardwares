@@ -1,0 +1,27 @@
+BV Hardwares mobile responsiveness + contact + tagline patch
+
+Changes:
+1. Updated primary contact / WhatsApp number to +91 99233 11090.
+   Because phone/WhatsApp links use siteConfig, the new number propagates across the website.
+2. Added the tagline: Identity | Automate | Grow Together.
+   - Subtle tagline under the desktop navbar logo.
+   - Tagline inside the mobile menu.
+   - Tagline beneath the footer brand logo.
+3. Mobile homepage hero responsiveness:
+   - Prevents floating solution labels from clipping/off-screen on phones.
+   - Uses a clean product visual on mobile with compact 2x2 solution chips below it.
+   - Makes hero CTAs full-width on phones.
+   - Keeps the existing desktop hero layout unchanged.
+4. Mobile partner visual responsiveness:
+   - Shrinks/repositions the circular partner nodes on phones.
+   - Prevents horizontal clipping/overflow.
+   - Desktop layout remains unchanged via sm+ classes.
+5. Added mobile-only layout hardening in globals.css for narrow viewports.
+
+Root replacement files:
+- lib/site.ts
+- components/layout/Header.tsx
+- components/layout/Footer.tsx
+- components/sections/Hero.tsx
+- components/sections/PartnersHeroVisual.tsx
+- app/globals.css
