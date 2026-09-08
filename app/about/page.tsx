@@ -405,7 +405,7 @@ export default function AboutPage() {
               href={epsonCertificate}
               target="_blank"
               rel="noreferrer"
-              className="group block overflow-hidden rounded-[10px] border border-blue-200/80 bg-white shadow-[0_28px_72px_-44px_rgba(18,55,165,.4)]"
+              className="group block rounded-none border-0 bg-transparent p-0 shadow-none"
               aria-label="Open the Bhagyashree Ventures Epson System Integrator certificate"
             >
               <Image
@@ -414,16 +414,18 @@ export default function AboutPage() {
                 width={1456}
                 height={1088}
                 sizes="(max-width: 1024px) 100vw, 62vw"
-                className="h-auto w-full object-contain transition-transform duration-500 group-hover:scale-[1.008]"
+                className="block h-auto w-full rounded-[6px] object-cover transition-transform duration-500 group-hover:scale-[1.008]"
               />
             </a>
           </ScrollReveal>
 
           <ScrollReveal direction="left" delay={0.05}>
             <div>
-              <Badge>Technology Partnership</Badge>
-              <div className="mt-5 inline-flex size-11 items-center justify-center rounded-[8px] border border-blue-200 bg-blue-50 text-brand-blue">
+              <div className="flex flex-wrap items-center gap-3">
+                <Badge>Technology Partnership</Badge>
+                <div className="inline-flex size-11 items-center justify-center rounded-[8px] border border-blue-200 bg-blue-50 text-brand-blue">
                 <Printer size={21} aria-hidden="true" />
+                </div>
               </div>
               <h2 className="mt-4 text-[clamp(2rem,4vw,3.25rem)] font-bold leading-[1.04] tracking-[-0.04em] text-foreground">
                 Epson System Integrator

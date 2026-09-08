@@ -3,6 +3,7 @@
 import { ChangeEvent, FormEvent, useEffect, useRef, useState } from 'react';
 import { AlertCircle, CheckCircle2, FileText, LoaderCircle, Send, UploadCloud } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
+import { TurnstileWidget, turnstileClientEnabled } from '@/components/ui/TurnstileWidget';
 
 interface Props {
   jobId: string;
@@ -21,6 +22,8 @@ export default function ApplicationForm({ jobId, jobTitle }: Props) {
   const [feedback, setFeedback] = useState('');
   const [filename, setFilename] = useState('');
   const [mockDelivery, setMockDelivery] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState('');
+  const [turnstileResetKey, setTurnstileResetKey] = useState(0);
 
   useEffect(() => {
     startedAt.current = Date.now();
@@ -53,6 +56,7 @@ export default function ApplicationForm({ jobId, jobTitle }: Props) {
     const data = new FormData(event.currentTarget);
     data.set('jobId', jobId);
     data.set('startedAt', String(startedAt.current));
+    data.set('turnstileToken', turnstileToken);
     setState('sending');
     setFeedback('');
 
@@ -68,6 +72,8 @@ export default function ApplicationForm({ jobId, jobTitle }: Props) {
     } catch (reason) {
       setState('error');
       setFeedback(reason instanceof Error ? reason.message : 'Unable to submit your application right now.');
+      setTurnstileToken('');
+      setTurnstileResetKey((value) => value + 1);
     }
   }
 
@@ -118,9 +124,11 @@ export default function ApplicationForm({ jobId, jobTitle }: Props) {
         </div>
       </label>
 
+      <TurnstileWidget action="career_application" onToken={setTurnstileToken} resetKey={turnstileResetKey} />
+
       {feedback && <div role="alert" className="flex items-start gap-2.5 rounded-[8px] border border-red-500/20 bg-red-500/8 p-4 text-sm text-red-700 dark:text-red-300"><AlertCircle size={18} className="mt-0.5 shrink-0" />{feedback}</div>}
 
-      <Button type="submit" size="lg" disabled={state === 'sending'} className="w-full sm:w-auto">{state === 'sending' ? <LoaderCircle size={17} className="animate-spin" /> : <Send size={17} />}{state === 'sending' ? 'Submitting…' : 'Submit Application'}</Button>
+      <Button type="submit" size="lg" disabled={state === 'sending' || (turnstileClientEnabled && !turnstileToken)} className="w-full sm:w-auto">{state === 'sending' ? <LoaderCircle size={17} className="animate-spin" /> : <Send size={17} />}{state === 'sending' ? 'Submitting…' : 'Submit Application'}</Button>
       <p className="text-xs leading-5 text-muted-foreground">Your details and resume are sent only to the Bhagyashree Ventures hiring team for recruitment review.</p>
     </form>
   );

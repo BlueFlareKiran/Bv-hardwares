@@ -10,9 +10,10 @@ import { pricingRequestHref } from '@/lib/site';
 interface ProductCardProps {
   product: Product;
   categoryLabel?: string;
+  eager?: boolean;
 }
 
-export default function ProductCard({ product, categoryLabel }: ProductCardProps) {
+export default function ProductCard({ product, categoryLabel, eager = false }: ProductCardProps) {
   const reduceMotion = useReducedMotion();
 
   return (
@@ -32,6 +33,8 @@ export default function ProductCard({ product, categoryLabel }: ProductCardProps
           alt={product.name}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          loading={eager ? 'eager' : 'lazy'}
+          fetchPriority={eager ? 'high' : 'auto'}
           className={`${product.imageFit === 'contain' ? 'object-contain p-3 sm:p-4' : 'object-cover'} object-center transition-transform duration-500 ease-out group-hover:scale-[1.025]`}
         />
       </div>

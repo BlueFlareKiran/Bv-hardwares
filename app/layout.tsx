@@ -20,6 +20,8 @@ export const viewport: Viewport = {
   themeColor: '#ffffff',
 };
 
+const isIndexableDeployment = !process.env.VERCEL_ENV || process.env.VERCEL_ENV === 'production';
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
@@ -80,12 +82,18 @@ export const metadata: Metadata = {
   },
   manifest: '/manifest.webmanifest',
   category: 'business',
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION || undefined,
+    other: process.env.BING_SITE_VERIFICATION
+      ? { 'msvalidate.01': process.env.BING_SITE_VERIFICATION }
+      : undefined,
+  },
   robots: {
-    index: true,
-    follow: true,
+    index: isIndexableDeployment,
+    follow: isIndexableDeployment,
     googleBot: {
-      index: true,
-      follow: true,
+      index: isIndexableDeployment,
+      follow: isIndexableDeployment,
       'max-image-preview': 'large',
       'max-snippet': -1,
       'max-video-preview': -1,

@@ -1,0 +1,26 @@
+BV Hardwares — SEO + anti-spam/security patch
+
+Security / spam protection:
+- Shared async rate-limit backend with memory mode for local development and Upstash Redis mode for production.
+- Contact: 3/10 min/IP, 10/day/IP, 3/hour/email, plus recent duplicate blocking.
+- Careers: 3/30 min/IP, 5/day/IP, 2/day for same email+job, plus duplicate resume/application blocking.
+- Careers admin login rate limiting moved to the shared backend.
+- Same-origin POST checks retained/added for public submission routes.
+- Cloudflare Turnstile widget + server verification support for Contact and Careers.
+- Existing honeypot, minimum-submit-time, validation and resume validation retained.
+- Rate-limited responses include Retry-After.
+
+SEO / performance:
+- Unique Bengaluru-focused metadata for all product category pages.
+- Dedicated barcode repair/maintenance SEO metadata.
+- Service schema JSON-LD on /products/service.
+- Search Console + Bing verification hooks.
+- Vercel preview deployments set non-indexable.
+- Above-the-fold product images use eager/high-priority loading to address LCP warnings.
+- Improved Products and Contact page titles.
+
+Important:
+- Local development works with RATE_LIMIT_MODE=memory and Turnstile variables empty.
+- For production distributed protection, configure Upstash and set RATE_LIMIT_MODE=upstash.
+- To activate Turnstile, configure BOTH NEXT_PUBLIC_TURNSTILE_SITE_KEY and TURNSTILE_SECRET_KEY.
+- See SECURITY_AND_SEO_SETUP.md for full setup instructions.

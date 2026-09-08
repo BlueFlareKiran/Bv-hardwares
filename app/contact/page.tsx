@@ -19,7 +19,7 @@ import { buttonVariants } from '@/components/ui/Button';
 import { googleMapsSearchUrl, registeredOfficeMapsUrl, siteConfig, whatsappUrl } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'Contact Us',
+  title: 'Contact Barcode, RFID & POS Solutions Team in Bengaluru',
   description:
     'Contact Bhagyashree Ventures in Bengaluru for barcode printers, scanners, RFID, POS, labels, ribbons, software and service enquiries.',
   alternates: { canonical: '/contact' },

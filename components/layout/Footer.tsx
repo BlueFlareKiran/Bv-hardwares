@@ -19,18 +19,18 @@ const locations = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-[#030712] text-slate-300">
+    <footer className="border-t border-brand-blue/10 bg-[linear-gradient(180deg,#081a36_0%,#041224_100%)] text-slate-300">
       <div className="container-shell py-14 sm:py-16">
         <div className="grid gap-10 border-b border-white/10 pb-12 md:grid-cols-2 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <Link href="/" aria-label={`${siteConfig.name} home`} className="inline-block rounded-[8px] bg-white p-2.5">
+            <Link href="/" aria-label={`${siteConfig.name} home`} className="inline-flex rounded-[10px] border border-white/12 bg-white/95 p-3 shadow-[0_18px_40px_-24px_rgba(0,0,0,0.5)]">
               <Image
-                src={siteConfig.logo}
+                src={siteConfig.mark}
                 alt={siteConfig.name}
-                width={1576}
-                height={419}
+                width={512}
+                height={512}
                 unoptimized
-                className="h-auto w-[250px] object-contain"
+                className="h-auto w-[72px] object-contain"
               />
             </Link>
             <p className="mt-5 max-w-xl text-sm leading-7 text-slate-400">
@@ -59,9 +59,9 @@ export default function Footer() {
             <div className="mt-4 space-y-4 text-sm text-slate-400">
               {locations.map((location) => (
                 <a key={location.label} href={location.href} target="_blank" rel="noreferrer" className="flex items-start gap-3 transition-colors hover:text-white">
-                  <MapPin size={18} className="mt-0.5 shrink-0 text-orange-400" />
+                  <MapPin size={18} className="mt-0.5 shrink-0 text-brand-orange" />
                   <span>
-                    <span className="font-semibold text-slate-200">{location.label}</span><br />
+                    <span className="font-semibold text-white">{location.label}</span><br />
                     {location.address.line1}<br />
                     {location.address.line2}<br />
                     {location.address.city}, {location.address.district} – {location.address.postalCode}
@@ -69,14 +69,14 @@ export default function Footer() {
                 </a>
               ))}
               <a href={`tel:${siteConfig.phone.primaryE164}`} className="flex items-center gap-3 transition-colors hover:text-white">
-                <Phone size={18} className="shrink-0 text-orange-400" />
+                <Phone size={18} className="shrink-0 text-brand-orange" />
                 {siteConfig.phone.primaryDisplay}
               </a>
               <a href={`mailto:${siteConfig.email}`} className="flex items-center gap-3 transition-colors hover:text-white">
-                <Mail size={18} className="shrink-0 text-orange-400" />
+                <Mail size={18} className="shrink-0 text-brand-orange" />
                 {siteConfig.email}
               </a>
-              <Link href="/contact" className="inline-flex items-center gap-1.5 font-semibold text-orange-300 hover:text-orange-200">
+              <Link href="/contact" className="inline-flex items-center gap-1.5 font-semibold text-brand-orange hover:text-[#f3d675]">
                 Contact the team <ArrowUpRight size={15} />
               </Link>
             </div>

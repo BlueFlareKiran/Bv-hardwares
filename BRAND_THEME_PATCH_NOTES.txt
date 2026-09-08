@@ -1,0 +1,17 @@
+Brand/theme patch contents:
+- Swapped site branding assets to the new Bhagyashree Ventures mark-only logo.
+- Updated the site theme from blue/orange to a premium navy/gold palette.
+- Updated button styling to use gold primary CTA and navy secondary CTA.
+- Updated header logo sizing for the new square mark.
+- Updated footer branding to use the mark-only logo and gold accents.
+
+Files included:
+app/globals.css
+components/layout/Footer.tsx
+components/layout/Header.tsx
+components/ui/Button.tsx
+lib/site.ts
+public/images/bhagyashree-ventures-icon.png
+public/images/bhagyashree-ventures-logo.png
+public/images/bhagyashree-ventures-mark-premium.png
+public/images/bhagyashree-ventures-mark.png

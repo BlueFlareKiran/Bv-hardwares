@@ -9,9 +9,9 @@ import { Badge } from '@/components/ui/Badge';
 import { productCategories } from '@/lib/data/products';
 
 export const metadata: Metadata = {
-  title: 'Products | Barcode, RFID, POS, Labels & Ribbons',
+  title: 'Barcode, RFID, POS & Labeling Products in Bengaluru',
   description:
-    'Browse Bhagyashree Ventures product categories including barcode printers, scanners, RFID devices, labels, ribbons, POS hardware, mobile computers, software and service.',
+    'Browse barcode printers, scanners, RFID devices, labels, ribbons, POS hardware, mobile computers, software and technical services from Bhagyashree Ventures in Bengaluru.',
   alternates: { canonical: '/products' },
 };
 

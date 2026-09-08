@@ -1,9 +1,12 @@
+import { createHash } from 'crypto';
 import { NextResponse } from 'next/server';
 import { siteConfig } from '@/lib/site';
 import { getJobs } from '@/lib/server/careers-store';
-import { allowRequest, getClientIp } from '@/lib/server/rate-limit';
+import { anonymousKey, checkRateLimit, getClientIp, RateLimitBackendError, rememberSubmission, wasRecentlySubmitted } from '@/lib/server/rate-limit';
 import { EmailConfigurationError, escapeHtml, sendEmail } from '@/lib/server/email';
 import { renderBrandedEmail } from '@/lib/server/email-templates';
+import { isSameOriginRequest } from '@/lib/server/request-origin';
+import { verifyTurnstileToken } from '@/lib/server/turnstile';
 
 export const runtime = 'nodejs';
 
@@ -48,11 +51,19 @@ function safeFilename(value: string) {
   return cleaned || 'resume';
 }
 
+function rateLimited(message: string, retryAfterSeconds: number) {
+  return NextResponse.json(
+    { error: message },
+    { status: 429, headers: { 'Retry-After': String(retryAfterSeconds) } }
+  );
+}
+
 export async function POST(request: Request) {
-  const ip = getClientIp(request);
-  if (!allowRequest(`career-apply:${ip}`, 5, 15 * 60 * 1000)) {
-    return NextResponse.json({ error: 'Too many applications were submitted. Please try again later.' }, { status: 429 });
+  if (!isSameOriginRequest(request)) {
+    return NextResponse.json({ error: 'Invalid request origin.' }, { status: 403 });
   }
+
+  const ip = getClientIp(request);
 
   try {
     const formData = await request.formData().catch(() => null);
@@ -73,6 +84,7 @@ export async function POST(request: Request) {
     const noticePeriod = text(formData, 'noticePeriod', 120);
     const linkedinUrl = text(formData, 'linkedinUrl', 300);
     const coverMessage = text(formData, 'coverMessage', 3500);
+    const turnstileToken = text(formData, 'turnstileToken', 2048);
     const resume = formData.get('resume');
 
     if (!jobId || !fullName || !email || !phone || !currentLocation || !totalExperience) {
@@ -83,6 +95,31 @@ export async function POST(request: Request) {
 
     const job = (await getJobs()).find((item) => item.id === jobId && item.published);
     if (!job) return NextResponse.json({ error: 'This job is no longer available.' }, { status: 404 });
+
+    const ipIdentity = anonymousKey(ip);
+    const shortIpLimit = await checkRateLimit(`career:ip:30m:${ipIdentity}`, 3, 30 * 60 * 1000);
+    if (!shortIpLimit.allowed) {
+      return rateLimited('Too many applications were submitted from this connection. Please try again later.', shortIpLimit.retryAfterSeconds);
+    }
+
+    const dailyIpLimit = await checkRateLimit(`career:ip:day:${ipIdentity}`, 5, 24 * 60 * 60 * 1000);
+    if (!dailyIpLimit.allowed) {
+      return rateLimited('The daily application limit has been reached for this connection. Please try again tomorrow.', dailyIpLimit.retryAfterSeconds);
+    }
+
+    const turnstile = await verifyTurnstileToken(turnstileToken, ip, 'career_application');
+    if (!turnstile.ok) {
+      return NextResponse.json(
+        { error: turnstile.reason || 'Anti-spam verification failed.' },
+        { status: turnstile.unavailable ? 503 : 400 }
+      );
+    }
+
+    const applicantIdentity = anonymousKey(`${email}|${job.id}`);
+    const applicantLimit = await checkRateLimit(`career:applicant:day:${applicantIdentity}`, 2, 24 * 60 * 60 * 1000);
+    if (!applicantLimit.allowed) {
+      return rateLimited('This role has already received multiple applications from this email address today. Please try again later.', applicantLimit.retryAfterSeconds);
+    }
 
     if (!(resume instanceof File) || resume.size === 0) return NextResponse.json({ error: 'Please attach your resume.' }, { status: 400 });
     if (resume.size > MAX_RESUME_BYTES) return NextResponse.json({ error: 'Resume must be 3 MB or smaller.' }, { status: 400 });
@@ -106,6 +143,11 @@ export async function POST(request: Request) {
       department: escapeHtml(job.department),
     };
     const attachment = Buffer.from(await resume.arrayBuffer());
+    const resumeDigest = createHash('sha256').update(attachment).digest('hex');
+    const duplicateIdentity = anonymousKey(`${email}|${job.id}|${resumeDigest}`);
+    if (await wasRecentlySubmitted(`career:${duplicateIdentity}`)) {
+      return rateLimited('This application was already submitted recently. Please do not send the same application again.', 24 * 60 * 60);
+    }
 
     const delivery = await sendEmail({
       to: destination,
@@ -140,10 +182,22 @@ export async function POST(request: Request) {
       text: [`New application: ${job.title}`, `Candidate: ${fullName}`, `Email: ${email}`, `Phone / WhatsApp: ${phone}`, `Current location: ${currentLocation}`, `Total experience: ${totalExperience}`, `Current company: ${currentCompany || 'Not provided'}`, `Notice period: ${noticePeriod || 'Not provided'}`, `LinkedIn / portfolio: ${linkedinUrl || 'Not provided'}`, '', 'Cover message:', coverMessage || 'No cover message'].join('\n'),
     });
 
+    await rememberSubmission(`career:${duplicateIdentity}`, 24 * 60 * 60 * 1000);
+
     return NextResponse.json({ ok: true, mode: delivery.mode });
   } catch (error) {
     console.error('Career application failed:', error);
     const configurationError = error instanceof EmailConfigurationError;
-    return NextResponse.json({ error: configurationError ? 'Application delivery is not configured yet. Please contact the company directly.' : 'We could not submit your application right now. Please try again later.' }, { status: configurationError ? 503 : 500 });
+    const protectionError = error instanceof RateLimitBackendError;
+    return NextResponse.json(
+      {
+        error: configurationError
+          ? 'Application delivery is not configured yet. Please contact the company directly.'
+          : protectionError
+            ? 'Submission protection is temporarily unavailable. Please try again shortly.'
+            : 'We could not submit your application right now. Please try again later.',
+      },
+      { status: configurationError || protectionError ? 503 : 500 }
+    );
   }
 }

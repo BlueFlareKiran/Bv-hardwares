@@ -12,6 +12,73 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
+const categorySeo: Record<string, { title: string; description: string }> = {
+  labels: {
+    title: 'Barcode Labels & Tags in Bengaluru',
+    description: 'Barcode labels, RFID tags, jewellery labels, tamper-evident labels and application-specific label materials from Bhagyashree Ventures in Bengaluru.',
+  },
+  'pos-rolls': {
+    title: 'POS Rolls & Receipt Paper in Bengaluru',
+    description: 'POS receipt rolls and pre-printed paper rolls for retail, billing and transaction printing requirements in Bengaluru.',
+  },
+  ribbon: {
+    title: 'Thermal Transfer Ribbons in Bengaluru',
+    description: 'Wax, wax-resin, resin, wash-care and colour thermal transfer ribbons for barcode and label printing applications in Bengaluru.',
+  },
+  'packaging-material': {
+    title: 'Packaging Materials in Bengaluru',
+    description: 'Tapes, courier bags, paper bags, stretch film and protective packaging materials for business operations in Bengaluru.',
+  },
+  'label-printer': {
+    title: 'Barcode & Label Printers in Bengaluru',
+    description: 'Desktop and industrial barcode label printers for retail, warehousing, manufacturing, logistics and business workflows in Bengaluru.',
+  },
+  'pos-printer': {
+    title: 'POS & Receipt Printers in Bengaluru',
+    description: 'Point-of-sale and receipt printers for retail, hospitality, billing and transaction workflows in Bengaluru.',
+  },
+  'rfid-printer': {
+    title: 'RFID Printers in Bengaluru',
+    description: 'RFID-capable barcode and label printers for encoding, identification, inventory and asset-tracking workflows in Bengaluru.',
+  },
+  'bluetooth-printer': {
+    title: 'Bluetooth & Mobile Printers in Bengaluru',
+    description: 'Bluetooth-enabled and mobile printing solutions for portable barcode, label and receipt printing applications in Bengaluru.',
+  },
+  accessories: {
+    title: 'Barcode Printer Accessories & Spares in Bengaluru',
+    description: 'Printer heads, spare parts, cleaning products, media stands and accessories for barcode printer maintenance in Bengaluru.',
+  },
+  'wired-scanner': {
+    title: 'Wired Barcode Scanners in Bengaluru',
+    description: 'Wired barcode scanners for retail counters, warehouses, inventory, checkout and fixed workstations in Bengaluru.',
+  },
+  'wireless-scanner': {
+    title: 'Wireless & Bluetooth Barcode Scanners in Bengaluru',
+    description: 'Wireless and Bluetooth barcode scanners for mobile scanning across retail, warehouse, inventory and logistics workflows in Bengaluru.',
+  },
+  'tabletop-scanner': {
+    title: 'Tabletop Barcode Scanners in Bengaluru',
+    description: 'Hands-free presentation and tabletop barcode scanners for counters, checkout and high-throughput scanning in Bengaluru.',
+  },
+  'hht-mobile': {
+    title: 'Handheld Mobile Computers & HHT Devices in Bengaluru',
+    description: 'Handheld terminals and mobile computers for barcode scanning, data capture, inventory and connected business workflows in Bengaluru.',
+  },
+  'rfid-device': {
+    title: 'RFID Readers & Devices in Bengaluru',
+    description: 'RFID readers, antennas and mobile RFID devices for inventory, identification, asset tracking and automated data capture in Bengaluru.',
+  },
+  software: {
+    title: 'Barcode Software & Mobile Applications in Bengaluru',
+    description: 'Barcode software, label-design tools and customized mobile applications for printing, scanning and workflow integration in Bengaluru.',
+  },
+  service: {
+    title: 'Barcode Printer Repair & Maintenance Services in Bengaluru',
+    description: 'Barcode printer repair, preventive maintenance, technical service and facility management support for printing, scanning and RFID equipment in Bengaluru.',
+  },
+};
+
 export async function generateStaticParams() {
   return allCategorySlugs.map((slug) => ({ slug }));
 }
@@ -21,13 +88,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const category = productCategories[slug];
   if (!category) return { title: 'Product Category Not Found' };
 
+  const seo = categorySeo[category.slug] ?? {
+    title: `${category.title} in Bengaluru`,
+    description: `${category.description} Available from Bhagyashree Ventures in Bengaluru with product selection and support.`,
+  };
+
   return {
-    title: category.title,
-    description: category.description,
+    title: seo.title,
+    description: seo.description,
     alternates: { canonical: `/products/${category.slug}` },
     openGraph: {
-      title: `${category.title} | Bhagyashree Ventures`,
-      description: category.description,
+      title: `${seo.title} | Bhagyashree Ventures`,
+      description: seo.description,
       images: [{ url: category.coverImage }],
     },
   };
@@ -66,6 +138,27 @@ export default async function ProductCategoryPage({ params }: PageProps) {
       name: product.name,
     })),
   };
+
+  const serviceSchema = category.slug === 'service'
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'Service',
+        name: 'Barcode Printer Repair & Maintenance Services',
+        serviceType: 'Barcode printer repair, preventive maintenance and facility management services',
+        provider: {
+          '@type': 'Organization',
+          name: siteConfig.name,
+          url: siteConfig.url,
+          telephone: siteConfig.phone.primaryE164,
+        },
+        areaServed: { '@type': 'Country', name: 'India' },
+        availableChannel: {
+          '@type': 'ServiceChannel',
+          serviceUrl: `${siteConfig.url}/products/service`,
+        },
+        description: categorySeo.service.description,
+      }
+    : null;
 
   return (
     <>
@@ -126,8 +219,8 @@ export default async function ProductCategoryPage({ params }: PageProps) {
                   )}
 
                   <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                    {products.map((product) => (
-                      <ProductCard key={product.id} product={product} categoryLabel={category.title} />
+                    {products.map((product, index) => (
+                      <ProductCard key={product.id} product={product} categoryLabel={category.title} eager={index < 3} />
                     ))}
                   </div>
                 </section>
@@ -167,6 +260,9 @@ export default async function ProductCategoryPage({ params }: PageProps) {
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }} />
+      {serviceSchema ? (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      ) : null}
     </>
   );
 }

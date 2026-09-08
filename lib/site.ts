@@ -32,7 +32,7 @@ export const siteConfig = {
     'Barcode, labeling, POS, RFID and automatic identification solutions for retail, logistics, healthcare, manufacturing and other business operations.',
   shortDescription:
     'Reliable barcode, labeling, POS, RFID, software and support solutions for business operations.',
-  logo: '/images/bhagyashree-ventures-logo.png',
+  logo: '/images/bhagyashree-ventures-navbar.png',
   mark: '/images/bhagyashree-ventures-mark.png',
   icon: '/images/bhagyashree-ventures-icon.png',
 } as const;

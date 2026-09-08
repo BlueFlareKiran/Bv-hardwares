@@ -1,8 +1,10 @@
 import { NextResponse } from 'next/server';
 import { siteConfig } from '@/lib/site';
-import { allowRequest, getClientIp } from '@/lib/server/rate-limit';
+import { anonymousKey, checkRateLimit, getClientIp, RateLimitBackendError, rememberSubmission, wasRecentlySubmitted } from '@/lib/server/rate-limit';
 import { EmailConfigurationError, escapeHtml, sendEmail } from '@/lib/server/email';
 import { renderBrandedEmail } from '@/lib/server/email-templates';
+import { isSameOriginRequest } from '@/lib/server/request-origin';
+import { verifyTurnstileToken } from '@/lib/server/turnstile';
 
 export const runtime = 'nodejs';
 
@@ -12,14 +14,19 @@ function clean(value: unknown, maxLength = 500) {
   return typeof value === 'string' ? value.trim().slice(0, maxLength) : '';
 }
 
+function rateLimited(message: string, retryAfterSeconds: number) {
+  return NextResponse.json(
+    { error: message },
+    { status: 429, headers: { 'Retry-After': String(retryAfterSeconds) } }
+  );
+}
+
 export async function POST(request: Request) {
-  const ip = getClientIp(request);
-  if (!allowRequest(`contact:${ip}`, 6, 10 * 60 * 1000)) {
-    return NextResponse.json(
-      { error: 'Too many enquiries were submitted. Please try again in a few minutes.' },
-      { status: 429 }
-    );
+  if (!isSameOriginRequest(request)) {
+    return NextResponse.json({ error: 'Invalid request origin.' }, { status: 403 });
   }
+
+  const ip = getClientIp(request);
 
   try {
     const body = await request.json().catch(() => null);
@@ -35,6 +42,7 @@ export async function POST(request: Request) {
     const message = clean(body.message, 4000);
     const website = clean(body.website, 200);
     const startedAt = Number(body.startedAt || 0);
+    const turnstileToken = clean(body.turnstileToken, 2048);
 
     if (website) {
       return NextResponse.json({ ok: true });
@@ -50,6 +58,38 @@ export async function POST(request: Request) {
 
     if (!emailPattern.test(email)) {
       return NextResponse.json({ error: 'Please enter a valid email address.' }, { status: 400 });
+    }
+
+    const ipIdentity = anonymousKey(ip);
+    const tenMinuteIpLimit = await checkRateLimit(`contact:ip:10m:${ipIdentity}`, 3, 10 * 60 * 1000);
+    if (!tenMinuteIpLimit.allowed) {
+      return rateLimited('Too many enquiries were submitted from this connection. Please try again later.', tenMinuteIpLimit.retryAfterSeconds);
+    }
+
+    const dailyIpLimit = await checkRateLimit(`contact:ip:day:${ipIdentity}`, 10, 24 * 60 * 60 * 1000);
+    if (!dailyIpLimit.allowed) {
+      return rateLimited('The daily enquiry limit has been reached for this connection. Please try again tomorrow.', dailyIpLimit.retryAfterSeconds);
+    }
+
+    const turnstile = await verifyTurnstileToken(turnstileToken, ip, 'contact_enquiry');
+    if (!turnstile.ok) {
+      return NextResponse.json(
+        { error: turnstile.reason || 'Anti-spam verification failed.' },
+        { status: turnstile.unavailable ? 503 : 400 }
+      );
+    }
+
+    const emailIdentity = anonymousKey(email);
+    const emailLimit = await checkRateLimit(`contact:email:hour:${emailIdentity}`, 3, 60 * 60 * 1000);
+    if (!emailLimit.allowed) {
+      return rateLimited('Too many enquiries were submitted with this email address. Please try again later.', emailLimit.retryAfterSeconds);
+    }
+
+    const duplicateIdentity = anonymousKey(
+      `${email}|${productInterest.toLowerCase()}|${message.toLowerCase().replace(/\s+/g, ' ')}`
+    );
+    if (await wasRecentlySubmitted(`contact:${duplicateIdentity}`)) {
+      return rateLimited('This enquiry was already submitted recently. Please wait before sending it again.', 10 * 60);
     }
 
     const destination = process.env.CONTACT_EMAIL?.trim() || siteConfig.email;
@@ -99,17 +139,22 @@ export async function POST(request: Request) {
       ].join('\n'),
     });
 
+    await rememberSubmission(`contact:${duplicateIdentity}`, 10 * 60 * 1000);
+
     return NextResponse.json({ ok: true, mode: delivery.mode });
   } catch (error) {
     console.error('Contact enquiry failed:', error);
     const configurationError = error instanceof EmailConfigurationError;
+    const protectionError = error instanceof RateLimitBackendError;
     return NextResponse.json(
       {
         error: configurationError
           ? 'Email delivery is not configured yet. Please contact us by phone or WhatsApp.'
-          : 'We could not send your enquiry right now. Please try again or contact us on WhatsApp.',
+          : protectionError
+            ? 'Submission protection is temporarily unavailable. Please try again shortly.'
+            : 'We could not send your enquiry right now. Please try again or contact us on WhatsApp.',
       },
-      { status: configurationError ? 503 : 500 }
+      { status: configurationError || protectionError ? 503 : 500 }
     );
   }
 }

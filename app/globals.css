@@ -20,31 +20,31 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  --color-brand-navy: #071126;
-  --color-brand-blue: #1237a5;
-  --color-brand-blue-strong: #0a237c;
-  --color-brand-blue-light: #7897ff;
-  --color-brand-orange: #f35b0a;
-  --color-brand-orange-strong: #d94800;
-  --color-brand-orange-soft: #fff0e8;
+  --color-brand-navy: #041a38;
+  --color-brand-blue: #082653;
+  --color-brand-blue-strong: #061c3f;
+  --color-brand-blue-light: #5a7daa;
+  --color-brand-orange: #d6a63a;
+  --color-brand-orange-strong: #b8891d;
+  --color-brand-orange-soft: #fff7e6;
 
-  --shadow-soft: 0 20px 60px -36px rgba(7, 17, 38, 0.30);
-  --shadow-card: 0 20px 52px -38px rgba(7, 17, 38, 0.34);
+  --shadow-soft: 0 20px 60px -36px rgba(4, 26, 56, 0.26);
+  --shadow-card: 0 20px 52px -38px rgba(4, 26, 56, 0.28);
 }
 
 :root {
-  --background: #fcfdff;
-  --foreground: #131b2c;
+  --background: #fdfdfb;
+  --foreground: #0b1d3a;
   --card: #ffffff;
-  --card-foreground: #131b2c;
-  --muted: #f3f6fb;
-  --muted-foreground: #667085;
-  --border: #e2e7f0;
-  --input: #d6deea;
-  --ring: #1237a5;
-  --scrollbar-track: #edf1f7;
-  --scrollbar-thumb: #1237a5;
-  --scrollbar-thumb-hover: #f35b0a;
+  --card-foreground: #0b1d3a;
+  --muted: #f6f8fb;
+  --muted-foreground: #5f6f83;
+  --border: #e3e9f0;
+  --input: #d6dee9;
+  --ring: #082653;
+  --scrollbar-track: #eef2f6;
+  --scrollbar-thumb: #082653;
+  --scrollbar-thumb-hover: #d6a63a;
 }
 
 * {
@@ -63,7 +63,7 @@ html {
 .site-scroll-area {
   overscroll-behavior-y: contain;
   scroll-behavior: smooth;
-  scrollbar-color: #4561c7 transparent;
+  scrollbar-color: var(--scrollbar-thumb) transparent;
   scrollbar-gutter: stable;
   scrollbar-width: thin;
 }
@@ -81,12 +81,12 @@ html {
   min-height: 52px;
   border: 2px solid transparent;
   border-radius: 999px;
-  background: #4561c7;
+  background: var(--scrollbar-thumb);
   background-clip: padding-box;
 }
 
 .site-scroll-area::-webkit-scrollbar-thumb:hover {
-  background: #1237a5;
+  background: var(--scrollbar-thumb-hover);
   background-clip: padding-box;
 }
 
@@ -127,9 +127,9 @@ body {
   height: 100%;
   margin: 0;
   background:
-    radial-gradient(circle at 12% -8%, rgba(18, 55, 165, 0.045), transparent 27rem),
-    radial-gradient(circle at 92% 6%, rgba(243, 91, 10, 0.035), transparent 24rem),
-    var(--background);
+    radial-gradient(circle at 12% -8%, rgba(8, 38, 83, 0.05), transparent 28rem),
+    radial-gradient(circle at 92% 6%, rgba(214, 166, 58, 0.08), transparent 24rem),
+    linear-gradient(180deg, #fffdfa 0%, #fcfdff 100%);
   color: var(--foreground);
   font-family: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
   line-height: 1.6;
@@ -150,7 +150,7 @@ b {
 }
 
 ::selection {
-  background: rgba(243, 91, 10, 0.22);
+  background: rgba(214, 166, 58, 0.26);
 }
 
 :focus-visible {
@@ -201,22 +201,22 @@ b {
   position: absolute;
   inset: 0 0 auto 0;
   height: 1px;
-  background: linear-gradient(90deg, rgba(18, 55, 165, 0.45), rgba(18, 55, 165, 0.06), rgba(243, 91, 10, 0.45));
+  background: linear-gradient(90deg, rgba(8, 38, 83, 0.48), rgba(8, 38, 83, 0.08), rgba(214, 166, 58, 0.55));
   opacity: 0.7;
 }
 
 .brand-surface {
   background:
-    radial-gradient(circle at 15% 10%, rgba(18, 55, 165, 0.10), transparent 22rem),
-    radial-gradient(circle at 90% 14%, rgba(243, 91, 10, 0.08), transparent 20rem),
+    radial-gradient(circle at 15% 10%, rgba(8, 38, 83, 0.10), transparent 22rem),
+    radial-gradient(circle at 90% 14%, rgba(214, 166, 58, 0.08), transparent 20rem),
     var(--background);
 }
 
 .product-catalog-surface {
   background:
-    radial-gradient(circle at 14% 0%, rgba(18, 55, 165, 0.085), transparent 34rem),
-    radial-gradient(circle at 88% 2%, rgba(243, 91, 10, 0.06), transparent 30rem),
-    linear-gradient(180deg, #f8faff 0%, #fbfcff 34%, #ffffff 100%);
+    radial-gradient(circle at 14% 0%, rgba(8, 38, 83, 0.08), transparent 34rem),
+    radial-gradient(circle at 88% 2%, rgba(214, 166, 58, 0.06), transparent 30rem),
+    linear-gradient(180deg, #fbfcff 0%, #fefdf9 34%, #ffffff 100%);
 }
 
 .soft-grid {
@@ -227,7 +227,7 @@ b {
 }
 
 .brand-gradient-text {
-  background: linear-gradient(100deg, #1237a5 0%, #1237a5 52%, #f35b0a 100%);
+  background: linear-gradient(100deg, #082653 0%, #113a73 54%, #d6a63a 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

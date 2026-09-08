@@ -15,11 +15,11 @@ export function buttonVariants({
 } = {}) {
   const variants: Record<ButtonVariant, string> = {
     default:
-      'bg-[linear-gradient(135deg,#f35b0a_0%,#ff7a18_100%)] text-white shadow-[0_12px_28px_-16px_rgba(243,91,10,0.75)] hover:shadow-[0_18px_32px_-16px_rgba(243,91,10,0.82)] focus-visible:ring-brand-orange/35 dark:text-white',
+      'bg-[linear-gradient(135deg,#d6a63a_0%,#f3d675_100%)] text-brand-navy shadow-[0_12px_28px_-16px_rgba(214,166,58,0.72)] hover:shadow-[0_18px_32px_-16px_rgba(214,166,58,0.82)] hover:brightness-[1.02] focus-visible:ring-brand-orange/35',
     secondary:
-      'bg-[linear-gradient(135deg,#1237a5_0%,#1d4ed8_100%)] text-white shadow-[0_12px_28px_-16px_rgba(18,55,165,0.68)] hover:shadow-[0_18px_32px_-16px_rgba(18,55,165,0.76)] focus-visible:ring-brand-blue/30',
+      'bg-[linear-gradient(135deg,#082653_0%,#0f3b76_100%)] text-white shadow-[0_12px_28px_-16px_rgba(8,38,83,0.72)] hover:shadow-[0_18px_32px_-16px_rgba(8,38,83,0.8)] focus-visible:ring-brand-blue/30',
     outline:
-      'border border-border bg-background/82 text-foreground shadow-[0_8px_24px_-22px_rgba(7,17,38,0.45)] backdrop-blur hover:border-brand-blue/25 hover:bg-brand-blue/[0.045] hover:text-foreground dark:hover:border-brand-blue-light/25 dark:hover:bg-brand-blue-light/[0.055]',
+      'border border-border bg-background/82 text-foreground shadow-[0_8px_24px_-22px_rgba(7,17,38,0.45)] backdrop-blur hover:border-brand-orange/35 hover:bg-brand-orange/[0.08] hover:text-foreground dark:hover:border-brand-blue-light/25 dark:hover:bg-brand-blue-light/[0.055]',
     ghost: 'text-foreground hover:bg-muted',
   };
   const sizes: Record<ButtonSize, string> = {

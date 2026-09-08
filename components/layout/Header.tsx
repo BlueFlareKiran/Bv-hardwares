@@ -74,15 +74,15 @@ export default function Header() {
           >
             <span className="pointer-events-none absolute inset-0 rounded-[8px] bg-brand-blue/0 blur-xl transition-colors duration-300 group-hover:bg-brand-blue/6 dark:group-hover:bg-brand-blue-light/8" />
             <Image
-              src={siteConfig.mark}
-              alt="BV"
-              width={559}
-              height={385}
+              src={siteConfig.logo}
+              alt="Bhagyashree Ventures"
+              width={1200}
+              height={386}
               priority
               loading="eager"
               unoptimized
-              sizes="(max-width: 639px) 54px, (max-width: 1023px) 58px, 62px"
-              className="relative h-auto w-[54px] object-contain transition-transform duration-300 group-hover:scale-[1.035] sm:w-[58px] lg:w-[62px]"
+              sizes="(max-width: 639px) 142px, (max-width: 1023px) 165px, 190px"
+              className="relative h-auto w-[142px] object-contain object-left transition-transform duration-300 group-hover:scale-[1.02] sm:w-[165px] lg:w-[190px]"
             />
           </Link>
 

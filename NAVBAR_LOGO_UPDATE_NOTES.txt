@@ -1,0 +1,12 @@
+Bhagyashree Ventures navbar logo update
+
+Changes:
+- Replaces the mark-only navbar branding with a compact horizontal lockup.
+- Shows the BV navy/gold symbol plus "Bhagyashree Ventures" in the navbar.
+- Keeps the separate mark asset available for compact/icon uses.
+- Updates the primary site logo path for metadata/structured brand usage.
+
+Files:
+- components/layout/Header.tsx
+- lib/site.ts
+- public/images/bhagyashree-ventures-navbar.png

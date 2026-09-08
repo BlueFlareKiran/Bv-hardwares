@@ -4,6 +4,7 @@ import { FormEvent, useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { AlertCircle, CheckCircle2, LoaderCircle, MailCheck, Send } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
+import { TurnstileWidget, turnstileClientEnabled } from '@/components/ui/TurnstileWidget';
 
 const initialForm = {
   name: '',
@@ -31,6 +32,8 @@ export default function ContactForm({ requestedProduct = '' }: { requestedProduc
   } : initialForm);
   const [submitState, setSubmitState] = useState<SubmitState>('idle');
   const [feedback, setFeedback] = useState('');
+  const [turnstileToken, setTurnstileToken] = useState('');
+  const [turnstileResetKey, setTurnstileResetKey] = useState(0);
 
   useEffect(() => {
     startedAt.current = Date.now();
@@ -53,7 +56,7 @@ export default function ContactForm({ requestedProduct = '' }: { requestedProduc
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, startedAt: startedAt.current }),
+        body: JSON.stringify({ ...form, startedAt: startedAt.current, turnstileToken }),
       });
       const result = (await response.json().catch(() => ({}))) as { error?: string; mode?: string };
 
@@ -67,9 +70,13 @@ export default function ContactForm({ requestedProduct = '' }: { requestedProduc
         : 'Thank you. Your enquiry has been sent directly to our team. We will get back to you shortly.');
       setForm(initialForm);
       startedAt.current = Date.now();
+      setTurnstileToken('');
+      setTurnstileResetKey((value) => value + 1);
     } catch (error) {
       setSubmitState('error');
       setFeedback(error instanceof Error ? error.message : 'Unable to send your enquiry right now.');
+      setTurnstileToken('');
+      setTurnstileResetKey((value) => value + 1);
     }
   }
 
@@ -158,6 +165,8 @@ export default function ContactForm({ requestedProduct = '' }: { requestedProduc
           <textarea suppressHydrationWarning className={`${fieldClass} mt-2 min-h-32 resize-y`} required value={form.message} onChange={(e) => update('message', e.target.value)} placeholder="Model (if known), application, label size/material, daily volume, connectivity, delivery location, or the issue you need solved..." />
         </label>
 
+        <TurnstileWidget action="contact_enquiry" onToken={setTurnstileToken} resetKey={turnstileResetKey} />
+
         <AnimatePresence mode="wait">
           {feedback && (
             <motion.div
@@ -180,7 +189,7 @@ export default function ContactForm({ requestedProduct = '' }: { requestedProduc
         </AnimatePresence>
 
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-          <Button type="submit" size="lg" disabled={submitState === 'sending'} suppressHydrationWarning className="w-full sm:w-auto">
+          <Button type="submit" size="lg" disabled={submitState === 'sending' || (turnstileClientEnabled && !turnstileToken)} suppressHydrationWarning className="w-full sm:w-auto">
             {submitState === 'sending' ? <LoaderCircle size={17} className="animate-spin" /> : <Send size={17} />}
             {submitState === 'sending' ? 'Sending enquiry...' : 'Send Enquiry'}
           </Button>
