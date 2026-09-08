@@ -28,8 +28,18 @@ export const siteConfig = {
     postalCode: '560001',
     country: 'India',
   },
+  hyderabadAddress: {
+    company: 'Bhagyashree Ventures',
+    line1: '1-10-134, Mayur Marg',
+    line2: 'Begumpet',
+    city: 'Hyderabad',
+    district: 'Hyderabad',
+    state: 'Telangana',
+    postalCode: '500016',
+    country: 'India',
+  },
   description:
-    'Barcode, labeling, POS, RFID and automatic identification solutions for retail, logistics, healthcare, manufacturing and other business operations.',
+    'Barcode, labeling, POS, RFID and automatic identification solutions from Bengaluru and Hyderabad for retail, logistics, healthcare, manufacturing and other business operations.',
   shortDescription:
     'Reliable barcode, labeling, POS, RFID, software and support solutions for business operations.',
   tagline: 'Identity | Automate | Grow Together',
@@ -44,6 +54,10 @@ export const googleMapsSearchUrl = `https://www.google.com/maps/search/?api=1&qu
 
 export const registeredOfficeMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
   `${siteConfig.registeredAddress.company}, ${siteConfig.registeredAddress.line1}, ${siteConfig.registeredAddress.line2}, ${siteConfig.registeredAddress.city}, ${siteConfig.registeredAddress.district}, ${siteConfig.registeredAddress.state} ${siteConfig.registeredAddress.postalCode}`
+)}`;
+
+export const hyderabadOfficeMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+  `${siteConfig.hyderabadAddress.company}, ${siteConfig.hyderabadAddress.line1}, ${siteConfig.hyderabadAddress.line2}, ${siteConfig.hyderabadAddress.city}, ${siteConfig.hyderabadAddress.state} ${siteConfig.hyderabadAddress.postalCode}`
 )}`;
 
 export const whatsappUrl = (message?: string) =>

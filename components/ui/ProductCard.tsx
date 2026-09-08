@@ -57,7 +57,7 @@ export default function ProductCard({ product, categoryLabel, eager = false }: P
         <div className="mt-auto pt-6">
           <Link
             href={pricingRequestHref}
-            className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-[8px] bg-brand-orange px-4 py-2.5 text-sm font-bold text-white shadow-[0_10px_22px_-12px_rgba(255,92,0,.72)] transition-[transform,background-color,box-shadow] hover:-translate-y-0.5 hover:bg-brand-orange-strong hover:shadow-[0_14px_28px_-12px_rgba(255,92,0,.86)]"
+            className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-[8px] bg-brand-orange px-4 py-2.5 text-sm font-bold text-brand-navy shadow-[0_10px_22px_-12px_rgba(214,166,58,.72)] transition-[transform,background-color,box-shadow] hover:-translate-y-0.5 hover:bg-brand-orange-strong hover:shadow-[0_14px_28px_-12px_rgba(184,137,29,.78)]"
           >
             Get pricing <ArrowRight size={16} />
           </Link>

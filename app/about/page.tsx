@@ -256,13 +256,13 @@ export default function AboutPage() {
                   sizes="(max-width: 1024px) 100vw, 42vw"
                   className="-z-20 object-cover object-center brightness-[0.9] saturate-[0.96] contrast-[1.02] transition-transform duration-700 ease-out group-hover:scale-[1.025]"
                 />
-                <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(255,255,255,.2)_0%,rgba(255,255,255,.58)_44%,rgba(255,255,255,.985)_100%)] dark:bg-[linear-gradient(180deg,rgba(5,11,24,.82)_0%,rgba(5,11,24,.52)_42%,rgba(5,11,24,.92)_100%)]" />
+                <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(255,255,255,.08)_0%,rgba(255,255,255,.34)_44%,rgba(255,255,255,.91)_100%)] dark:bg-[linear-gradient(180deg,rgba(5,11,24,.82)_0%,rgba(5,11,24,.52)_42%,rgba(5,11,24,.92)_100%)]" />
                 <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand-orange via-orange-300 to-transparent" />
                 <div className="flex min-h-[500px] flex-col p-7 sm:p-8">
                   <div className="inline-flex size-12 items-center justify-center rounded-[10px] border border-orange-200 bg-orange-50/90 text-brand-orange shadow-sm backdrop-blur-md dark:border-orange-200/25 dark:bg-orange-400/15 dark:text-orange-200">
                     <Sparkles size={22} />
                   </div>
-                  <div className="mt-auto max-w-md rounded-[10px] border border-white/85 bg-white/90 p-5 shadow-[0_20px_50px_-34px_rgba(15,23,42,.34)] backdrop-blur-md sm:p-6 dark:border-white/10 dark:bg-[#050b18]/70 dark:shadow-none">
+                  <div className="mt-auto max-w-md rounded-[10px] border border-white/80 bg-white/82 p-5 shadow-[0_20px_50px_-34px_rgba(15,23,42,.34)] backdrop-blur-md sm:p-6 dark:border-white/10 dark:bg-[#050b18]/70 dark:shadow-none">
                     <p className="text-sm font-bold uppercase tracking-[0.13em] text-brand-orange dark:text-orange-300">Mission</p>
                     <h3 className="mt-2 text-2xl font-bold tracking-[-0.025em] text-foreground sm:text-[1.7rem] dark:text-white">Improve accuracy and simplify workflows.</h3>
                     <p className="mt-4 text-base leading-7 text-muted-foreground dark:text-slate-200">{mission}</p>
@@ -280,13 +280,13 @@ export default function AboutPage() {
                   sizes="(max-width: 1024px) 100vw, 58vw"
                   className="-z-20 object-cover object-center brightness-[0.8] saturate-[0.94] contrast-[1.05] transition-transform duration-700 ease-out group-hover:scale-[1.025]"
                 />
-                <div className="absolute inset-0 -z-10 bg-[linear-gradient(100deg,rgba(255,255,255,.95)_0%,rgba(255,255,255,.84)_44%,rgba(226,232,240,.34)_100%)] dark:bg-[linear-gradient(100deg,rgba(5,11,24,.94)_0%,rgba(5,11,24,.76)_48%,rgba(7,35,83,.28)_100%)]" />
+                <div className="absolute inset-0 -z-10 bg-[linear-gradient(100deg,rgba(255,255,255,.78)_0%,rgba(255,255,255,.58)_44%,rgba(226,232,240,.16)_100%)] dark:bg-[linear-gradient(100deg,rgba(5,11,24,.94)_0%,rgba(5,11,24,.76)_48%,rgba(7,35,83,.28)_100%)]" />
                 <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand-blue-light via-cyan-300 to-transparent" />
                 <div className="flex min-h-[500px] flex-col p-7 sm:p-8">
                   <div className="inline-flex size-12 items-center justify-center rounded-[10px] border border-blue-200 bg-blue-50/90 text-brand-blue shadow-sm backdrop-blur-md dark:border-blue-200/25 dark:bg-blue-400/15 dark:text-blue-200">
                     <BadgeCheck size={22} />
                   </div>
-                  <div className="mt-auto max-w-xl rounded-[10px] border border-white/85 bg-white/90 p-5 shadow-[0_20px_50px_-34px_rgba(15,23,42,.34)] backdrop-blur-md sm:p-6 dark:border-white/10 dark:bg-[#050b18]/70 dark:shadow-none">
+                  <div className="mt-auto max-w-xl rounded-[10px] border border-white/80 bg-white/82 p-5 shadow-[0_20px_50px_-34px_rgba(15,23,42,.34)] backdrop-blur-md sm:p-6 dark:border-white/10 dark:bg-[#050b18]/70 dark:shadow-none">
                     <p className="text-sm font-bold uppercase tracking-[0.13em] text-brand-blue dark:text-blue-200">Vision</p>
                     <h3 className="mt-2 text-2xl font-bold tracking-[-0.025em] text-foreground sm:text-[1.7rem] dark:text-white">Be the trusted operating partner.</h3>
                     <p className="mt-4 text-base leading-7 text-muted-foreground dark:text-slate-200">{vision}</p>
@@ -304,7 +304,7 @@ export default function AboutPage() {
                   sizes="100vw"
                   className="-z-20 object-cover object-center brightness-[0.74] saturate-[0.9] contrast-[1.04] transition-transform duration-700 ease-out group-hover:scale-[1.025]"
                 />
-                <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(255,255,255,.975)_0%,rgba(255,255,255,.92)_50%,rgba(226,232,240,.26)_100%)] dark:bg-[linear-gradient(90deg,rgba(5,11,24,.97)_0%,rgba(5,11,24,.88)_48%,rgba(5,11,24,.44)_100%)]" />
+                <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(255,255,255,.82)_0%,rgba(255,255,255,.7)_50%,rgba(226,232,240,.14)_100%)] dark:bg-[linear-gradient(90deg,rgba(5,11,24,.97)_0%,rgba(5,11,24,.88)_48%,rgba(5,11,24,.44)_100%)]" />
                 <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-emerald-400 via-cyan-300 to-brand-orange" />
                 <div className="p-7 sm:p-8 lg:p-10">
                   <div className="max-w-4xl">
@@ -317,7 +317,7 @@ export default function AboutPage() {
                       {values.map((value) => {
                         const Icon = valueIcons[value.iconName as keyof typeof valueIcons] ?? ShieldCheck;
                         return (
-                          <div key={value.title} className="flex gap-3 rounded-[10px] border border-slate-200/85 bg-white/88 p-4 shadow-[0_14px_36px_-30px_rgba(15,23,42,.38)] backdrop-blur-md dark:border-white/10 dark:bg-[#050b18]/68 dark:shadow-none">
+                          <div key={value.title} className="flex gap-3 rounded-[10px] border border-white/80 bg-white/80 p-4 shadow-[0_14px_36px_-30px_rgba(15,23,42,.38)] backdrop-blur-md dark:border-white/10 dark:bg-[#050b18]/68 dark:shadow-none">
                             <span className="mt-0.5 inline-flex size-9 shrink-0 items-center justify-center rounded-[8px] bg-blue-50 text-brand-blue dark:bg-white/10 dark:text-cyan-200">
                               <Icon size={17} />
                             </span>
@@ -411,8 +411,8 @@ export default function AboutPage() {
               <Image
                 src={epsonCertificate}
                 alt="Bhagyashree Ventures Epson System Integrator certificate valid April 2026 to March 2027"
-                width={1456}
-                height={1088}
+                width={877}
+                height={592}
                 sizes="(max-width: 1024px) 100vw, 62vw"
                 className="block h-auto w-full rounded-[6px] object-cover transition-transform duration-500 group-hover:scale-[1.008]"
               />

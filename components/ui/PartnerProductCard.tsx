@@ -9,31 +9,29 @@ interface PartnerProductCardProps {
 }
 
 export default function PartnerProductCard({ product }: PartnerProductCardProps) {
-  const detailHref = `/partners/hprt/products/${product.slug}`;
-
   return (
-    <article className="group relative flex h-full flex-col rounded-[10px] bg-card p-3.5 shadow-[0_10px_34px_-28px_rgba(15,23,42,.30)] transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_26px_62px_-32px_rgba(15,40,105,.30)] sm:p-4">
-      <Link
-        href={detailHref}
-        aria-label={`View details for ${product.name}`}
-        className="absolute inset-0 z-10 rounded-[10px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f58220] focus-visible:ring-offset-2"
-      />
+    <article className="group relative flex h-full flex-col overflow-hidden rounded-[10px] border border-border/90 bg-card shadow-card transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1 hover:border-brand-blue/20 hover:shadow-[0_28px_70px_-38px_rgba(18,55,165,0.38)]">
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-20 h-px bg-gradient-to-r from-transparent via-brand-blue/35 to-brand-orange/45 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
-      <div className="relative aspect-[4/3] overflow-hidden rounded-[10px] bg-[linear-gradient(145deg,#f8fafc_0%,#ffffff_58%,#f1f5f9_100%)] dark:bg-[linear-gradient(145deg,#111827_0%,#0f172a_58%,#111827_100%)]">
+      <div className="relative aspect-[16/10] overflow-hidden border-b border-border/80 bg-white">
         <Image
           src={product.image}
           alt={`${product.name} HPRT product`}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          className="object-contain p-5 transition-transform duration-500 ease-out group-hover:scale-[1.045] sm:p-6"
+          className="object-contain p-3 transition-transform duration-500 ease-out group-hover:scale-[1.025] sm:p-4"
         />
-        <span className="absolute right-3 top-3 rounded-[7px] bg-background/95 px-3 py-1.5 text-xs font-bold text-[#d86c0e] shadow-[0_8px_18px_-10px_rgba(15,23,42,.30)] backdrop-blur-sm dark:text-orange-300">
+        <span className="absolute right-3 top-3 rounded-[7px] bg-white/95 px-3 py-1.5 text-xs font-bold text-[#b85a0c] shadow-[0_8px_18px_-10px_rgba(15,23,42,.30)] backdrop-blur-sm">
           HPRT
         </span>
       </div>
 
-      <div className="flex flex-1 flex-col px-1 pb-1 pt-5 sm:px-1.5">
-        <h3 className="text-xl font-bold leading-tight tracking-[-0.035em] text-foreground sm:text-[1.4rem]">
+      <div className="flex flex-1 flex-col p-5 sm:p-6">
+        <p className="text-xs font-bold uppercase tracking-[0.12em] text-brand-blue">
+          {product.category}
+        </p>
+
+        <h3 className="mt-2 text-xl font-bold leading-tight tracking-[-0.03em] text-foreground sm:text-[1.35rem]">
           {product.name}
         </h3>
 
@@ -42,7 +40,7 @@ export default function PartnerProductCard({ product }: PartnerProductCardProps)
         </p>
 
         {product.specs.length > 0 ? (
-          <div className="relative z-20 mt-4 flex flex-wrap gap-2">
+          <div className="mt-4 flex flex-wrap gap-2">
             {product.specs.slice(0, 3).map((spec) => (
               <span
                 key={`${product.id}-${spec.label}`}
@@ -55,19 +53,12 @@ export default function PartnerProductCard({ product }: PartnerProductCardProps)
           </div>
         ) : null}
 
-        <div className="relative z-20 mt-auto flex items-center gap-3 pt-6">
+        <div className="mt-auto pt-6">
           <Link
             href={pricingRequestHref}
-            className="inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-[8px] bg-brand-orange px-4 py-2.5 text-sm font-bold text-white shadow-[0_10px_22px_-12px_rgba(255,92,0,.72)] transition-[transform,background-color,box-shadow] hover:-translate-y-0.5 hover:bg-brand-orange-strong hover:shadow-[0_14px_28px_-12px_rgba(255,92,0,.86)]"
+            className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-[8px] bg-brand-orange px-4 py-2.5 text-sm font-bold text-brand-navy shadow-[0_10px_22px_-12px_rgba(214,166,58,.72)] transition-[transform,background-color,box-shadow] hover:-translate-y-0.5 hover:bg-brand-orange-strong hover:shadow-[0_14px_28px_-12px_rgba(184,137,29,.78)]"
           >
             Get pricing <ArrowRight size={16} aria-hidden="true" />
-          </Link>
-
-          <Link
-            href={detailHref}
-            className="inline-flex min-h-11 items-center justify-center rounded-[8px] px-3 text-sm font-bold text-[#d86c0e] transition-colors hover:bg-[#f58220]/8 hover:text-[#bb5709] dark:text-orange-300"
-          >
-            View details
           </Link>
         </div>
       </div>

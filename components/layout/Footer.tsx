@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowUpRight, Mail, MapPin, Phone } from 'lucide-react';
-import { googleMapsSearchUrl, registeredOfficeMapsUrl, siteConfig } from '@/lib/site';
+import { googleMapsSearchUrl, hyderabadOfficeMapsUrl, registeredOfficeMapsUrl, siteConfig } from '@/lib/site';
 
 const productLinks = [
   { label: 'Barcode & Label Printers', href: '/products/label-printer' },
@@ -15,6 +15,7 @@ const productLinks = [
 const locations = [
   { label: 'Office', address: siteConfig.address, href: googleMapsSearchUrl },
   { label: 'Registered office', address: siteConfig.registeredAddress, href: registeredOfficeMapsUrl },
+  { label: 'Hyderabad branch', address: siteConfig.hyderabadAddress, href: hyderabadOfficeMapsUrl },
 ];
 
 export default function Footer() {
@@ -69,7 +70,8 @@ export default function Footer() {
                     <span className="font-semibold text-white">{location.label}</span><br />
                     {location.address.line1}<br />
                     {location.address.line2}<br />
-                    {location.address.city}, {location.address.district} – {location.address.postalCode}
+                    {location.address.city}
+                    {location.address.district !== location.address.city ? `, ${location.address.district}` : ''} – {location.address.postalCode}
                   </span>
                 </a>
               ))}

@@ -41,6 +41,11 @@ export const metadata: Metadata = {
     'thermal transfer ribbon Bengaluru',
     'POS printer Bengaluru',
     'barcode labels Bangalore',
+    'barcode printer supplier Hyderabad',
+    'barcode scanner Hyderabad',
+    'RFID solutions Hyderabad',
+    'label printer Hyderabad',
+    'POS printer Hyderabad',
     'automatic identification solutions Karnataka',
     'Bhagyashree Ventures',
     'BV Hardwares',
@@ -111,7 +116,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     logo: `${siteConfig.url}${siteConfig.logo}`,
     email: siteConfig.email,
     telephone: siteConfig.phone.primaryE164,
-    address: [siteConfig.address, siteConfig.registeredAddress].map((address) => ({
+    address: [siteConfig.address, siteConfig.registeredAddress, siteConfig.hyderabadAddress].map((address) => ({
       '@type': 'PostalAddress',
       streetAddress: `${address.line1}, ${address.line2}`,
       addressLocality: address.city,
@@ -119,7 +124,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       postalCode: address.postalCode,
       addressCountry: 'IN',
     })),
-    areaServed: 'India',
+    areaServed: [
+      { '@type': 'City', name: 'Bengaluru' },
+      { '@type': 'City', name: 'Hyderabad' },
+      { '@type': 'Country', name: 'India' },
+    ],
     description: siteConfig.description,
     contactPoint: {
       '@type': 'ContactPoint',

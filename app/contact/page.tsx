@@ -16,12 +16,18 @@ import ScrollReveal from '@/components/ui/ScrollReveal';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import { buttonVariants } from '@/components/ui/Button';
-import { googleMapsSearchUrl, registeredOfficeMapsUrl, siteConfig, whatsappUrl } from '@/lib/site';
+import {
+  googleMapsSearchUrl,
+  hyderabadOfficeMapsUrl,
+  registeredOfficeMapsUrl,
+  siteConfig,
+  whatsappUrl,
+} from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'Contact Barcode, RFID & POS Solutions Team in Bengaluru',
+  title: 'Contact Barcode, RFID & POS Solutions Team in Bengaluru & Hyderabad',
   description:
-    'Contact Bhagyashree Ventures in Bengaluru for barcode printers, scanners, RFID, POS, labels, ribbons, software and service enquiries.',
+    'Contact Bhagyashree Ventures in Bengaluru or Hyderabad for barcode printers, scanners, RFID, POS, labels, ribbons, software and service enquiries.',
   alternates: { canonical: '/contact' },
 };
 
@@ -63,6 +69,7 @@ const contactChannels = [
 const locations = [
   { label: 'Office address', address: siteConfig.address, href: googleMapsSearchUrl },
   { label: 'Registered office', address: siteConfig.registeredAddress, href: registeredOfficeMapsUrl },
+  { label: 'Hyderabad branch', address: siteConfig.hyderabadAddress, href: hyderabadOfficeMapsUrl },
 ];
 
 export default async function ContactPage({ searchParams }: { searchParams: Promise<{ product?: string | string[] }> }) {
@@ -179,7 +186,8 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
                             <address className="mt-2 not-italic text-sm leading-7 text-muted-foreground">
                               {location.address.line1}<br />
                               {location.address.line2}<br />
-                              {location.address.city}, {location.address.district} – {location.address.postalCode}<br />
+                              {location.address.city}
+                              {location.address.district !== location.address.city ? `, ${location.address.district}` : ''} – {location.address.postalCode}<br />
                               {location.address.state}, {location.address.country}
                             </address>
                           </div>
