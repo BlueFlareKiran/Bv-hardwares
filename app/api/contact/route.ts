@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { siteConfig } from '@/lib/site';
 import { allowRequest, getClientIp } from '@/lib/server/rate-limit';
 import { EmailConfigurationError, escapeHtml, sendEmail } from '@/lib/server/email';
+import { renderBrandedEmail } from '@/lib/server/email-templates';
 
 export const runtime = 'nodejs';
 
@@ -66,27 +67,24 @@ export async function POST(request: Request) {
       to: destination,
       replyTo: email,
       subject: `New product enquiry - ${productInterest}`,
-      html: `
-        <div style="font-family:Arial,sans-serif;max-width:680px;margin:0 auto;color:#172033;line-height:1.6">
-          <div style="border-bottom:3px solid #f35b0a;padding-bottom:16px;margin-bottom:22px">
-            <div style="font-size:12px;font-weight:700;letter-spacing:.08em;color:#1237a5;text-transform:uppercase">Bhagyashree Ventures</div>
-            <h1 style="font-size:24px;margin:6px 0 0">New product enquiry</h1>
-          </div>
-          <table style="width:100%;border-collapse:collapse;font-size:14px">
-            <tr><td style="padding:8px 0;font-weight:700;width:180px">Name</td><td>${safe.name}</td></tr>
-            <tr><td style="padding:8px 0;font-weight:700">Company</td><td>${safe.company}</td></tr>
-            <tr><td style="padding:8px 0;font-weight:700">Email</td><td>${safe.email}</td></tr>
-            <tr><td style="padding:8px 0;font-weight:700">Phone / WhatsApp</td><td>${safe.phone}</td></tr>
-            <tr><td style="padding:8px 0;font-weight:700">Product / requirement</td><td>${safe.productInterest}</td></tr>
-            <tr><td style="padding:8px 0;font-weight:700">Quantity / timeline</td><td>${safe.volume}</td></tr>
-          </table>
-          <div style="margin-top:22px;padding:18px;border-radius:12px;background:#f5f7fb">
-            <div style="font-size:13px;font-weight:700;margin-bottom:8px">Requirement details</div>
-            <div style="font-size:14px">${safe.message}</div>
-          </div>
-          <p style="font-size:12px;color:#667085;margin-top:20px">Reply to this email to respond directly to ${safe.name}.</p>
-        </div>
-      `,
+      html: renderBrandedEmail({
+        eyebrow: 'Bhagyashree Ventures',
+        badge: 'Product enquiry',
+        accentColor: '#f35b0a',
+        title: 'New product enquiry',
+        subtitle: `A new website enquiry has been submitted for ${safe.productInterest}. Review the request details below and reply directly to continue the conversation.`,
+        rows: [
+          { label: 'Name', value: safe.name },
+          { label: 'Company', value: safe.company },
+          { label: 'Email', value: `<a href="mailto:${safe.email}" style="color:#1237a5;text-decoration:none">${safe.email}</a>` },
+          { label: 'Phone / WhatsApp', value: `<a href="tel:${phone.replace(/[^\d+]/g, '')}" style="color:#1237a5;text-decoration:none">${safe.phone}</a>` },
+          { label: 'Product / requirement', value: safe.productInterest },
+          { label: 'Quantity / timeline', value: safe.volume },
+        ],
+        detailTitle: 'Requirement details',
+        detailHtml: safe.message,
+        footerNote: `Reply to this email to respond directly to ${safe.name}. The sender's email has been set as the Reply-To address for quick follow-up.`,
+      }),
       text: [
         'New product enquiry',
         `Name: ${name}`,

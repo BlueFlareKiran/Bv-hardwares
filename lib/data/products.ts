@@ -174,6 +174,7 @@ export const productCategories: Record<string, ProductCategory> = {
       product('ds2208', 'DS2208', '/images/DS2208.jpg', { description: 'Wired barcode scanner for reliable, accurate data capture at retail counters and fixed workstations.' }),
       product('ls2208', 'LS2208', '/images/LS2208.jpg', { description: 'Wired barcode scanner for dependable everyday scanning in retail, inventory and logistics workflows.' }),
       product('datalogic-qw2120', 'DATALOGIC QW2120', '/images/DATALOGIC-QW2120.jpg', { description: 'Wired barcode scanner for consistent data capture in checkout, warehouse and stationary setups.' }),
+      product('datalogic-qw2500', 'DATALOGIC QW2500', '/images/DATALOGIC-QW2500.png', { description: 'QuickScan wired barcode scanner for fast and dependable point-of-sale, inventory and front-desk scanning workflows.', imageFit: 'contain' }),
       product('restol-ls450', 'RESTOL LS450', '/images/RESTOL-LS450.jpg', { description: 'Wired barcode scanner for everyday retail, inventory and logistics data-capture tasks.' }),
       product('honeywell-5145', 'HONEYWELL 5145', '/images/HONEYWELL-5145.jpg', { description: 'Wired barcode scanner for reliable scanning at retail counters and other fixed workstations.' }),
     ],
@@ -258,8 +259,8 @@ export const productCategories: Record<string, ProductCategory> = {
     description: 'Facility management, installation, repair, preventive maintenance and technical support for printing and scanning operations.',
     coverImage: '/images/maintenance-cover.jpg',
     products: [
-      product('facility-management-services', 'Facility Management Services', '/images/service-and-maintenance.jpg', { description: 'Managed barcode printing support, manpower and workflow assistance.' }),
-      product('technical-service', 'Technical Service', '/images/PRINTER-SCANNER-job-work.jpg', { description: 'Maintenance, repair and troubleshooting support for barcode and RFID equipment.' }),
+      product('facility-management-services', 'Facility Management Services', '/images/facility-management-services-v3.png', { description: 'Managed barcode printing support, manpower and workflow assistance.' }),
+      product('technical-service', 'Technical Service', '/images/technical-service-preventive-maintenance-v2.png', { description: 'Maintenance, repair, preventive maintenance and troubleshooting support for barcode and RFID equipment.' }),
     ],
   },
 };

@@ -3,6 +3,7 @@ import { siteConfig } from '@/lib/site';
 import { getJobs } from '@/lib/server/careers-store';
 import { allowRequest, getClientIp } from '@/lib/server/rate-limit';
 import { EmailConfigurationError, escapeHtml, sendEmail } from '@/lib/server/email';
+import { renderBrandedEmail } from '@/lib/server/email-templates';
 
 export const runtime = 'nodejs';
 
@@ -111,7 +112,31 @@ export async function POST(request: Request) {
       replyTo: email,
       subject: `New job application - ${job.title} - ${fullName}`,
       attachments: [{ filename: safeFilename(resume.name), content: attachment }],
-      html: `<div style="font-family:Arial,sans-serif;max-width:680px;margin:0 auto;color:#172033;line-height:1.6"><div style="border-bottom:3px solid #1237a5;padding-bottom:16px;margin-bottom:22px"><div style="font-size:12px;font-weight:700;letter-spacing:.08em;color:#f35b0a;text-transform:uppercase">Bhagyashree Ventures Careers</div><h1 style="font-size:24px;margin:6px 0 0">New application: ${safe.jobTitle}</h1></div><table style="width:100%;border-collapse:collapse;font-size:14px"><tr><td style="padding:8px 0;font-weight:700;width:180px">Candidate</td><td>${safe.fullName}</td></tr><tr><td style="padding:8px 0;font-weight:700">Email</td><td>${safe.email}</td></tr><tr><td style="padding:8px 0;font-weight:700">Phone / WhatsApp</td><td>${safe.phone}</td></tr><tr><td style="padding:8px 0;font-weight:700">Current location</td><td>${safe.currentLocation}</td></tr><tr><td style="padding:8px 0;font-weight:700">Total experience</td><td>${safe.totalExperience}</td></tr><tr><td style="padding:8px 0;font-weight:700">Current company</td><td>${safe.currentCompany}</td></tr><tr><td style="padding:8px 0;font-weight:700">Notice period</td><td>${safe.noticePeriod}</td></tr><tr><td style="padding:8px 0;font-weight:700">LinkedIn / portfolio</td><td>${safe.linkedinUrl}</td></tr><tr><td style="padding:8px 0;font-weight:700">Department</td><td>${safe.department}</td></tr></table><div style="margin-top:22px;padding:18px;border-radius:12px;background:#f5f7fb"><div style="font-size:13px;font-weight:700;margin-bottom:8px">Cover message</div><div style="font-size:14px">${safe.coverMessage}</div></div><p style="font-size:12px;color:#667085;margin-top:20px">The resume is attached. Reply to this email to contact ${safe.fullName} directly.</p></div>`,
+      html: renderBrandedEmail({
+        eyebrow: 'Bhagyashree Ventures Careers',
+        badge: 'New application',
+        accentColor: '#1237a5',
+        title: `Application received: ${safe.jobTitle}`,
+        subtitle: `${safe.fullName} has applied for the ${safe.jobTitle} role. The resume is attached to this email and the candidate's email is set as the Reply-To address.`,
+        rows: [
+          { label: 'Candidate', value: safe.fullName },
+          { label: 'Applied role', value: safe.jobTitle },
+          { label: 'Department', value: safe.department },
+          { label: 'Email', value: `<a href="mailto:${safe.email}" style="color:#1237a5;text-decoration:none">${safe.email}</a>` },
+          { label: 'Phone / WhatsApp', value: `<a href="tel:${phone.replace(/[^\d+]/g, '')}" style="color:#1237a5;text-decoration:none">${safe.phone}</a>` },
+          { label: 'Current location', value: safe.currentLocation },
+        ],
+        secondaryRows: [
+          { label: 'Total experience', value: safe.totalExperience },
+          { label: 'Current company', value: safe.currentCompany },
+          { label: 'Notice period', value: safe.noticePeriod },
+          { label: 'LinkedIn / portfolio', value: linkedinUrl ? `<a href="${safe.linkedinUrl}" style="color:#1237a5;text-decoration:none">${safe.linkedinUrl}</a>` : safe.linkedinUrl },
+          { label: 'Resume attachment', value: escapeHtml(resume.name) },
+        ],
+        detailTitle: 'Cover message',
+        detailHtml: safe.coverMessage,
+        footerNote: `Reply to this email to contact ${safe.fullName} directly. The candidate's resume is attached for review.`,
+      }),
       text: [`New application: ${job.title}`, `Candidate: ${fullName}`, `Email: ${email}`, `Phone / WhatsApp: ${phone}`, `Current location: ${currentLocation}`, `Total experience: ${totalExperience}`, `Current company: ${currentCompany || 'Not provided'}`, `Notice period: ${noticePeriod || 'Not provided'}`, `LinkedIn / portfolio: ${linkedinUrl || 'Not provided'}`, '', 'Cover message:', coverMessage || 'No cover message'].join('\n'),
     });
 
