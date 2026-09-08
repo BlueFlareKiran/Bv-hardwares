@@ -23,14 +23,18 @@ export default function Footer() {
       <div className="container-shell py-14 sm:py-16">
         <div className="grid gap-10 border-b border-white/10 pb-12 md:grid-cols-2 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <Link href="/" aria-label={`${siteConfig.name} home`} className="inline-flex rounded-[10px] border border-white/12 bg-white/95 p-3 shadow-[0_18px_40px_-24px_rgba(0,0,0,0.5)]">
+            <Link
+              href="/"
+              aria-label={`${siteConfig.name} home`}
+              className="inline-flex rounded-[12px] border border-white/12 bg-white/95 px-4 py-3 shadow-[0_18px_40px_-24px_rgba(0,0,0,0.5)]"
+            >
               <Image
-                src={siteConfig.mark}
+                src={siteConfig.logo}
                 alt={siteConfig.name}
-                width={512}
-                height={512}
+                width={960}
+                height={240}
                 unoptimized
-                className="h-auto w-[72px] object-contain"
+                className="h-auto w-[220px] object-contain sm:w-[240px]"
               />
             </Link>
             <p className="mt-5 max-w-xl text-sm leading-7 text-slate-400">

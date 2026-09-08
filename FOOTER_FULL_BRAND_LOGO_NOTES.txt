@@ -1,0 +1,5 @@
+Updated footer branding to use the full Bhagyashree Ventures horizontal logo lockup instead of the mark-only icon.
+This aligns footer branding with the navbar branding.
+
+Files included:
+- components/layout/Footer.tsx

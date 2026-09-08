@@ -1,0 +1,9 @@
+Updated the browser favicon to use the new Bhagyashree Ventures navy/gold brand mark.
+
+Files included:
+- app/favicon.ico
+
+The existing manifest/app icon already uses:
+- public/images/bhagyashree-ventures-icon.png
+
+If the old favicon still appears after applying the patch, hard refresh the browser or open the site in a private/incognito window because favicons are cached aggressively.
