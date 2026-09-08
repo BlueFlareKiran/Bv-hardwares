@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Barcode, CheckCircle2, Monitor, Radio, Tags } from 'lucide-react';
-import { Badge } from '@/components/ui/Badge';
 import { buttonVariants } from '@/components/ui/Button';
 import ScrollReveal from '@/components/ui/ScrollReveal';
 import { pricingRequestHref, siteConfig } from '@/lib/site';
@@ -55,23 +54,18 @@ export default function Hero() {
 
       <div className="container-shell relative grid items-center gap-8 py-10 sm:py-14 lg:grid-cols-[1.02fr_.98fr] lg:gap-8 lg:py-16 xl:gap-10 xl:py-20">
         <div className="max-w-3xl">
-          <ScrollReveal delay={0.02}>
-            <Badge>Barcode · Labeling · RFID · POS</Badge>
-          </ScrollReveal>
-
-          <ScrollReveal delay={0.055}>
-            <div className="mt-4 flex flex-wrap items-center gap-x-2 gap-y-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-brand-blue/75 sm:text-[11px]">
-              {siteConfig.tagline.split(' | ').map((part, index) => (
-                <span key={part} className="inline-flex items-center gap-2">
-                  {index > 0 && <span className="text-brand-orange" aria-hidden="true">|</span>}
-                  <span>{part}</span>
-                </span>
-              ))}
+          <ScrollReveal delay={0.035}>
+            <div className="mb-4 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-[13px] font-bold uppercase tracking-[0.18em] sm:text-[15px] lg:text-[16px]">
+              <span className="text-brand-blue">Identity</span>
+              <span className="text-brand-orange/80" aria-hidden="true">|</span>
+              <span className="text-brand-orange-strong">Automate</span>
+              <span className="text-brand-orange/80" aria-hidden="true">|</span>
+              <span className="bg-[linear-gradient(100deg,#082653_0%,#0f3b76_58%,#d6a63a_100%)] bg-clip-text text-transparent">Grow Together</span>
             </div>
           </ScrollReveal>
 
           <ScrollReveal delay={0.09}>
-            <h1 className="max-w-3xl text-[clamp(2.55rem,5vw,4.95rem)] font-bold leading-[1.01] tracking-[-0.05em] text-foreground">
+            <h1 className="max-w-3xl text-[clamp(2.35rem,4.35vw,4.25rem)] font-bold leading-[1.02] tracking-[-0.045em] text-foreground">
               Smart labeling.
               <span className="block brand-gradient-text">Seamless operations.</span>
             </h1>

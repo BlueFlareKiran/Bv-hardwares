@@ -1,11 +1,8 @@
-Bhagyashree Ventures tagline placement update
+Hero refinement patch:
+- Removed the "Barcode · Labeling · RFID · POS" badge from the homepage hero.
+- Made "Identity | Automate | Grow Together" the lead brand line.
+- Enlarged the tagline and introduced navy/gold/gradient emphasis.
+- Reduced the main hero headline size slightly for better balance.
+- Keeps the responsive mobile fixes from the previous patch.
 
-Changes:
-- Removed "Identity | Automate | Grow Together" from the desktop navbar.
-- Removed the tagline block from the mobile navigation menu.
-- Restored the navbar to a more compact height.
-- Added the tagline to the homepage hero as a restrained brand statement below the product-category badge and above the main headline.
-- Tagline wraps safely on small screens and keeps gold separators to match the navy/gold brand system.
-
-Apply:
-Extract this ZIP directly into the Bv-hardwares project root and choose Replace All.
+Extract this ZIP directly into the project root and replace the existing file.
