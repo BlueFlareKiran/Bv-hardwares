@@ -59,12 +59,13 @@ export default function AdminJobEditor({ job, onClose, onSaved }: Props) {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    const previous = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
+    const scrollArea = document.getElementById('site-scroll-area');
+    const previous = scrollArea?.style.overflowY;
+    if (scrollArea) scrollArea.style.overflowY = 'hidden';
     const closeOnEscape = (event: KeyboardEvent) => event.key === 'Escape' && onClose();
     window.addEventListener('keydown', closeOnEscape);
     return () => {
-      document.body.style.overflow = previous;
+      if (scrollArea) scrollArea.style.overflowY = previous ?? '';
       window.removeEventListener('keydown', closeOnEscape);
     };
   }, [onClose]);

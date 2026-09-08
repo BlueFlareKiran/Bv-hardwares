@@ -4,22 +4,26 @@ import { hprtProductSlugs } from '@/lib/data/partners';
 import { getCareerJobs } from '@/lib/server/careers-store';
 import { siteConfig } from '@/lib/site';
 
+export const dynamic = 'force-dynamic';
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const now = new Date();
   const staticRoutes = ['', '/about', '/products', '/partners', '/partners/hprt', '/careers', '/contact', '/privacy', '/terms'];
   const categoryRoutes = Object.keys(productCategories).map((slug) => `/products/${slug}`);
   const hprtRoutes = hprtProductSlugs.map((slug) => `/partners/hprt/products/${slug}`);
-  const careerRoutes = (await getCareerJobs())
+  const careerRoutes: MetadataRoute.Sitemap = (await getCareerJobs())
     .filter((job) => job.published)
-    .map((job) => `/careers/${job.slug}`);
+    .map((job) => ({
+      url: `${siteConfig.url}/careers/${job.slug}`,
+      lastModified: new Date(job.updatedAt),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    }));
 
-  return [...staticRoutes, ...categoryRoutes, ...hprtRoutes, ...careerRoutes].map((route) => ({
+  const publicRoutes: MetadataRoute.Sitemap = [...staticRoutes, ...categoryRoutes, ...hprtRoutes].map((route) => ({
     url: `${siteConfig.url}${route}`,
-    lastModified: now,
-    changeFrequency:
-      route.startsWith('/products') || route.startsWith('/partners') || route.startsWith('/careers')
-        ? 'weekly'
-        : 'monthly',
+    changeFrequency: route.startsWith('/products') || route.startsWith('/partners') ? 'weekly' : 'monthly',
     priority: route === '' ? 1 : route === '/products' || route === '/partners' || route === '/careers' ? 0.9 : 0.7,
   }));
+
+  return [...publicRoutes, ...careerRoutes];
 }

@@ -22,19 +22,27 @@ export default function LogoMarquee() {
         <div className="mt-9 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
           {brandLogos.map((brand, index) => {
             const isPremiumPartner = brand.name === 'HPRT';
+            const isEpsonIntegrator = brand.name === 'Epson';
 
             return (
               <ScrollReveal key={brand.name} delay={index * 0.025}>
                 <div
-                  className={`group relative flex min-h-24 h-full items-center justify-center rounded-[10px] border bg-white p-4 shadow-[0_16px_36px_-30px_rgba(7,17,38,0.42)] transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_20px_42px_-30px_rgba(18,55,165,0.32)] ${
+                  className={`group relative flex min-h-24 h-full items-center justify-center overflow-hidden rounded-[10px] border p-4 shadow-[0_16px_36px_-30px_rgba(7,17,38,0.42)] transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_20px_42px_-30px_rgba(18,55,165,0.32)] ${
                     isPremiumPartner
-                      ? 'border-brand-orange/35 ring-1 ring-brand-orange/10 hover:border-brand-orange/55'
-                      : 'border-border/90 hover:border-brand-blue/20'
+                      ? 'border-amber-300/80 bg-gradient-to-br from-amber-50 via-orange-50/75 to-white ring-1 ring-amber-200/70 hover:border-brand-orange/60 dark:from-amber-50 dark:via-orange-50 dark:to-white'
+                      : isEpsonIntegrator
+                        ? 'border-blue-200 bg-gradient-to-br from-blue-50 via-white to-white ring-1 ring-blue-100 hover:border-brand-blue/40'
+                      : 'border-border/90 bg-white hover:border-brand-blue/20'
                   }`}
                 >
                   {isPremiumPartner ? (
-                    <span className="absolute right-2.5 top-2.5 rounded-[7px] border border-brand-orange/20 bg-brand-orange/[0.08] px-2 py-1 text-[9px] font-extrabold uppercase tracking-[0.12em] text-brand-orange">
+                    <span className="absolute right-2 top-2 rounded-full border border-amber-300 bg-amber-100 px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.11em] text-amber-800">
                       Exclusive
+                    </span>
+                  ) : null}
+                  {isEpsonIntegrator ? (
+                    <span className="absolute right-2 top-2 rounded-[6px] border border-blue-200 bg-blue-50 px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.08em] text-brand-blue">
+                      System Integrator
                     </span>
                   ) : null}
                   <Image
@@ -42,7 +50,7 @@ export default function LogoMarquee() {
                     alt={brand.name}
                     width={180}
                     height={70}
-                    className="max-h-12 w-auto max-w-[150px] object-contain transition-transform duration-300 group-hover:scale-[1.035]"
+                    className={`${isPremiumPartner ? 'max-h-8 max-w-[118px]' : isEpsonIntegrator ? 'max-h-10 max-w-[132px]' : 'max-h-12 max-w-[150px]'} h-auto w-auto object-contain transition-transform duration-300 group-hover:scale-[1.035]`}
                   />
                 </div>
               </ScrollReveal>

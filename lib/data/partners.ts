@@ -29,20 +29,40 @@ export interface PartnerBrand {
   description: string;
   sectors: string[];
   accent: string;
+  relationshipLabel: string;
+  location?: string;
+  validPeriod?: string;
+  certificate?: string;
 }
 
-export const partners: PartnerBrand[] = [
-  {
-    slug: 'hprt',
-    name: 'HPRT',
-    logo: '/images/partners/hprt/hprt-logo.png',
-    tagline: 'Premium exclusive printing and AIDC partner portfolio.',
-    description:
-      'HPRT is Bhagyashree Ventures’ premium exclusive technology partner portfolio for barcode printing, RFID printing and scanning solutions across retail, hospitality, healthcare, logistics, warehousing and manufacturing applications.',
-    sectors: ['Retail', 'Hospitality', 'Healthcare', 'Logistics', 'Warehousing', 'Manufacturing'],
-    accent: '#f58220',
-  },
-];
+export const hprtPartner: PartnerBrand = {
+  slug: 'hprt',
+  name: 'HPRT',
+  logo: '/images/partners/hprt/hprt-logo.png',
+  tagline: 'Premium exclusive printing and AIDC partner portfolio.',
+  description:
+    'HPRT is Bhagyashree Ventures’ premium exclusive technology partner portfolio for barcode printing, RFID printing and scanning solutions across retail, hospitality, healthcare, logistics, warehousing and manufacturing applications.',
+  sectors: ['Retail', 'Hospitality', 'Healthcare', 'Logistics', 'Warehousing', 'Manufacturing'],
+  accent: '#f58220',
+  relationshipLabel: 'Premium Exclusive Partner',
+};
+
+export const epsonPartner: PartnerBrand = {
+  slug: 'epson',
+  name: 'Epson',
+  logo: '/images/partners/epson/epson-logo.jpg',
+  tagline: 'Recognized Epson System Integrator.',
+  description:
+    'Bhagyashree Ventures is recognized as an Epson System Integrator, supporting Epson-based printing and point-of-sale solutions for business workflows.',
+  sectors: ['Business printing', 'Point of sale', 'System integration'],
+  accent: '#0b2f9f',
+  relationshipLabel: 'Epson System Integrator',
+  location: 'Bangalore',
+  validPeriod: 'April 2026 – March 2027',
+  certificate: '/images/certifications/epson-system-integrator-certificate.png',
+};
+
+export const partners: PartnerBrand[] = [hprtPartner, epsonPartner];
 
 export const hprtProducts: PartnerProduct[] = [
   {

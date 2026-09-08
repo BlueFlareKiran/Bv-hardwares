@@ -3,6 +3,7 @@ import { Outfit } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import ScrollToTop from '@/components/layout/ScrollToTop';
 import FloatingWhatsApp from '@/components/ui/FloatingWhatsApp';
 import { siteConfig } from '@/lib/site';
 
@@ -78,6 +79,18 @@ export const metadata: Metadata = {
     apple: siteConfig.icon,
   },
   manifest: '/manifest.webmanifest',
+  category: 'business',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
@@ -100,18 +113,56 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     })),
     areaServed: 'India',
     description: siteConfig.description,
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: siteConfig.phone.primaryE164,
+      email: siteConfig.email,
+      contactType: 'sales and customer support',
+      areaServed: 'IN',
+      availableLanguage: ['English', 'Kannada', 'Hindi'],
+    },
+    knowsAbout: [
+      'Barcode printers',
+      'Barcode scanners',
+      'RFID solutions',
+      'Labels and tags',
+      'Thermal transfer ribbons',
+      'Point-of-sale hardware',
+      'Automatic identification and data capture',
+    ],
+  };
+
+  const websiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: siteConfig.name,
+    alternateName: siteConfig.legacyName,
+    url: siteConfig.url,
+    inLanguage: 'en-IN',
   };
 
   return (
     <html lang="en-IN" className={outfit.variable} data-scroll-behavior="smooth" style={{ colorScheme: 'light' }}>
-      <body className="min-h-screen bg-background text-foreground antialiased">
+      <body className="flex h-dvh min-h-0 flex-col overflow-hidden bg-background text-foreground antialiased">
+        <a href="#site-content" className="sr-only z-[100] rounded-[8px] bg-white px-4 py-3 font-semibold text-brand-blue shadow-lg focus:not-sr-only focus:fixed focus:left-4 focus:top-4">
+          Skip to content
+        </a>
         <Header />
-        <main>{children}</main>
-        <Footer />
-        <FloatingWhatsApp />
+        <div id="site-scroll-area" className="site-scroll-area min-h-0 flex-1 overflow-x-clip overflow-y-auto">
+          <ScrollToTop />
+          <div id="site-content" tabIndex={-1}>
+            {children}
+          </div>
+          <Footer />
+          <FloatingWhatsApp />
+        </div>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
       </body>
     </html>

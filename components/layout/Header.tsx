@@ -43,9 +43,12 @@ export default function Header() {
   }, [pathname]);
 
   useEffect(() => {
-    document.body.style.overflow = mobileOpen ? 'hidden' : '';
+    const scrollArea = document.getElementById('site-scroll-area');
+    if (!scrollArea) return;
+    const previous = scrollArea.style.overflowY;
+    scrollArea.style.overflowY = mobileOpen ? 'hidden' : '';
     return () => {
-      document.body.style.overflow = '';
+      scrollArea.style.overflowY = previous;
     };
   }, [mobileOpen]);
 
@@ -60,7 +63,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 border-b border-border/75 bg-background/88 shadow-[0_12px_35px_-32px_rgba(7,17,38,0.65)] backdrop-blur-xl supports-[backdrop-filter]:bg-background/82">
+      <header className="relative z-50 shrink-0 border-b border-border/75 bg-background/88 shadow-[0_12px_35px_-32px_rgba(7,17,38,0.65)] backdrop-blur-xl supports-[backdrop-filter]:bg-background/82">
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-brand-blue/20 to-brand-orange/20" />
 
         <div className="container-shell flex h-16 items-center justify-between gap-3 lg:h-[68px] lg:gap-5">

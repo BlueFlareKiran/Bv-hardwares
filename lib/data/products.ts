@@ -2,6 +2,7 @@ export interface Product {
   id: string;
   name: string;
   image: string;
+  imageFit?: 'cover' | 'contain';
   description?: string;
   group?: string;
 }
@@ -19,7 +20,7 @@ const product = (
   id: string,
   name: string,
   image: string,
-  options: Pick<Product, 'description' | 'group'> = {}
+  options: Pick<Product, 'description' | 'group' | 'imageFit'> = {}
 ): Product => ({ id, name, image, ...options });
 
 export const productCategories: Record<string, ProductCategory> = {
@@ -31,21 +32,21 @@ export const productCategories: Record<string, ProductCategory> = {
       'Paper, synthetic, security, RFID and application-specific labels and tags for product identification, inventory management and branding.',
     coverImage: '/images/barcode-labels-cover.jpg',
     products: [
-      product('paper-board-synthetic-tags', 'Paper Board and Synthetic / Non Tearable Tags', '/images/PAPER-BOARD-AND-SYNTHETIC-NON-TEARABLE-TAGS.jpg', { description: 'Paper and synthetic non-tearable tags for product identification, inventory management and branding.' }),
-      product('jewellery-labels', 'Jewellery Labels', '/images/JEWELLARY-LABELS.jpg', { description: 'Labels for jewellery identification, pricing and retail tagging applications.' }),
-      product('chemical-drum-labels', 'Chemical Industries / Drums Labels', '/images/CHEMICAL-INDUSTRIES-DRUMS-LABELS.jpg', { description: 'Durable labels for chemical-industry containers and drums.' }),
-      product('temperature-resistant-labels', 'Temperature Resistant Labels', '/images/TEMPERATURE-RESISTANT-LABELS.jpg', { description: 'Labels for temperature-resistant and industrial-use applications.' }),
-      product('void-labels', 'Void Labels / Temper Evident Labels', '/images/VOID-LABELS-TEMPER-EVIDENTS-LABELS.jpg', { description: 'Tamper-evident security labels for applications where removal or interference needs to be visible.' }),
-      product('polyester-labels', 'Polyester Labels', '/images/POLYSTER-LABELS.jpg', { description: 'Synthetic polyester labels for durable product identification and industrial use.' }),
-      product('direct-thermal-ecommerce', 'Direct Thermal Labels for Ecommerce', '/images/DIRECT-THERMAL-LABELS-FOR-ECOMMERCE.jpg', { description: 'Direct thermal labels for ecommerce, shipping and inventory workflows.' }),
-      product('airline-baggage-labels', 'Airline Baggage DT Labels & Boarding Pass', '/images/AIRLINE-BAGGAGE-DT-LABELS-BOARDING-PASS.jpg', { description: 'Direct thermal baggage labels and boarding-pass media for aviation workflows.' }),
-      product('multi-colour-labels', 'Multi Colour Labels', '/images/MULTI-COLOUR-LABELS.jpg', { description: 'Multi-colour labels for product identification, presentation and branding.' }),
-      product('wash-care-labels', 'Wash Care Satin and Taffeta', '/images/WASH-CARE-SATIN-AND-TAFFETA.jpg', { description: 'Satin and taffeta wash-care labels for garment and textile applications.' }),
-      product('transparent-labels', 'Transparent Labels', '/images/TRANSPARENT-LABELS-.jpg', { description: 'Transparent labels for clean product identification and branding applications.' }),
+      product('paper-board-synthetic-tags', 'Paper Board and Synthetic / Non Tearable Tags', '/images/labels/paper-board-synthetic-non-tear-tags.png', { description: 'Paper and synthetic non-tearable tags for product identification, inventory management and branding.' }),
+      product('jewellery-labels', 'Jewellery Labels', '/images/labels/jewellery-labels.png', { description: 'Labels for jewellery identification, pricing and retail tagging applications.' }),
+      product('chemical-drum-labels', 'Chemical Industries / Drums Labels', '/images/labels/chemical-industry-drum-labels.png', { description: 'Durable labels for chemical-industry containers and drums.' }),
+      product('temperature-resistant-labels', 'Temperature Resistant Labels', '/images/labels/temperature-resistant-labels.png', { description: 'Labels for temperature-resistant and industrial-use applications.' }),
+      product('void-labels', 'Void Labels / Temper Evident Labels', '/images/labels/tamper-evident-void-labels.png', { description: 'Tamper-evident security labels for applications where removal or interference needs to be visible.' }),
+      product('polyester-labels', 'Polyester Labels', '/images/labels/polyester-labels.png', { description: 'Synthetic polyester labels for durable product identification and industrial use.' }),
+      product('direct-thermal-ecommerce', 'Direct Thermal Labels', '/images/labels/direct-thermal-labels.png', { description: 'Direct thermal labels for ecommerce, shipping and inventory workflows.' }),
+      product('airline-baggage-labels', 'Airline Baggage DT Labels & Boarding Pass', '/images/labels/airline-baggage-tags-boarding-passes.png', { description: 'Direct thermal baggage labels and boarding-pass media for aviation workflows.' }),
+      product('multi-colour-labels', 'Multi Colour Labels', '/images/labels/multicolor-label-rolls.png', { description: 'Multi-colour labels for product identification, presentation and branding.' }),
+      product('wash-care-labels', 'Wash Care Satin and Taffeta', '/images/labels/wash-care-satin-taffeta-labels.png', { description: 'Satin and taffeta wash-care labels for garment and textile applications.' }),
+      product('transparent-labels', 'Transparent Labels', '/images/labels/transparent-labels.png', { description: 'Transparent labels for clean product identification and branding applications.' }),
       product('rfid-tags', 'RFID Tag and Labels', '/images/RFID-TAG-AND-LABELS-FOR-GARMENT.jpg', { description: 'RFID-enabled tags and labels for inventory, garment and asset-tracking workflows.' }),
-      product('hologram-labels', 'Hologram Labels', '/images/HOLOGRAM-LABELS-tags.jpg', { description: 'Hologram labels for security-focused product identification and tamper-resistant applications.' }),
-      product('high-gum-labels', 'High Gum Labels / Tyre Labels', '/images/HIGH-GUM-LABELS-TYRE-LABELS.jpg', { description: 'High-adhesion labels for tyre and other demanding surface applications.' }),
-      product('removable-labels', 'Removable Labels / Size Sticker', '/images/REMOVABLE-LABELSSIZE-STICKER-FOR-GARMENT.jpg', { description: 'Removable labels and size stickers for garment and retail applications.' }),
+      product('hologram-labels', 'Hologram Labels', '/images/labels/holographic-security-labels.png', { description: 'Hologram labels for security-focused product identification and tamper-resistant applications.' }),
+      product('high-gum-labels', 'High Gum Labels / Tyre Labels', '/images/labels/high-gloss-tyre-labels.png', { description: 'High-adhesion labels for tyre and other demanding surface applications.' }),
+      product('removable-labels', 'Removable Labels / Size Sticker', '/images/labels/removable-labels-stickers.png', { description: 'Removable labels and size stickers for garment and retail applications.' }),
     ],
   },
   'pos-rolls': {
@@ -147,6 +148,7 @@ export const productCategories: Record<string, ProductCategory> = {
     products: [
       product('tsc-alpha-30r', 'TSC ALPHA-30R', '/images/TSC-ALPHA-30R.jpg', { description: 'Portable, battery-powered Bluetooth printer for cord-free mobile label printing in field workflows.' }),
       product('tsc-alpha-40l', 'TSC ALPHA-40L', '/images/TSC-ALPHA-40L.jpg', { description: 'Portable, battery-powered Bluetooth printer for mobile printing in logistics, sales and retail environments.' }),
+      product('decode-bluetooth-printer', 'Decode Bluetooth Printer', '/images/decode-bluetooth-printer.png', { description: 'Compact Bluetooth printer for portable label and receipt printing in mobile business workflows.', imageFit: 'contain' }),
     ],
   },
   accessories: {

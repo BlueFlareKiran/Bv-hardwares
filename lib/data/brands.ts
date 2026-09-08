@@ -1,3 +1,5 @@
+import { epsonPartner, hprtPartner } from '@/lib/data/partners';
+
 export interface BrandItem {
   name: string;
   image: string;
@@ -5,7 +7,8 @@ export interface BrandItem {
 }
 
 export const brandLogos: BrandItem[] = [
-  { name: 'HPRT', image: '/images/partners/hprt/hprt-logo.png', category: 'Premium exclusive partner' },
+  { name: hprtPartner.name, image: hprtPartner.logo, category: hprtPartner.relationshipLabel },
+  { name: epsonPartner.name, image: epsonPartner.logo, category: epsonPartner.relationshipLabel },
   { name: 'TSC Auto ID', image: '/images/tsc-logo.svg', category: 'Product brand' },
   { name: 'Bluebird', image: '/images/bluebird-logo.svg', category: 'Product brand' },
   { name: 'Zebra Technologies', image: '/images/zebra.png', category: 'Product brand' },

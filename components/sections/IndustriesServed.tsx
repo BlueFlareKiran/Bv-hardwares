@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import { ArrowUpRight } from 'lucide-react';
 import { Badge } from '@/components/ui/Badge';
 import ScrollReveal from '@/components/ui/ScrollReveal';
 import { industries } from '@/lib/data/home';
@@ -42,7 +41,6 @@ export default function IndustriesServed() {
                 <div className="absolute inset-x-0 bottom-0 p-6 text-white sm:p-7">
                   <div className="mb-3 inline-flex items-center gap-1.5 rounded-[7px] border border-white/15 bg-white/10 px-2.5 py-1 text-xs font-semibold backdrop-blur">
                     {industry.tag}
-                    <ArrowUpRight size={13} />
                   </div>
                   <h3 className="text-2xl font-bold tracking-[-0.025em]">{industry.title}</h3>
                   <p className="mt-2 max-w-xl text-sm leading-6 text-slate-300">{industry.description}</p>

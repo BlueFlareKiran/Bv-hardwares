@@ -12,6 +12,7 @@ import {
   Lightbulb,
   MapPin,
   PackageSearch,
+  Printer,
   ShieldCheck,
   Sparkles,
   Workflow,
@@ -23,13 +24,20 @@ import { Badge } from '@/components/ui/Badge';
 import { Card } from '@/components/ui/Card';
 import { buttonVariants } from '@/components/ui/Button';
 import { mission, values, vision } from '@/lib/data/about';
-import { googleMapsSearchUrl } from '@/lib/site';
+import { epsonPartner } from '@/lib/data/partners';
+import { googleMapsSearchUrl, siteConfig } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'About Bhagyashree Ventures',
   description:
-    'Learn how Bhagyashree Ventures supports barcode, labeling, RFID, POS and automatic-identification requirements from Bengaluru.',
+    'Learn about Bhagyashree Ventures, an ISO 9001:2015 certified barcode, labeling, RFID and POS solutions company and recognized Epson System Integrator in Bengaluru.',
   alternates: { canonical: '/about' },
+  openGraph: {
+    title: 'About Bhagyashree Ventures',
+    description:
+      'ISO 9001:2015 certified barcode, labeling, RFID and POS solutions with Epson System Integrator recognition in Bengaluru.',
+    url: '/about',
+  },
 };
 
 const valueIcons = {
@@ -70,6 +78,16 @@ const certification = {
 };
 
 export default function AboutPage() {
+  const epsonCertificate = epsonPartner.certificate!;
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteConfig.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'About', item: `${siteConfig.url}/about` },
+    ],
+  };
+
   return (
     <>
       <main className="brand-surface relative overflow-hidden border-b border-border">
@@ -380,7 +398,66 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="section-space border-b border-border bg-muted/30">
+      <section id="epson-system-integrator" className="section-space scroll-mt-24 border-b border-border bg-muted/30">
+        <div className="container-shell grid items-center gap-9 lg:grid-cols-[1.28fr_.72fr] lg:gap-14">
+          <ScrollReveal direction="right">
+            <a
+              href={epsonCertificate}
+              target="_blank"
+              rel="noreferrer"
+              className="group block overflow-hidden rounded-[10px] border border-blue-200/80 bg-white shadow-[0_28px_72px_-44px_rgba(18,55,165,.4)]"
+              aria-label="Open the Bhagyashree Ventures Epson System Integrator certificate"
+            >
+              <Image
+                src={epsonCertificate}
+                alt="Bhagyashree Ventures Epson System Integrator certificate valid April 2026 to March 2027"
+                width={1456}
+                height={1088}
+                sizes="(max-width: 1024px) 100vw, 62vw"
+                className="h-auto w-full object-contain transition-transform duration-500 group-hover:scale-[1.008]"
+              />
+            </a>
+          </ScrollReveal>
+
+          <ScrollReveal direction="left" delay={0.05}>
+            <div>
+              <Badge>Technology Partnership</Badge>
+              <div className="mt-5 inline-flex size-11 items-center justify-center rounded-[8px] border border-blue-200 bg-blue-50 text-brand-blue">
+                <Printer size={21} aria-hidden="true" />
+              </div>
+              <h2 className="mt-4 text-[clamp(2rem,4vw,3.25rem)] font-bold leading-[1.04] tracking-[-0.04em] text-foreground">
+                Epson System Integrator
+              </h2>
+              <p className="prose-copy mt-4">
+                Bhagyashree Ventures has been appointed as an Epson System Integrator for the April 2026 – March 2027 period.
+              </p>
+
+              <dl className="mt-7 divide-y divide-border overflow-hidden rounded-[10px] border border-border bg-white">
+                <div className="grid gap-1 px-4 py-3.5 sm:grid-cols-[110px_1fr] sm:items-center">
+                  <dt className="text-xs font-semibold uppercase tracking-[0.1em] text-muted-foreground">Status</dt>
+                  <dd className="font-semibold text-foreground">{epsonPartner.relationshipLabel}</dd>
+                </div>
+                <div className="grid gap-1 px-4 py-3.5 sm:grid-cols-[110px_1fr] sm:items-center">
+                  <dt className="text-xs font-semibold uppercase tracking-[0.1em] text-muted-foreground">Location</dt>
+                  <dd className="font-semibold text-foreground">{epsonPartner.location}</dd>
+                </div>
+                <div className="grid gap-1 px-4 py-3.5 sm:grid-cols-[110px_1fr] sm:items-center">
+                  <dt className="text-xs font-semibold uppercase tracking-[0.1em] text-muted-foreground">Valid period</dt>
+                  <dd className="font-semibold text-foreground">{epsonPartner.validPeriod}</dd>
+                </div>
+              </dl>
+
+              <div className="mt-6">
+                <a href={epsonCertificate} target="_blank" rel="noreferrer" className={buttonVariants({ variant: 'outline' })}>
+                  View certificate <ArrowRight size={16} />
+                </a>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      <section className="section-space border-b border-border bg-background">
         <div className="container-shell">
           <ScrollReveal>
             <div className="max-w-3xl">
@@ -411,6 +488,7 @@ export default function AboutPage() {
 
       <LogoMarquee />
       <CTASection />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
     </>
   );
 }
